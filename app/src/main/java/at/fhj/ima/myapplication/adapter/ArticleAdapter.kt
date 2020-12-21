@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.recycler_view.view.*
 class ArticleAdapter: RecyclerView.Adapter<LessonViewHolder>() {
 
 
-    private var lessonList = listOf<Article>()
+    private var articleList = listOf<Article>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LessonViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -20,24 +20,22 @@ class ArticleAdapter: RecyclerView.Adapter<LessonViewHolder>() {
     }
 
     override fun getItemCount(): Int {
-        return lessonList.size
+        return articleList.size
     }
 
     override fun onBindViewHolder(holder: LessonViewHolder, position: Int) {
-     holder.bindItem(lessonList[position])
+     holder.bindItem(articleList[position])
     }
 
     fun updateList(newList: List<Article>) {
-        lessonList = newList
+        articleList = newList
         notifyDataSetChanged()
     }
 }
 
 class LessonViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
     fun bindItem(article: Article) {
-        itemView.item_article_name.text = article.headline
-        itemView.item_article_date.text = article.date
-        itemView.item_article_content.text = article.content
-        itemView.item_article_id.text = article.id
+        itemView.item_article_name.text = article.text
+        itemView.item_article_date.text = article.created_at
     }
 }
