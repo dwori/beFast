@@ -29,6 +29,7 @@ class TweetAdapter: RecyclerView.Adapter<TweetViewHolder>() {
 class TweetViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
     fun bindItem(tweet: TweetsItem) {
         itemView.item_tweet_text.text = tweet.text
+        itemView.item_tweet_url.text = tweet.entities.urls[0]?.url ?: "noname"
         // itemView.
     }
 }

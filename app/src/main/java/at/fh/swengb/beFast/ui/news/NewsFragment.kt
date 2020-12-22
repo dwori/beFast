@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import at.fh.swengb.beFast.R
+import at.fh.swengb.beFast.SleepyAsyncTask
 import at.fh.swengb.beFast.models.TweetsItem
 import com.squareup.moshi.Moshi
 import kotlinx.android.synthetic.main.fragment_news.*
@@ -40,7 +41,9 @@ class NewsFragment : Fragment() {
         init()
     }
     private fun init() {
+        SleepyAsyncTask()
         tweetAdapter = TweetAdapter()
+
         TweetRepository.tweetList(
                 success = {
                     // handle success
@@ -52,6 +55,7 @@ class NewsFragment : Fragment() {
                 }
         )
         parseJson()
+
         val layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         fragment_recycler_view_news.layoutManager = layoutManager
         fragment_recycler_view_news.adapter = tweetAdapter
@@ -62,8 +66,23 @@ class NewsFragment : Fragment() {
         val tweet = jsonAdapter.fromJson("""
             {
             "text": "Ad: #XboxSeries  on Bestbuy\n\nS:https://t.co/nlWpjw7P7m\nX:https://t.co/vuTjBfvdDw\nBundles:https://t.co/wcElFRgyKi",
-            "created_at": "Mon Dec 21 18:23:16 +0000 2020"
-        }
+            "entities": {
+            "urls": [
+                {
+                    "url": "https://t.co/yQozzfLIx6"
+                    
+                },
+                {
+                    "url": "https://t.co/A2uIv8wmFP"
+                 }
+            ]
+            }
+        }   
+            
+            
+       
+            
+        
         """.trimIndent())
     }
 }
