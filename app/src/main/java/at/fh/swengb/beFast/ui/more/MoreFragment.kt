@@ -21,10 +21,10 @@ class MoreFragment : Fragment() {
     ): View? {
         moreViewModel =
                 ViewModelProvider(this).get(MoreViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_news, container, false)
+        val root = inflater.inflate(R.layout.fragment_more , container, false)
         val textView: TextView = root.findViewById(R.id.text_more)
         moreViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+            //textView.text = it
         })
         return root
     }

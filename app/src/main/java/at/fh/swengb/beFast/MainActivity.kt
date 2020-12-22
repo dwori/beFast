@@ -24,3 +24,5 @@ class MainActivity : AppCompatActivity() {
         navView.setupWithNavController(navController)
     }
 }
+
+//TODO: news_recycler_view.xml CardView einfügen

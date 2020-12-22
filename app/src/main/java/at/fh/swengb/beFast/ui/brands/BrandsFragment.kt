@@ -24,7 +24,7 @@ class BrandsFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_brands, container, false)
         val textView: TextView = root.findViewById(R.id.text_brands)
         brandsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+            //textView.text = it
         })
         return root
     }

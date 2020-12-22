@@ -24,7 +24,7 @@ class DropsFragment : Fragment() {
         val root = inflater.inflate(R.layout.fragment_drops, container, false)
         val textView: TextView = root.findViewById(R.id.text_drops)
         dropsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
+            //textView.text = it
         })
         return root
     }
