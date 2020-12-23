@@ -28,7 +28,7 @@ object TwitterApi {
 }
 // make the actual api call and defining what you want to GET
 interface TwitterApiService {
-    @GET("1.1/lists/statuses.json?slug=Sneaker&owner_screen_name=Laeuft_bei_mir&count=10&include_rts=false")
+    @GET("1.1/lists/statuses.json?slug=Sneaker&owner_screen_name=Laeuft_bei_mir&count=50&include_rts=false")
     fun getTweetList(): Call<List<TweetsItem>>
 
 }
