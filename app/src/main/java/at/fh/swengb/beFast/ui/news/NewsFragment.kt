@@ -1,5 +1,7 @@
 package at.fh.swengb.beFast.ui.news
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -41,7 +43,12 @@ class NewsFragment : Fragment() {
     }
     private fun init() {
         SleepyAsyncTask()
-        tweetAdapter = TweetAdapter()
+        tweetAdapter = TweetAdapter() {
+            val url = it.entities.urls[0].url
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
+        }
 
         TweetRepository.tweetList(
                 success = {
