@@ -11,7 +11,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import at.fh.swengb.beFast.R
-import at.fh.swengb.beFast.SleepyAsyncTask
 import at.fh.swengb.beFast.models.TweetsItem
 import com.squareup.moshi.Moshi
 import kotlinx.android.synthetic.main.fragment_news.*
@@ -51,6 +50,7 @@ class NewsFragment : Fragment() {
                 },
                 error = {
                     // handle error
+                    //TODO handle the actual error ????
                     Log.e("Error","Repository Error123")
                 }
         )
@@ -64,25 +64,27 @@ class NewsFragment : Fragment() {
         val moshi = Moshi.Builder().build()
         val jsonAdapter = moshi.adapter<TweetsItem>(TweetsItem::class.java)
         val tweet = jsonAdapter.fromJson("""
+        {
+            "created_at": "Mon Dec 21 18:23:16 +0000 2020",
+            "text": "Ad: #XboxSeries  on Bestbuy\n\nS:https://t.co/nlWpjw7P7m
+            \nX:https://t.co/vuTjBfvdDw
+            \nBundles:https://t.co/wcElFRgyKi",
+            
+            "entities": 
             {
-            "text": "Ad: #XboxSeries  on Bestbuy\n\nS:https://t.co/nlWpjw7P7m\nX:https://t.co/vuTjBfvdDw\nBundles:https://t.co/wcElFRgyKi",
-            "entities": {
-            "urls": [
-                {
-                    "url": "https://t.co/yQozzfLIx6"
-                    
-                },
-                {
-                    "url": "https://t.co/A2uIv8wmFP"
-                 }
-            ]
+                "urls": [
+                    {
+                        "url": "https://t.co/yQozzfLIx6"
+                        
+                    },
+                    {
+                        "url": "https://t.co/A2uIv8wmFP"
+                     }
+                ]
             }
-        }   
-            
-            
-       
-            
-        
+        }
         """.trimIndent())
     }
 }
+
+//TODO add media_url_https for Image
