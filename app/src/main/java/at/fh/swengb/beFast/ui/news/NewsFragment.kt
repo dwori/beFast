@@ -1,11 +1,14 @@
 package at.fh.swengb.beFast.ui.news
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -40,7 +43,14 @@ class NewsFragment : Fragment() {
         init()
     }
     private fun init() {
-        tweetAdapter = TweetAdapter()
+        SleepyAsyncTask()
+        tweetAdapter = TweetAdapter() {
+            val url = it.entities.urls[0].url
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.data = Uri.parse(url)
+            startActivity(intent)
+        }
+
         TweetRepository.tweetList(
                 success = {
                     // handle success
@@ -48,10 +58,12 @@ class NewsFragment : Fragment() {
                 },
                 error = {
                     // handle error
-                    Log.e("Error","Repository Error123")
+                    Toast.makeText(activity, "Please check your internet connection.", Toast.LENGTH_LONG).show()
+                    Log.e("Error","Repository Error")
                 }
         )
         parseJson()
+
         val layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         fragment_recycler_view_news.layoutManager = layoutManager
         fragment_recycler_view_news.adapter = tweetAdapter
@@ -60,10 +72,35 @@ class NewsFragment : Fragment() {
         val moshi = Moshi.Builder().build()
         val jsonAdapter = moshi.adapter<TweetsItem>(TweetsItem::class.java)
         val tweet = jsonAdapter.fromJson("""
-            {
-            "text": "Ad: #XboxSeries  on Bestbuy\n\nS:https://t.co/nlWpjw7P7m\nX:https://t.co/vuTjBfvdDw\nBundles:https://t.co/wcElFRgyKi",
-            "created_at": "Mon Dec 21 18:23:16 +0000 2020"
+       {
+        "created_at": "Wed Dec 23 17:32:00 +0000 2020",
+
+        "text": "Ad: Women's Nike Air Max 97 'Metallic Red Bronze' on sale for only ${'$'}77.97 + FREE shipping =&gt; https://t.co/AIHwaY72Sp https://t.co/u1FgLUmEdW",
+
+        "entities": {
+
+            "urls": [
+                {
+                    "url": "https://t.co/AIHwaY72Sp"
+
+                },
+                {
+                    "url": "https://t.co/tHqagVcBma"
+                 }
+            ],
+            "media": [
+                {
+
+                    "media_url_https": "https://pbs.twimg.com/media/Ep70mToVgAEGDIR.jpg"
+                }
+   
+ 
+            ]
         }
+    
+    }   
         """.trimIndent())
     }
 }
+
+//TODO add media_url_https for Image
