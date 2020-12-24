@@ -13,6 +13,7 @@ class TweetsItem(
     //val profile_image_url: String
 ){}
 
+
 @JsonClass(generateAdapter = true)
 data class Entities(
     val urls: List<Url>,
@@ -30,5 +31,7 @@ class Url(
 class Media(
         val media_url_https: String
 )
+
+
 
 
