@@ -103,4 +103,3 @@ class NewsFragment : Fragment() {
     }
 }
 
-//TODO add media_url_https for Image

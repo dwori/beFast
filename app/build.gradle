@@ -35,7 +35,7 @@ android {
 }
 
 dependencies {
-
+    // default
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.2.0'
@@ -51,13 +51,15 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
-
+    // retrofit & moshi
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
     implementation 'com.squareup.moshi:moshi:1.11.0'
     kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.11.0'
-
+    // cardview
     implementation 'androidx.cardview:cardview:1.0.0'
-
+    // glide
     implementation 'com.github.bumptech.glide:glide:4.11.0'
+    // google sign in
+    implementation 'com.google.android.gms:play-services-auth:19.0.0'
 }
