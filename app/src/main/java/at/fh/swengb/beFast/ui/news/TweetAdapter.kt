@@ -39,6 +39,8 @@ class TweetViewHolder(itemView: View, val clickListener: (tweet: TweetsItem) -> 
                 .into(itemView.item_tweet_image)
 
 
+        } else if (tweet.entities.media[0].media_url_https == " ") {
+
         }
 
         itemView.item_tweet_text.text = tweet.text

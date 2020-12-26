@@ -1,5 +1,6 @@
 package at.fh.swengb.beFast
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
@@ -7,6 +8,7 @@ import android.view.MenuInflater
 import android.view.MenuItem
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -26,9 +28,20 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_more, R.id.navigation_brands, R.id.navigation_drops, R.id.navigation_more))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        //DARK MODE
+        val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
+        val isNightMode = sharedPreferences.getBoolean(SettingsActivity.darkmodekey, true)
+        if (isNightMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
     }
 
-    // TOP MENU
+
+
+    //TOP MENU
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         val inflater: MenuInflater = menuInflater
         inflater.inflate(R.menu.top_nav_menu, menu)

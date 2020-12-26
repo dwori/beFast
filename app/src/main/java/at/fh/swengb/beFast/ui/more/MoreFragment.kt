@@ -126,7 +126,7 @@ class MoreFragment : Fragment() {
     // handle the sign in result
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode === RC_SIGN_IN && resultCode == RESULT_OK) {
+        if (requestCode == RC_SIGN_IN && resultCode == RESULT_OK) {
             // The Task returned from this call is always completed, no need to attach
             // a listener.
             val task = GoogleSignIn.getSignedInAccountFromIntent(data)
