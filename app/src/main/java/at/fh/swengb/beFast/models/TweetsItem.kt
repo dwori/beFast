@@ -17,7 +17,7 @@ class TweetsItem(
 @JsonClass(generateAdapter = true)
 data class Entities(
     val urls: List<Url>,
-    val media: List<Media> = listOf<Media>(Media("https://upload.wikimedia.org/wikipedia/commons/f/fc/No_picture_available.png"))
+    val media: List<Media> = listOf<Media>(Media(" "))
 )
 
 

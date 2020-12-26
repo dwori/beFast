@@ -1,38 +1,25 @@
 package at.fh.swengb.beFast.ui.more
 
-import android.app.Activity.RESULT_OK
-import android.content.ContentValues.TAG
-import android.content.Intent
+import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import at.fh.swengb.beFast.R
-import com.bumptech.glide.Glide
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.dynamite.DynamiteModule.load
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
 import kotlinx.android.synthetic.main.fragment_more.*
-import java.lang.System.load
-import java.util.ServiceLoader.load
 
 
 class MoreFragment : Fragment() {
 
     private lateinit var moreViewModel: MoreViewModel
-    companion object {
-        val RC_SIGN_IN = 0
-    }
+
+
+
+    public var isLoggedIn = false
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -49,102 +36,69 @@ class MoreFragment : Fragment() {
         })
         return root
     }
-    // create google sign in and google sign in client
+
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        super.onActivityCreated(savedInstanceState)
+        val sharedPreferences = requireContext().getSharedPreferences(requireContext().packageName, Context.MODE_PRIVATE)
 
-        //create sign in
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestEmail()
-            .build()
-        val mGoogleSignInClient = activity?.let { GoogleSignIn.getClient(it, gso) }
-        //sign in method
-        fun signIn() {
-            val signInIntent: Intent
-            if (mGoogleSignInClient != null) {
-                signInIntent = mGoogleSignInClient.getSignInIntent()
-                startActivityForResult(signInIntent, RC_SIGN_IN)
-            }
-
-        }
-        //signOut method
-        fun signOut() {
-            if (mGoogleSignInClient != null) {
-                activity?.let {
-                    mGoogleSignInClient.signOut()
-                            .addOnCompleteListener(it, OnCompleteListener<Void?> {
-                                Log.i("MoreFragment", "SignedOut")
-                                onStart()
-                                updateUI(account = null)
-
-                            })
-                }
-
-                //updateUI(account = null)
-            }
-        }
-
-
-
-        sign_in_button.setOnClickListener {
-            signIn()
-        }
-
-        sign_out_button.setOnClickListener {
-            signOut()
-        }
-
-
-
-
-    }
-    // check if account signed in or not
-    fun updateUI(account: GoogleSignInAccount?) {
-        if (account != null) {
-
-            sign_in_button.setVisibility(View.GONE)
-            login_name.text = account.displayName
-            login_email.text = account.email
-
+        if (sharedPreferences.getBoolean(SettingsActivity.loginBool, false)) {
+            login_name.text = sharedPreferences.getString(SettingsActivity.usernameKey, null)
+            login_email.text = sharedPreferences.getString(SettingsActivity.emailKey, null)
+            logged_in_as.text = "YOU ARE LOGGED IN"
+            loginButton.setVisibility(View.GONE)
+            logoutButton.setVisibility(View.VISIBLE)
 
         } else {
-            sign_out_button.setVisibility(View.GONE)
-            login_name.setVisibility(View.GONE)
-            login_email.setVisibility(View.GONE)
-            logged_in_as.setVisibility(View.GONE)
+            editUsername.setText(sharedPreferences.getString(SettingsActivity.usernameKey, null))
+            editEmail.setText(sharedPreferences.getString(SettingsActivity.emailKey, null))
+            logged_in_as.text = "YOU ARE LOGGED OUT"
+            logoutButton.setVisibility(View.GONE)
+            loginButton.setVisibility(View.VISIBLE)
 
         }
-    }
-    // call the updateUI function when starting
-    override fun onStart() {
-        super.onStart()
-        val account = GoogleSignIn.getLastSignedInAccount(activity)
-        updateUI(account)
-    }
 
-    // handle the sign in result
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode === RC_SIGN_IN && resultCode == RESULT_OK) {
-            // The Task returned from this call is always completed, no need to attach
-            // a listener.
-            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            handleSignInResult(task)
+        loginButton.setOnClickListener {
+            sharedPreferences.edit().putString(SettingsActivity.usernameKey, editUsername.text.toString()).apply()
+            sharedPreferences.edit().putString(SettingsActivity.emailKey, editEmail.text.toString()).apply()
+            sharedPreferences.edit().putBoolean(SettingsActivity.loginBool, true).apply()
+            editUsername.setVisibility(View.GONE)
+            editEmail.setVisibility(View.GONE)
+            logged_in_as.text = "YOU ARE LOGGED IN"
+            loginButton.setVisibility(View.GONE)
+            logoutButton.setVisibility(View.VISIBLE)
+
+            login_name.text = sharedPreferences.getString(SettingsActivity.usernameKey, null)
+            login_email.text = sharedPreferences.getString(SettingsActivity.emailKey, null)
+
         }
-    }
-    private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
-        try {
-            val account = completedTask.getResult(ApiException::class.java)
-            // Signed in successfully, show authenticated UI.
-            updateUI(account)
-        } catch (e: ApiException) {
-            // The ApiException status code indicates the detailed failure reason.
-            // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Log.w(TAG, "signInResult:failed code=" + e.statusCode)
-            updateUI(null)
+        logoutButton.setOnClickListener {
+            sharedPreferences.edit().putBoolean(SettingsActivity.loginBool, false).apply()
+            editUsername.setVisibility(View.VISIBLE)
+            editEmail.setVisibility(View.VISIBLE)
+            logged_in_as.text = "YOU ARE LOGGED OUT"
+            logoutButton.setVisibility(View.GONE)
+            loginButton.setVisibility(View.VISIBLE)
+
+            login_name.text = ""
+            login_email.text = ""
         }
     }
 
-}
+
+
+
+        /*
+        editUsername.setText(savedUsername)
+
+        editEmail.setText(savedEmail)
+        */
+
+
+
+    }
+
+
 
 //TODO: update fragment when sign-in and sign-out process is complete

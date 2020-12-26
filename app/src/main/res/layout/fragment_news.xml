@@ -28,5 +28,6 @@
         android:layout_width = "match_parent"
         android:layout_height = "match_parent"
         tools:layout_editor_absoluteX = "134dp"
-        tools:layout_editor_absoluteY = "122dp" />
+        tools:layout_editor_absoluteY = "122dp"
+        android:paddingBottom="?attr/actionBarSize" />
 </androidx.constraintlayout.widget.ConstraintLayout>
