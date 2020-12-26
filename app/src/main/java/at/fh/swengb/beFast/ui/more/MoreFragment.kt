@@ -2,6 +2,7 @@ package at.fh.swengb.beFast.ui.more
 
 import android.app.Activity.RESULT_OK
 import android.content.ContentValues.TAG
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -30,9 +31,14 @@ import java.util.ServiceLoader.load
 class MoreFragment : Fragment() {
 
     private lateinit var moreViewModel: MoreViewModel
+
     companion object {
-        val RC_SIGN_IN = 0
+        val usernameKey = "USERNAME"
+        val passwordKey = "PASSWORD"
+        val emailKey = "EMAIL"
     }
+
+    public var isLoggedIn = false
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -50,102 +56,23 @@ class MoreFragment : Fragment() {
         return root
     }
 
-    // create google sign in and google sign in client
+
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        //create sign in
-        val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestEmail()
-            .build()
-        val mGoogleSignInClient = activity?.let { GoogleSignIn.getClient(it, gso) }
-        //sign in method
-        fun signIn() {
-            val signInIntent: Intent
-            if (mGoogleSignInClient != null) {
-                signInIntent = mGoogleSignInClient.getSignInIntent()
-                startActivityForResult(signInIntent, RC_SIGN_IN)
-            }
+        val sharedPreferences = activity?.getSharedPreferences("at.fh.swengb.beFast", Context.MODE_PRIVATE)
+        val savedUsername = sharedPreferences?.getString("USERNAME",null)
+        val savedPassword = sharedPreferences?.getString("PASSWORD",null)
+        val savedEmail = sharedPreferences?.getString("EMAIL",null)
 
-        }
-        //signOut method
-        fun signOut() {
-            if (mGoogleSignInClient != null) {
-                activity?.let {
-                    mGoogleSignInClient.signOut()
-                            .addOnCompleteListener(it, OnCompleteListener<Void?> {
-                                Log.i("MoreFragment", "SignedOut")
-                                Toast.makeText(activity, "Signed out successfully.", Toast.LENGTH_LONG).show()
-                                updateUI(account = null)
-
-                            })
-                }
-
-                //updateUI(account = null)
-            }
-        }
+        /*
+        editUsername.setText(savedUsername)
+        editPassword.setText(savedPassword)
+        editEmail.setText(savedEmail)
+        */
 
 
 
-        sign_in_button.setOnClickListener {
-            signIn()
-        }
-
-        sign_out_button.setOnClickListener {
-            signOut()
-        }
-
-
-
-
-    }
-    // check if account signed in or not
-    fun updateUI(account: GoogleSignInAccount?) {
-        if (account != null) {
-            sign_in_button.setVisibility(View.GONE)
-            login_name.text = account.displayName
-            login_email.text = account.email
-
-
-
-        } else {
-            sign_out_button.setVisibility(View.GONE)
-            login_name.setVisibility(View.GONE)
-            login_email.setVisibility(View.GONE)
-            logged_in_as.setVisibility(View.GONE)
-
-        }
-    }
-    // call the updateUI function when starting
-    override fun onStart() {
-        super.onStart()
-        val account = GoogleSignIn.getLastSignedInAccount(activity)
-        updateUI(account)
-    }
-
-    // handle the sign in result
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == RC_SIGN_IN && resultCode == RESULT_OK) {
-            // The Task returned from this call is always completed, no need to attach
-            // a listener.
-            val task = GoogleSignIn.getSignedInAccountFromIntent(data)
-            handleSignInResult(task)
-        }
-    }
-    private fun handleSignInResult(completedTask: Task<GoogleSignInAccount>) {
-        try {
-            val account = completedTask.getResult(ApiException::class.java)
-            // Signed in successfully, show authenticated UI.
-            Toast.makeText(activity, "Signed in successfully.", Toast.LENGTH_LONG).show()
-            updateUI(account)
-
-        } catch (e: ApiException) {
-            // The ApiException status code indicates the detailed failure reason.
-            // Please refer to the GoogleSignInStatusCodes class reference for more information.
-            Log.w(TAG, "signInResult:failed code=" + e.statusCode)
-            updateUI(null)
-        }
     }
 
 }
