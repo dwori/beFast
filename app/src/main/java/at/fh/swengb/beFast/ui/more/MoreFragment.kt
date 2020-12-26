@@ -1,42 +1,23 @@
 package at.fh.swengb.beFast.ui.more
 
-import android.app.Activity.RESULT_OK
-import android.content.ContentValues.TAG
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import at.fh.swengb.beFast.R
-import com.bumptech.glide.Glide
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.dynamite.DynamiteModule.load
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.android.gms.tasks.Task
 import kotlinx.android.synthetic.main.fragment_more.*
-import java.lang.System.load
-import java.util.ServiceLoader.load
 
 
 class MoreFragment : Fragment() {
 
     private lateinit var moreViewModel: MoreViewModel
 
-    companion object {
-        val usernameKey = "USERNAME"
-        val passwordKey = "PASSWORD"
-        val emailKey = "EMAIL"
-    }
+
 
     public var isLoggedIn = false
 
@@ -59,15 +40,58 @@ class MoreFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        super.onActivityCreated(savedInstanceState)
+        val sharedPreferences = requireContext().getSharedPreferences(requireContext().packageName, Context.MODE_PRIVATE)
 
-        val sharedPreferences = activity?.getSharedPreferences("at.fh.swengb.beFast", Context.MODE_PRIVATE)
-        val savedUsername = sharedPreferences?.getString("USERNAME",null)
-        val savedPassword = sharedPreferences?.getString("PASSWORD",null)
-        val savedEmail = sharedPreferences?.getString("EMAIL",null)
+        if (sharedPreferences.getBoolean(SettingsActivity.loginBool, false)) {
+            login_name.text = sharedPreferences.getString(SettingsActivity.usernameKey, null)
+            login_email.text = sharedPreferences.getString(SettingsActivity.emailKey, null)
+            logged_in_as.text = "YOU ARE LOGGED IN"
+            loginButton.setVisibility(View.GONE)
+            logoutButton.setVisibility(View.VISIBLE)
+
+        } else {
+            editUsername.setText(sharedPreferences.getString(SettingsActivity.usernameKey, null))
+            editEmail.setText(sharedPreferences.getString(SettingsActivity.emailKey, null))
+            logged_in_as.text = "YOU ARE LOGGED OUT"
+            logoutButton.setVisibility(View.GONE)
+            loginButton.setVisibility(View.VISIBLE)
+
+        }
+
+        loginButton.setOnClickListener {
+            sharedPreferences.edit().putString(SettingsActivity.usernameKey, editUsername.text.toString()).apply()
+            sharedPreferences.edit().putString(SettingsActivity.emailKey, editEmail.text.toString()).apply()
+            sharedPreferences.edit().putBoolean(SettingsActivity.loginBool, true).apply()
+            editUsername.setVisibility(View.GONE)
+            editEmail.setVisibility(View.GONE)
+            logged_in_as.text = "YOU ARE LOGGED IN"
+            loginButton.setVisibility(View.GONE)
+            logoutButton.setVisibility(View.VISIBLE)
+
+            login_name.text = sharedPreferences.getString(SettingsActivity.usernameKey, null)
+            login_email.text = sharedPreferences.getString(SettingsActivity.emailKey, null)
+
+        }
+        logoutButton.setOnClickListener {
+            sharedPreferences.edit().putBoolean(SettingsActivity.loginBool, false).apply()
+            editUsername.setVisibility(View.VISIBLE)
+            editEmail.setVisibility(View.VISIBLE)
+            logged_in_as.text = "YOU ARE LOGGED OUT"
+            logoutButton.setVisibility(View.GONE)
+            loginButton.setVisibility(View.VISIBLE)
+
+            login_name.text = ""
+            login_email.text = ""
+        }
+    }
+
+
+
 
         /*
         editUsername.setText(savedUsername)
-        editPassword.setText(savedPassword)
+
         editEmail.setText(savedEmail)
         */
 
@@ -75,6 +99,6 @@ class MoreFragment : Fragment() {
 
     }
 
-}
+
 
 //TODO: update fragment when sign-in and sign-out process is complete

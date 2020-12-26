@@ -13,6 +13,7 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import at.fh.swengb.beFast.ui.more.SettingsActivity
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         //DARK MODE
         val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
-        val isNightMode = sharedPreferences.getBoolean(SettingsActivity.darkmodekey, true)
+        val isNightMode = sharedPreferences.getBoolean(SettingsActivity.darkmodeKey, true)
         if (isNightMode) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {
