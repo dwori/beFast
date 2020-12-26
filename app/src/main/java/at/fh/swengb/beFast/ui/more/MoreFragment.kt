@@ -49,6 +49,7 @@ class MoreFragment : Fragment() {
         })
         return root
     }
+
     // create google sign in and google sign in client
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -74,7 +75,7 @@ class MoreFragment : Fragment() {
                     mGoogleSignInClient.signOut()
                             .addOnCompleteListener(it, OnCompleteListener<Void?> {
                                 Log.i("MoreFragment", "SignedOut")
-                                onStart()
+                                Toast.makeText(activity, "Signed out successfully.", Toast.LENGTH_LONG).show()
                                 updateUI(account = null)
 
                             })
@@ -101,10 +102,10 @@ class MoreFragment : Fragment() {
     // check if account signed in or not
     fun updateUI(account: GoogleSignInAccount?) {
         if (account != null) {
-
             sign_in_button.setVisibility(View.GONE)
             login_name.text = account.displayName
             login_email.text = account.email
+
 
 
         } else {
@@ -136,7 +137,9 @@ class MoreFragment : Fragment() {
         try {
             val account = completedTask.getResult(ApiException::class.java)
             // Signed in successfully, show authenticated UI.
+            Toast.makeText(activity, "Signed in successfully.", Toast.LENGTH_LONG).show()
             updateUI(account)
+
         } catch (e: ApiException) {
             // The ApiException status code indicates the detailed failure reason.
             // Please refer to the GoogleSignInStatusCodes class reference for more information.
