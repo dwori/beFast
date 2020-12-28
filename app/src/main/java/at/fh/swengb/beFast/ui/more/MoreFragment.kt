@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import at.fh.swengb.beFast.R
+import at.fh.swengb.beFast.ui.more.SettingsActivity.Companion.emailKey
+import at.fh.swengb.beFast.ui.more.SettingsActivity.Companion.usernameKey
 import kotlinx.android.synthetic.main.fragment_more.*
 
 
@@ -85,13 +87,18 @@ class MoreFragment : Fragment() {
 
             login_name.text = ""
             login_email.text = ""
+
+            //Delete the sharedPreferences
+            //Log.i("INFO", "Prefs deleted")
+            sharedPreferences.edit().remove(usernameKey).commit()
+            sharedPreferences.edit().remove(emailKey).commit()
         }
     }
     override fun  onResume(){
         super.onResume()
         //Log.i("INFO", "onResume")
         val sharedPreferences = requireContext().getSharedPreferences(requireContext().packageName, Context.MODE_PRIVATE)
-        //If the fragment is switched back to the More fragment the editTexts will still be hidden in logged in mode.
+        //If the fragment is switched back to the More fragment the editTexts will still be hidden in logged in state.
         if (sharedPreferences.getBoolean(SettingsActivity.loginBool, false)) {
             editUsername.setVisibility(View.GONE)
             editEmail.setVisibility(View.GONE)
