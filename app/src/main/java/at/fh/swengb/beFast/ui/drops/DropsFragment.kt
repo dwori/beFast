@@ -15,12 +15,12 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.models.Drops
-import at.fh.swengb.beFast.ui.drops.DropsAdapter.Companion.BRAND_NAME
 import at.fh.swengb.beFast.ui.drops.DropsRepository.drops
 import at.fh.swengb.beFast.ui.news.TweetAdapter
 import kotlinx.android.synthetic.main.drops_recycler_view_item.*
 import kotlinx.android.synthetic.main.fragment_drops.*
 import kotlinx.android.synthetic.main.fragment_news.*
+import java.text.SimpleDateFormat
 import java.util.*
 
 class DropsFragment : Fragment() {
@@ -49,16 +49,17 @@ class DropsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         dropsAdapter = DropsAdapter() {
-            val cal: Calendar = Calendar.getInstance()
+            val date = SimpleDateFormat("dd.MM.yyyy").parse(it.date)
+            val time = SimpleDateFormat("hh:mm").parse(it.time)
+
             val calendarIntent = Intent(Intent.ACTION_EDIT)
             calendarIntent.type = "vnd.android.cursor.item/event"
-            calendarIntent.putExtra("beginTime", cal.set(2020, 9, 29).toString())
-            //intent.putExtra("allDay", true)
-            //intent.putExtra("rrule", "FREQ=YEARLY")
-            calendarIntent.putExtra("endTime", cal.getTimeInMillis() + 60601000)
-            calendarIntent.putExtra("title",BRAND_NAME)
-            startActivity(calendarIntent)
+            calendarIntent.putExtra("beginTime", date!!.time + time!!.time - 600000)
+            calendarIntent.putExtra("endTime", date!!.time + time!!.time)
+            calendarIntent.putExtra("title",it.brand + " " + it.name + " " + "Drop")
+            calendarIntent.putExtra("description","Drop Reminder beFast App")
 
+            startActivity(calendarIntent)
         }
 
         dropsAdapter.updateList(DropsRepository.drops)
