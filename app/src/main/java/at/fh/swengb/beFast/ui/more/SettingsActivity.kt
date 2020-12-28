@@ -22,15 +22,15 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_settings)
 
         val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
-        val savedUsername = sharedPreferences.getString(usernameKey, null)
-        editText_username.setText(savedUsername)
+        //val savedUsername = sharedPreferences.getString(usernameKey, null)
+        //editText_username.setText(savedUsername)
         val savedDarkmode = sharedPreferences.getBoolean(darkmodeKey, false)
         switch_darkmode.isChecked = savedDarkmode
 
     }
     fun saveSettings(v: View) {
         val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
-        sharedPreferences.edit().putString(usernameKey, editText_username.text.toString()).apply()
+        //sharedPreferences.edit().putString(usernameKey, editText_username.text.toString()).apply()
         sharedPreferences.edit().putBoolean(darkmodeKey, switch_darkmode.isChecked).apply()
 
         val isNightMode = sharedPreferences.getBoolean(darkmodeKey, true)

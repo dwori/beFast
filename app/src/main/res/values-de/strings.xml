@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">beFast</string>
+    <string name="title_news">Neuigkeiten</string>
+    <string name="title_brands">Marken</string>
+    <string name="title_drops">Drops</string>
+    <string name="title_more">Mehr</string>
+    <string name="login">Anmelden</string>
+    <string name="logout">Abmelden</string>
+    <string name="logged_in">Du bist angemeldet.</string>
+    <string name="logged_out">Du bist abgemeldet.</string>
+    <string name="username">Benutzername</string>
+    <string name="email">Email</string>
+    <string name="darkmode">Dunkler Modus</string>
+    <string name="save">Speichern</string>
+    <string name="reminder">Alarm setzen</string>
+</resources>

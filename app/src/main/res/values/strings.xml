@@ -4,6 +4,14 @@
     <string name="title_brands">Brands</string>
     <string name="title_drops">Drops</string>
     <string name="title_more">More</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- how to comment in xml -->
+    <string name="login">Login</string>
+    <string name="logout">Logout</string>
+    <string name="logged_in">You are logged in.</string>
+    <string name="logged_out">You are logged out.</string>
+    <string name="username">Username</string>
+    <string name="email">Email</string>
+    <string name="darkmode">Darkmode</string>
+    <string name="save">Save</string>
+    <string name="reminder">Set Reminder</string>
 </resources>
