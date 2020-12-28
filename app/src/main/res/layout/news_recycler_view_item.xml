@@ -53,6 +53,8 @@
             android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/item_tweet_image" />
+        <!--TODO: Maybe replace the link with a better looking "CLICK HERE" Just looks better-->
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -47,41 +47,40 @@ class MoreFragment : Fragment() {
         //If the user is logged in, it should  show this as a message and hide the login button, but show the logout button
         //Also the username and the user´s email get displayed
         if (sharedPreferences.getBoolean(SettingsActivity.loginBool, false)) {
-            login_name.text = sharedPreferences.getString(SettingsActivity.usernameKey, null)
-            login_email.text = sharedPreferences.getString(SettingsActivity.emailKey, null)
-            logged_in_as.text = "YOU ARE LOGGED IN"
+            login_name.text = sharedPreferences.getString(usernameKey, null)
+            login_email.text = sharedPreferences.getString(emailKey, null)
+            logged_in_as.text =  getString(R.string.logged_in)
             loginButton.setVisibility(View.GONE)
             logoutButton.setVisibility(View.VISIBLE)
-
         } else {
             //Else the logoutButton gets hidden and the login one shown. And a matching message is shown on the screen
-            editUsername.setText(sharedPreferences.getString(SettingsActivity.usernameKey, null))
-            editEmail.setText(sharedPreferences.getString(SettingsActivity.emailKey, null))
-            logged_in_as.text = "YOU ARE LOGGED OUT"
+            editUsername.setText(sharedPreferences.getString(usernameKey, null))
+            editEmail.setText(sharedPreferences.getString(emailKey, null))
+            logged_in_as.text = getString(R.string.logged_out)
             logoutButton.setVisibility(View.GONE)
             loginButton.setVisibility(View.VISIBLE)
-
         }
-
+        //on login we change the visibility of the editTexts and the login/logout buttons.
         loginButton.setOnClickListener {
-            sharedPreferences.edit().putString(SettingsActivity.usernameKey, editUsername.text.toString()).apply()
-            sharedPreferences.edit().putString(SettingsActivity.emailKey, editEmail.text.toString()).apply()
+            sharedPreferences.edit().putString(usernameKey, editUsername.text.toString()).apply()
+            sharedPreferences.edit().putString(emailKey, editEmail.text.toString()).apply()
             sharedPreferences.edit().putBoolean(SettingsActivity.loginBool, true).apply()
             editUsername.setVisibility(View.GONE)
             editEmail.setVisibility(View.GONE)
-            logged_in_as.text = "YOU ARE LOGGED IN"
+            logged_in_as.text = getString(R.string.logged_in)
             loginButton.setVisibility(View.GONE)
             logoutButton.setVisibility(View.VISIBLE)
 
-            login_name.text = sharedPreferences.getString(SettingsActivity.usernameKey, null)
-            login_email.text = sharedPreferences.getString(SettingsActivity.emailKey, null)
-
+            login_name.text = sharedPreferences.getString(usernameKey, null)
+            login_email.text = sharedPreferences.getString(emailKey, null)
         }
         logoutButton.setOnClickListener {
             sharedPreferences.edit().putBoolean(SettingsActivity.loginBool, false).apply()
             editUsername.setVisibility(View.VISIBLE)
             editEmail.setVisibility(View.VISIBLE)
-            logged_in_as.text = "YOU ARE LOGGED OUT"
+            editUsername.setText("")
+            editEmail.setText("")
+            logged_in_as.text = getString(R.string.logged_out)
             logoutButton.setVisibility(View.GONE)
             loginButton.setVisibility(View.VISIBLE)
 
@@ -121,3 +120,4 @@ class MoreFragment : Fragment() {
 
 
 //TODO: update fragment when sign-in and sign-out process is complete
+//TODO: Replace hardcoded strings
