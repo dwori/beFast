@@ -1,7 +1,9 @@
 package at.fh.swengb.beFast.ui.more
 
 import android.content.Context
+import android.opengl.Visibility
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -17,9 +19,6 @@ class MoreFragment : Fragment() {
 
     private lateinit var moreViewModel: MoreViewModel
 
-
-
-    public var isLoggedIn = false
 
     override fun onCreateView(
             inflater: LayoutInflater,
@@ -43,6 +42,8 @@ class MoreFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         val sharedPreferences = requireContext().getSharedPreferences(requireContext().packageName, Context.MODE_PRIVATE)
 
+        //If the user is logged in, it should  show this as a message and hide the login button, but show the logout button
+        //Also the username and the user´s email get displayed
         if (sharedPreferences.getBoolean(SettingsActivity.loginBool, false)) {
             login_name.text = sharedPreferences.getString(SettingsActivity.usernameKey, null)
             login_email.text = sharedPreferences.getString(SettingsActivity.emailKey, null)
@@ -51,6 +52,7 @@ class MoreFragment : Fragment() {
             logoutButton.setVisibility(View.VISIBLE)
 
         } else {
+            //Else the logoutButton gets hidden and the login one shown. And a matching message is shown on the screen
             editUsername.setText(sharedPreferences.getString(SettingsActivity.usernameKey, null))
             editEmail.setText(sharedPreferences.getString(SettingsActivity.emailKey, null))
             logged_in_as.text = "YOU ARE LOGGED OUT"
@@ -85,15 +87,25 @@ class MoreFragment : Fragment() {
             login_email.text = ""
         }
     }
+    override fun  onResume(){
+        super.onResume()
+        //Log.i("INFO", "onResume")
+        val sharedPreferences = requireContext().getSharedPreferences(requireContext().packageName, Context.MODE_PRIVATE)
+        //If the fragment is switched back to the More fragment the editTexts will still be hidden in logged in mode.
+        if (sharedPreferences.getBoolean(SettingsActivity.loginBool, false)) {
+            editUsername.setVisibility(View.GONE)
+            editEmail.setVisibility(View.GONE)
+            //Log.i("INFO","editTexts hidden")
+        }else{
+            editUsername.setVisibility(View.VISIBLE)
+            editEmail.setVisibility(View.VISIBLE)
+            //Log.i("INFO","editTexts shown")
+        }
+    }
 
 
 
 
-        /*
-        editUsername.setText(savedUsername)
-
-        editEmail.setText(savedEmail)
-        */
 
 
 
