@@ -12,7 +12,6 @@ import androidx.recyclerview.widget.RecyclerView
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.models.Drops
 import at.fh.swengb.beFast.models.TweetsItem
-import at.fh.swengb.beFast.ui.drops.DropsAdapter.Companion.BRAND_NAME
 import at.fh.swengb.beFast.ui.drops.DropsRepository.drops
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.drops_recycler_view_item.view.*
@@ -24,10 +23,6 @@ class DropsAdapter(val clickListener: (drop: Drops) -> Unit): RecyclerView.Adapt
 
 
     private var dropList = listOf<Drops>()
-
-    companion object {
-        var BRAND_NAME = ""
-    }
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DropViewHolder {

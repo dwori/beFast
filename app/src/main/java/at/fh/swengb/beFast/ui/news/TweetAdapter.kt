@@ -8,7 +8,9 @@ import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.models.TweetsItem
 import kotlinx.android.synthetic.main.news_recycler_view_item.view.*
 import com.bumptech.glide.Glide
+import java.text.SimpleDateFormat
 import java.time.format.DateTimeFormatter
+import java.util.*
 
 class TweetAdapter( val clickListener: (tweet: TweetsItem) -> Unit ): RecyclerView.Adapter<TweetViewHolder>() {
     private var tweetList = listOf<TweetsItem>()
@@ -52,10 +54,11 @@ class TweetViewHolder(itemView: View, val clickListener: (tweet: TweetsItem) -> 
         } else {
             // itemView.item_tweet_url.text = "no link"
         }
-        val number_time_hours = tweet.created_at.substring(11,13).toInt()+1
-        val number_time_minutes = tweet.created_at.substring(14,16)
-        itemView.item_tweet_time.text = number_time_hours.toString() + ":" + number_time_minutes
-
-
+        // time zones
+        val date: String = tweet.created_at
+        val sdf = SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy")
+        val formatteddate = sdf.parse(date)
+        sdf.setTimeZone(TimeZone.getDefault())
+        itemView.item_tweet_time.text = sdf.format(formatteddate!!).substring(11,16)
     }
 }
