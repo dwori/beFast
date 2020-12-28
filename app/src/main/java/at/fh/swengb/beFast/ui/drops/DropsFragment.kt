@@ -1,5 +1,6 @@
 package at.fh.swengb.beFast.ui.drops
 
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
@@ -17,7 +18,9 @@ import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.models.Drops
 import at.fh.swengb.beFast.ui.drops.DropsAdapter.Companion.BRAND_NAME
 import at.fh.swengb.beFast.ui.drops.DropsRepository.drops
+import at.fh.swengb.beFast.ui.more.SettingsActivity
 import at.fh.swengb.beFast.ui.news.TweetAdapter
+import kotlinx.android.synthetic.main.activity_settings.*
 import kotlinx.android.synthetic.main.drops_recycler_view_item.*
 import kotlinx.android.synthetic.main.fragment_drops.*
 import kotlinx.android.synthetic.main.fragment_news.*
@@ -28,6 +31,9 @@ class DropsFragment : Fragment() {
     private lateinit var dropsViewModel: DropsViewModel
     lateinit var dropsAdapter: DropsAdapter
 
+    companion object {
+        val DESCRIPTION = ""
+    }
 
 
     override fun onCreateView(
@@ -49,15 +55,24 @@ class DropsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         dropsAdapter = DropsAdapter() {
+
+
+
             val cal: Calendar = Calendar.getInstance()
             val calendarIntent = Intent(Intent.ACTION_EDIT)
             calendarIntent.type = "vnd.android.cursor.item/event"
-            calendarIntent.putExtra("beginTime", cal.set(2020, 9, 29).toString())
+            calendarIntent.putExtra("beginTime", cal.getTimeInMillis())
             //intent.putExtra("allDay", true)
             //intent.putExtra("rrule", "FREQ=YEARLY")
             calendarIntent.putExtra("endTime", cal.getTimeInMillis() + 60601000)
-            calendarIntent.putExtra("title",BRAND_NAME)
+
+            calendarIntent.putExtra("title", "Drop Reminder")
             startActivity(calendarIntent)
+
+            // description view intent
+            val descriptionIntent = Intent(activity, DescriptionActivity::class.java)
+            descriptionIntent.putExtra(DESCRIPTION,it.brand)
+            startActivity(descriptionIntent)
 
         }
 
@@ -70,4 +85,6 @@ class DropsFragment : Fragment() {
 
 
     }
+
+
 }

@@ -13,6 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BeFast">
         <activity
+            android:name=".ui.drops.DescriptionActivity">
+
+        </activity>
+        <activity
             android:name=".ui.more.SettingsActivity"
             android:parentActivityName=".MainActivity" />
         <activity

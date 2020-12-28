@@ -21,6 +21,8 @@ import java.util.*
 
 class DropsAdapter(val clickListener: (drop: Drops) -> Unit): RecyclerView.Adapter<DropViewHolder>() {
 
+
+
     private var dropList = listOf<Drops>()
 
     companion object {
@@ -54,8 +56,9 @@ class DropsAdapter(val clickListener: (drop: Drops) -> Unit): RecyclerView.Adapt
 class DropViewHolder(itemView: View, val clickListener: (drop: Drops) -> Unit): RecyclerView.ViewHolder(itemView) {
     fun bindItem(drop: Drops) {
 
+
         itemView.drop_item_brand.text = drop.brand
-        BRAND_NAME = drop.brand
+
         itemView.drop_item_name.text = drop.name
         itemView.drop_item_price.text = drop.price
         itemView.drop_item_date.text = drop.date
@@ -66,9 +69,11 @@ class DropViewHolder(itemView: View, val clickListener: (drop: Drops) -> Unit): 
                 .into(itemView.drop_item_image)
         itemView.drop_item_reminder.setOnClickListener {
             clickListener(drop)
-
         }
 
+        itemView.setOnClickListener {
+            clickListener(drop)
+        }
 
     }
 
