@@ -56,9 +56,9 @@ class TweetViewHolder(itemView: View, val clickListener: (tweet: TweetsItem) -> 
         }
         // time zones
         val date: String = tweet.created_at
-        val sdf = SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy")
-        val formatteddate = sdf.parse(date)
-        sdf.setTimeZone(TimeZone.getDefault())
-        itemView.item_tweet_time.text = sdf.format(formatteddate!!).substring(11,16)
+        val sdf = SimpleDateFormat("EEE MMM dd HH:mm:ss z yyyy", Locale.ENGLISH)
+        val formattedDate = sdf.parse(date)
+        sdf.timeZone = TimeZone.getDefault()
+        itemView.item_tweet_time.text = sdf.format(formattedDate).substring(11,16)
     }
 }
