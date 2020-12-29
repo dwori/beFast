@@ -28,6 +28,9 @@ class DropsFragment : Fragment() {
     private lateinit var dropsViewModel: DropsViewModel
     lateinit var dropsAdapter: DropsAdapter
 
+    companion object {
+        val EXTRA_DROP_ID = "DROP_ID_EXTRA"
+    }
 
 
     override fun onCreateView(
@@ -49,7 +52,7 @@ class DropsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         dropsAdapter = DropsAdapter() {
-            val date = SimpleDateFormat("dd.MM.yyyy").parse(it.date)
+            /*val date = SimpleDateFormat("dd.MM.yyyy").parse(it.date)
             val time = SimpleDateFormat("hh:mm").parse(it.time)
 
             val calendarIntent = Intent(Intent.ACTION_EDIT)
@@ -59,7 +62,11 @@ class DropsFragment : Fragment() {
             calendarIntent.putExtra("title",it.brand + " " + it.name + " " + "Drop")
             calendarIntent.putExtra("description","Drop Reminder beFast App")
 
-            startActivity(calendarIntent)
+            startActivity(calendarIntent)*/
+
+            val descriptionIntent = Intent(activity, DescriptionActivity::class.java)
+            descriptionIntent.putExtra(EXTRA_DROP_ID, it.id)
+            startActivity(descriptionIntent)
         }
 
         dropsAdapter.updateList(DropsRepository.drops)

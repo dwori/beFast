@@ -41,7 +41,6 @@
             android:text="TextView"
             android:visibility="visible"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/drop_item_reminder"
             app:layout_constraintStart_toEndOf="@+id/drop_item_image" />
 
         <TextView
@@ -59,20 +58,11 @@
             android:id="@+id/drop_item_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginTop="128dp"
+            android:layout_marginEnd="16dp"
             android:text="TextView"
-            app:layout_constraintBottom_toTopOf="@+id/drop_item_reminder"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.89" />
-
-        <Button
-            android:id="@+id/drop_item_reminder"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/reminder"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/drop_item_image"

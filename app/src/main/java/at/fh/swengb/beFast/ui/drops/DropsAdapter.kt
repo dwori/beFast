@@ -58,7 +58,7 @@ class DropViewHolder(itemView: View, val clickListener: (drop: Drops) -> Unit): 
                 .load(drop.imageUrl)
                 .fitCenter()
                 .into(itemView.drop_item_image)
-        itemView.drop_item_reminder.setOnClickListener {
+        itemView.setOnClickListener {
             clickListener(drop)
 
         }
