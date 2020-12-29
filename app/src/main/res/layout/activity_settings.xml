@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="92dp"
-        android:layout_marginTop="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_darkmode"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.554"
         app:layout_constraintStart_toEndOf="@+id/textView_darkmode"
