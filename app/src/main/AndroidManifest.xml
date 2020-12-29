@@ -12,9 +12,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BeFast">
-        <activity android:name=".ui.more.ConditionsActivity"></activity>
-        <activity android:name=".ui.drops.DescriptionActivity" />
-        <activity android:name=".ui.more.SettingsActivity" />
+        <activity
+            android:name=".ui.more.ConditionsActivity"
+            android:label="Terms and Conditions"
+
+            />
+        <activity
+            android:name=".ui.drops.DescriptionActivity"
+
+            />
+        <activity
+            android:name=".ui.more.SettingsActivity"
+            android:label="Settings"
+            />
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name">
