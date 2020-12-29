@@ -1,21 +1,13 @@
 package at.fh.swengb.beFast.ui.drops
 
-import android.app.Activity
-import android.app.Application
-import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.models.Drops
-import at.fh.swengb.beFast.models.TweetsItem
-import at.fh.swengb.beFast.ui.drops.DropsRepository.drops
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.drops_recycler_view_item.view.*
-import kotlinx.android.synthetic.main.news_recycler_view_item.view.*
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -59,7 +51,7 @@ class DropViewHolder(itemView: View, val clickListener: (drop: Drops) -> Unit): 
         val sdf = SimpleDateFormat("dd.MM.yyyy z HH:mm", Locale.ENGLISH)
         val formattedDate = sdf.parse(date)
         sdf.timeZone = TimeZone.getDefault()
-        itemView.drop_item_date.text = sdf.format(formattedDate)
+        itemView.drop_item_datetime.text = sdf.format(formattedDate)
 
         Glide.with(itemView)
                 .load(drop.imageUrl)
