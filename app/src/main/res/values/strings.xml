@@ -14,4 +14,5 @@
     <string name="darkmode">Darkmode</string>
     <string name="save">Save</string>
     <string name="reminder">Set Reminder</string>
+    <string name="conditions_text"></string>
 </resources>
