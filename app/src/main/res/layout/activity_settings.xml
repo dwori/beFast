@@ -35,43 +35,54 @@
         android:layout_height="wrap_content"
         android:onClick="saveSettings"
         android:text="@string/save"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_darkmode"
-        app:layout_constraintVertical_bias="0.206" />
-
-    <Button
-        android:id="@+id/settings_share"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:text="Share this App"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/save_settings"
-        app:layout_constraintStart_toStartOf="@+id/save_settings"
-        app:layout_constraintTop_toBottomOf="@+id/save_settings"
-        app:layout_constraintVertical_bias="0.117" />
+        app:icon="@drawable/ic_baseline_settings_24"
+        app:iconGravity="end"
+        tools:layout_editor_absoluteX="154dp"
+        tools:layout_editor_absoluteY="208dp" />
 
     <Button
         android:id="@+id/settings_version"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
         android:text="Version"
-        app:layout_constraintEnd_toEndOf="@+id/settings_share"
-        app:layout_constraintStart_toStartOf="@+id/settings_share"
-        app:layout_constraintTop_toBottomOf="@+id/settings_share" />
+        app:icon="@drawable/ic_baseline_perm_device_information_24"
+        app:iconGravity="end"
+        tools:layout_editor_absoluteX="157dp"
+        tools:layout_editor_absoluteY="472dp" />
+
+    <Button
+        android:id="@+id/settings_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Share this App"
+        app:icon="@drawable/ic_baseline_share_24"
+        app:iconGravity="end"
+        tools:layout_editor_absoluteX="126dp"
+        tools:layout_editor_absoluteY="352dp" />
 
     <Button
         android:id="@+id/settings_support"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
         android:text="Contact Us"
-        app:layout_constraintEnd_toEndOf="@+id/settings_version"
-        app:layout_constraintHorizontal_bias="0.517"
-        app:layout_constraintStart_toStartOf="@+id/settings_version"
-        app:layout_constraintTop_toBottomOf="@+id/settings_version" />
+        app:icon="@drawable/ic_baseline_contact_mail_24"
+        app:iconGravity="end"
+        tools:layout_editor_absoluteX="142dp"
+        tools:layout_editor_absoluteY="592dp" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:layout_width="379dp"
+        android:layout_height="226dp"
+        app:constraint_referenced_ids="save_settings,settings_version,settings_support,settings_share"
+        app:flow_horizontalGap="25dp"
+        app:flow_maxElementsWrap="1"
+        app:flow_verticalAlign="center"
+        app:flow_verticalBias="16"
+        app:flow_verticalGap="30dp"
+        app:flow_wrapMode="aligned"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.465" />
 </androidx.constraintlayout.widget.ConstraintLayout>
