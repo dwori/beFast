@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -60,19 +61,26 @@ class MoreFragment : Fragment() {
             logoutButton.setVisibility(View.GONE)
             loginButton.setVisibility(View.VISIBLE)
         }
-        //on login we change the visibility of the editTexts and the login/logout buttons.
-        loginButton.setOnClickListener {
-            sharedPreferences.edit().putString(usernameKey, editUsername.text.toString()).apply()
-            sharedPreferences.edit().putString(emailKey, editEmail.text.toString()).apply()
-            sharedPreferences.edit().putBoolean(SettingsActivity.loginBool, true).apply()
-            editUsername.setVisibility(View.GONE)
-            editEmail.setVisibility(View.GONE)
-            logged_in_as.text = getString(R.string.logged_in)
-            loginButton.setVisibility(View.GONE)
-            logoutButton.setVisibility(View.VISIBLE)
 
-            login_name.text = sharedPreferences.getString(usernameKey, null)
-            login_email.text = sharedPreferences.getString(emailKey, null)
+        loginButton.setOnClickListener {
+            if (editUsername?.text.toString().trim().isNullOrBlank() || editEmail?.text.toString().trim().isNullOrBlank()) {
+                Toast.makeText(activity, "Please enter a valid username & email.", Toast.LENGTH_LONG).show()
+
+                //on login we change the visibility of the editTexts and the login/logout buttons.
+            } else {
+                sharedPreferences.edit().putString(usernameKey, editUsername.text.toString()).apply()
+                sharedPreferences.edit().putString(emailKey, editEmail.text.toString()).apply()
+                sharedPreferences.edit().putBoolean(SettingsActivity.loginBool, true).apply()
+                editUsername.setVisibility(View.GONE)
+                editEmail.setVisibility(View.GONE)
+                logged_in_as.text = getString(R.string.logged_in)
+                loginButton.setVisibility(View.GONE)
+                logoutButton.setVisibility(View.VISIBLE)
+
+                login_name.text = sharedPreferences.getString(usernameKey, null)
+                login_email.text = sharedPreferences.getString(emailKey, null)
+            }
+
         }
         logoutButton.setOnClickListener {
             sharedPreferences.edit().putBoolean(SettingsActivity.loginBool, false).apply()

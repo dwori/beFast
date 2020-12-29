@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -57,6 +58,8 @@ class SettingsActivity : AppCompatActivity() {
 
         }
 
+        //back button
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
     }
     fun saveSettings(v: View) {
@@ -71,5 +74,14 @@ class SettingsActivity : AppCompatActivity() {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
         finish()
+    }
+
+    //back button
+    override fun onOptionsItemSelected(item: MenuItem):Boolean {
+        super.onOptionsItemSelected(item)
+        when (item.itemId) {
+            android.R.id.home -> finish()
+        }
+        return true
     }
 }
