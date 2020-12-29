@@ -58,25 +58,30 @@
         app:layout_constraintVertical_bias="0.3" />
 
     <Button
-        android:id="@+id/description_reminder"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Set Reminder"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.382"
-        app:layout_constraintStart_toEndOf="@+id/description_share"
-        app:layout_constraintTop_toBottomOf="@+id/description_description"
-        app:layout_constraintVertical_bias="0.376" />
-
-    <Button
         android:id="@+id/description_share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
+        android:layout_marginTop="12dp"
         android:text="Share this Drop"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:icon="@drawable/ic_baseline_share_24"
+        app:iconGravity="end"
+        app:layout_constraintEnd_toEndOf="@+id/description_reminder"
+        app:layout_constraintStart_toStartOf="@+id/description_reminder"
+        app:layout_constraintTop_toBottomOf="@+id/description_reminder" />
+
+    <Button
+        android:id="@+id/description_reminder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="116dp"
+        android:text="Set Reminder"
+        app:icon="@drawable/ic_baseline_calendar_today_24"
+        app:iconGravity="end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
+
+
         app:layout_constraintTop_toBottomOf="@+id/description_description"
         app:layout_constraintVertical_bias="0.376" />
 
@@ -89,4 +94,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/description_share" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
