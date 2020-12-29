@@ -61,38 +61,48 @@
         android:id="@+id/description_share"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:text="Share this Drop"
         app:icon="@drawable/ic_baseline_share_24"
         app:iconGravity="end"
-        app:layout_constraintEnd_toEndOf="@+id/description_reminder"
-        app:layout_constraintStart_toStartOf="@+id/description_reminder"
-        app:layout_constraintTop_toBottomOf="@+id/description_reminder" />
+        tools:layout_editor_absoluteX="106dp"
+        tools:layout_editor_absoluteY="566dp" />
 
     <Button
         android:id="@+id/description_reminder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="116dp"
         android:text="Set Reminder"
         app:icon="@drawable/ic_baseline_calendar_today_24"
         app:iconGravity="end"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
 
 
-        app:layout_constraintTop_toBottomOf="@+id/description_description"
-        app:layout_constraintVertical_bias="0.376" />
+        tools:layout_editor_absoluteX="118dp"
+        tools:layout_editor_absoluteY="454dp" />
 
     <Button
         android:id="@+id/description_homepage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="go to homepage"
+        app:icon="@drawable/ic_baseline_open_in_browser_24"
+        app:iconGravity="end"
+        tools:layout_editor_absoluteX="122dp"
+        tools:layout_editor_absoluteY="510dp" />
+
+    <androidx.constraintlayout.helper.widget.Flow
+        android:layout_width="391dp"
+        android:layout_height="184dp"
+        app:constraint_referenced_ids="description_reminder,description_homepage,description_share"
+        app:flow_firstVerticalStyle="spread_inside"
+        app:flow_horizontalGap="20dp"
+        app:flow_maxElementsWrap="1"
+        app:flow_verticalAlign="baseline"
+        app:flow_verticalGap="20dp"
+        app:flow_verticalStyle="spread_inside"
+        app:flow_wrapMode="chain"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description_share" />
+        app:layout_constraintTop_toBottomOf="@+id/description_description" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

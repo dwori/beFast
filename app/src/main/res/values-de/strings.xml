@@ -13,4 +13,5 @@
     <string name="darkmode">Dunkler Modus</string>
     <string name="save">Speichern</string>
     <string name="reminder">Alarm setzen</string>
+    <string name="conditions_text">dk</string>
 </resources>

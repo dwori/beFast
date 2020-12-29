@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import at.fh.swengb.beFast.R
+import at.fh.swengb.beFast.ui.drops.DescriptionActivity
+import at.fh.swengb.beFast.ui.drops.DropsFragment
 import kotlinx.android.synthetic.main.activity_settings.*
 
 class SettingsActivity : AppCompatActivity() {
@@ -58,8 +60,17 @@ class SettingsActivity : AppCompatActivity() {
 
         }
 
+        //terms and conditions
+        settings_conditions.setOnClickListener {
+            val conditionsIntent = Intent(this, ConditionsActivity::class.java)
+            startActivity(conditionsIntent)
+        }
+
         //back button
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+
+
 
     }
     fun saveSettings(v: View) {
