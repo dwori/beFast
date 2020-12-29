@@ -8,24 +8,26 @@
 
     <TextView
         android:id="@+id/textView_darkmode"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="60dp"
+        android:layout_width="98dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="52dp"
         android:text="@string/darkmode"
+        android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Switch
         android:id="@+id/switch_darkmode"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
+        android:layout_width="47dp"
+        android:layout_height="32dp"
         android:layout_marginStart="92dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView_darkmode"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.554"
+        app:layout_constraintHorizontal_bias="0.579"
         app:layout_constraintStart_toEndOf="@+id/textView_darkmode"
-        app:layout_constraintTop_toTopOf="@+id/textView_darkmode" />
+        app:layout_constraintTop_toTopOf="@+id/textView_darkmode"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/save_settings"
@@ -39,4 +41,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView_darkmode"
         app:layout_constraintVertical_bias="0.206" />
+
+    <Button
+        android:id="@+id/settings_share"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="Share this App"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/save_settings"
+        app:layout_constraintStart_toStartOf="@+id/save_settings"
+        app:layout_constraintTop_toBottomOf="@+id/save_settings"
+        app:layout_constraintVertical_bias="0.117" />
+
+    <Button
+        android:id="@+id/settings_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:text="Version"
+        app:layout_constraintEnd_toEndOf="@+id/settings_share"
+        app:layout_constraintStart_toStartOf="@+id/settings_share"
+        app:layout_constraintTop_toBottomOf="@+id/settings_share" />
+
+    <Button
+        android:id="@+id/settings_support"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Contact Us"
+        app:layout_constraintEnd_toEndOf="@+id/settings_version"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="@+id/settings_version"
+        app:layout_constraintTop_toBottomOf="@+id/settings_version" />
 </androidx.constraintlayout.widget.ConstraintLayout>

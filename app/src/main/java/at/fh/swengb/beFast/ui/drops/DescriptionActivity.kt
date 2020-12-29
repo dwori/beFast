@@ -34,7 +34,7 @@ class DescriptionActivity : AppCompatActivity() {
         description_share.setOnClickListener {
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, brand + " " + name)
+                putExtra(Intent.EXTRA_TEXT, brand + " " + name + " " + "Drop" + " " + "by" + " " + "beFast")
                 type = "text/plain"
             }
             val shareIntent = Intent.createChooser(sendIntent, null)
@@ -56,6 +56,8 @@ class DescriptionActivity : AppCompatActivity() {
             calendarIntent.putExtra("description","Drop Reminder beFast App")
             startActivity(calendarIntent)
         }
+
+
 
 
 
