@@ -7,6 +7,7 @@ import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.ui.drops.DropsFragment.Companion.EXTRA_DROP_ID
 import kotlinx.android.synthetic.main.activity_description.*
 import java.text.SimpleDateFormat
+import java.util.*
 
 class DescriptionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,8 +26,8 @@ class DescriptionActivity : AppCompatActivity() {
 
         val brand = dropId?.let { DropsRepository.dropById(it)?.brand } ?: "no brand found"
         val name = dropId?.let { DropsRepository.dropById(it)?.name } ?: "no name found"
-        val date = dropId?.let { DropsRepository.dropById(it)?.date } ?: "no date found"
-        val time = dropId?.let { DropsRepository.dropById(it)?.time } ?: "no time found"
+        val datetime = dropId?.let { DropsRepository.dropById(it)?.datetime } ?: "no date found"
+
 
 
         // share intent
@@ -43,13 +44,14 @@ class DescriptionActivity : AppCompatActivity() {
 
         //reminder intent
         description_reminder.setOnClickListener {
-            val date = SimpleDateFormat("dd.MM.yyyy").parse(date)
-            val time = SimpleDateFormat("hh:mm").parse(time)
+            val sdf = SimpleDateFormat("dd.MM.yyyy z HH:mm", Locale.ENGLISH)
+            val formattedDate = sdf.parse(datetime)
+            sdf.timeZone = TimeZone.getDefault()
 
             val calendarIntent = Intent(Intent.ACTION_EDIT)
             calendarIntent.type = "vnd.android.cursor.item/event"
-            calendarIntent.putExtra("beginTime", date!!.time + time!!.time - 600000)
-            calendarIntent.putExtra("endTime", date!!.time + time!!.time)
+            calendarIntent.putExtra("beginTime", formattedDate.time - 600000)
+            calendarIntent.putExtra("endTime", formattedDate.time)
             calendarIntent.putExtra("title",brand + " " + name + " " + "Drop")
             calendarIntent.putExtra("description","Drop Reminder beFast App")
             startActivity(calendarIntent)

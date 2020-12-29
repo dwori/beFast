@@ -13,8 +13,8 @@ class SettingsActivity : AppCompatActivity() {
 
         val usernameKey = "USERNAME"
         val darkmodeKey = "DARKMODE"
-        val loginBool = "login"
-        val emailKey = "email"
+        val loginBool = "LOGIN"
+        val emailKey = "EMAIL"
 
     }
     override fun onCreate(savedInstanceState: Bundle?) {

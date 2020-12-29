@@ -16,6 +16,7 @@ import at.fh.swengb.beFast.ui.drops.DropsRepository.drops
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.drops_recycler_view_item.view.*
 import kotlinx.android.synthetic.main.news_recycler_view_item.view.*
+import java.text.SimpleDateFormat
 import java.util.*
 
 class DropsAdapter(val clickListener: (drop: Drops) -> Unit): RecyclerView.Adapter<DropViewHolder>() {
@@ -52,8 +53,14 @@ class DropViewHolder(itemView: View, val clickListener: (drop: Drops) -> Unit): 
         itemView.drop_item_brand.text = drop.brand
         itemView.drop_item_name.text = drop.name
         itemView.drop_item_price.text = drop.price
-        itemView.drop_item_date.text = drop.date
-        itemView.drop_item_time.text = drop.time
+
+        // time zones
+        val date: String = drop.datetime
+        val sdf = SimpleDateFormat("dd.MM.yyyy z HH:mm", Locale.ENGLISH)
+        val formattedDate = sdf.parse(date)
+        sdf.timeZone = TimeZone.getDefault()
+        itemView.drop_item_date.text = sdf.format(formattedDate)
+
         Glide.with(itemView)
                 .load(drop.imageUrl)
                 .fitCenter()
