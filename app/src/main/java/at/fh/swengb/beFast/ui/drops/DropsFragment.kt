@@ -1,9 +1,12 @@
 package at.fh.swengb.beFast.ui.drops
 
+import android.app.Activity
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,9 +18,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.models.Drops
+import at.fh.swengb.beFast.ui.brands.BrandsFragment
 import at.fh.swengb.beFast.ui.drops.DropsRepository.drops
 import at.fh.swengb.beFast.ui.news.TweetAdapter
 import kotlinx.android.synthetic.main.drops_recycler_view_item.*
+import kotlinx.android.synthetic.main.fragment_brands.*
 import kotlinx.android.synthetic.main.fragment_drops.*
 import kotlinx.android.synthetic.main.fragment_news.*
 import java.text.SimpleDateFormat
@@ -52,24 +57,47 @@ class DropsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         dropsAdapter = DropsAdapter() {
-            /*val date = SimpleDateFormat("dd.MM.yyyy").parse(it.date)
-            val time = SimpleDateFormat("hh:mm").parse(it.time)
-
-            val calendarIntent = Intent(Intent.ACTION_EDIT)
-            calendarIntent.type = "vnd.android.cursor.item/event"
-            calendarIntent.putExtra("beginTime", date!!.time + time!!.time - 600000)
-            calendarIntent.putExtra("endTime", date!!.time + time!!.time)
-            calendarIntent.putExtra("title",it.brand + " " + it.name + " " + "Drop")
-            calendarIntent.putExtra("description","Drop Reminder beFast App")
-
-            startActivity(calendarIntent)*/
-
             val descriptionIntent = Intent(activity, DescriptionActivity::class.java)
             descriptionIntent.putExtra(EXTRA_DROP_ID, it.id)
             startActivity(descriptionIntent)
         }
+        val sharedPreferences = requireContext().getSharedPreferences(requireContext().packageName, Context.MODE_PRIVATE)
+        val savedNike = sharedPreferences.getBoolean(BrandsFragment.nikeKey, true)
+        val savedAdidas = sharedPreferences.getBoolean(BrandsFragment.adidasKey, true)
+        val savedFear = sharedPreferences.getBoolean(BrandsFragment.fearofgofKey, true)
+        val savedNewB= sharedPreferences.getBoolean(BrandsFragment.newbalanceKey, true)
+        val savedPuma = sharedPreferences.getBoolean(BrandsFragment.pumaKey, true)
+        val savedSupreme = sharedPreferences.getBoolean(BrandsFragment.supremeKey, true)
+
 
         dropsAdapter.updateList(DropsRepository.drops)
+        if (!savedNike) {
+            dropsAdapter.filterList("Nike")
+            Log.e("Filter", "Nike")
+        }
+        if (!savedAdidas) {
+            dropsAdapter.filterList("Adidas")
+            Log.e("Filter", "Adidas")
+        }
+        if (!savedFear) {
+            dropsAdapter.filterList("Fear Of God")
+            Log.e("Filter","Fear Of God")
+        }
+        if (!savedNewB) {
+            dropsAdapter.filterList("New Balance")
+            Log.e("Filter","New Balance")
+        }
+        if (!savedPuma) {
+            dropsAdapter.filterList("Puma")
+            Log.e("Filter","Puma")
+        }
+        if (!savedSupreme) {
+            dropsAdapter.filterList("Supreme")
+            Log.e("Filter","Supreme")
+        }
+
+
+
         val layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         fragment_drops_recyclerview.layoutManager = layoutManager
         fragment_drops_recyclerview.adapter = dropsAdapter

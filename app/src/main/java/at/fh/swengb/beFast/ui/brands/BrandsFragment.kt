@@ -18,9 +18,12 @@ import kotlinx.android.synthetic.main.fragment_brands.*
 class BrandsFragment : Fragment() {
     companion object {
 
-        val nikeKey = "NIKE"
-        val adidasKey = "ADIDAS"
-
+        val nikeKey = "Nike"
+        val adidasKey = "Adidas"
+        val fearofgofKey = "Fear Of God"
+        val newbalanceKey = "New Balance"
+        val pumaKey = "Puma"
+        val supremeKey = "Supreme"
 
     }
 
@@ -47,18 +50,36 @@ class BrandsFragment : Fragment() {
         val sharedPreferences = requireContext().getSharedPreferences(requireContext().packageName, Context.MODE_PRIVATE)
 
         if (sharedPreferences.getBoolean(SettingsActivity.loginBool, false)) {
-            val savedNike = sharedPreferences.getBoolean(nikeKey, false)
-            switch1.isChecked = savedNike
 
+            switch1.isChecked = sharedPreferences.getBoolean(nikeKey, true)
+
+            switch2.isChecked = sharedPreferences.getBoolean(adidasKey, true)
+
+            switch3.isChecked = sharedPreferences.getBoolean(fearofgofKey, true)
+
+            switch4.isChecked = sharedPreferences.getBoolean(newbalanceKey, true)
+
+            switch5.isChecked = sharedPreferences.getBoolean(pumaKey, true)
+
+            switch6.isChecked = sharedPreferences.getBoolean(supremeKey, true)
 
             save_brands.setOnClickListener {
                 sharedPreferences.edit().putBoolean(nikeKey, switch1.isChecked).apply()
+                sharedPreferences.edit().putBoolean(adidasKey, switch2.isChecked).apply()
+                sharedPreferences.edit().putBoolean(fearofgofKey, switch3.isChecked).apply()
+                sharedPreferences.edit().putBoolean(newbalanceKey, switch4.isChecked).apply()
+                sharedPreferences.edit().putBoolean(pumaKey, switch5.isChecked).apply()
+                sharedPreferences.edit().putBoolean(supremeKey, switch6.isChecked).apply()
+
             }
 
         } else {
             switch1.visibility = View.GONE
             switch2.visibility = View.GONE
             switch3.visibility = View.GONE
+            switch4.visibility = View.GONE
+            switch5.visibility = View.GONE
+            switch6.visibility = View.GONE
         }
 
     }
