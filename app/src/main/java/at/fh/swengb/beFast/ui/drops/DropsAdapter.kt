@@ -42,6 +42,9 @@ class DropsAdapter(val clickListener: (drop: Drops) -> Unit): RecyclerView.Adapt
 class DropViewHolder(itemView: View, val clickListener: (drop: Drops) -> Unit): RecyclerView.ViewHolder(itemView) {
     fun bindItem(drop: Drops) {
 
+        if (drop.brand == "Nike")  {
+
+        } else {
         itemView.drop_item_brand.text = drop.brand
         itemView.drop_item_name.text = drop.name
         itemView.drop_item_price.text = drop.price
@@ -59,7 +62,7 @@ class DropViewHolder(itemView: View, val clickListener: (drop: Drops) -> Unit): 
                 .into(itemView.drop_item_image)
         itemView.setOnClickListener {
             clickListener(drop)
-
+         }
         }
 
 
