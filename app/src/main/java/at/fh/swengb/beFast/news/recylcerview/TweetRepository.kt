@@ -1,11 +1,11 @@
 package at.fh.swengb.beFast.news.recylcerview
 
 
-import at.fh.swengb.beFast.api.TwitterApi
-import at.fh.swengb.beFast.models.TweetsItem
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import at.fh.swengb.beFast.api.TwitterApi
+import at.fh.swengb.beFast.models.tweets.TweetsItem
 
 object TweetRepository {
 

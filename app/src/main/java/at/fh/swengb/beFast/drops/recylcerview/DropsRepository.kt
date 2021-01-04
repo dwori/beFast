@@ -1,6 +1,6 @@
 package at.fh.swengb.beFast.drops.recylcerview
 
-import at.fh.swengb.beFast.models.Drops
+import at.fh.swengb.beFast.models.drops.Drops
 
 object DropsRepository {
     val drops: List<Drops> = listOf(

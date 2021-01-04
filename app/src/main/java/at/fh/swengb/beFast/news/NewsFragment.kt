@@ -11,12 +11,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import at.fh.swengb.beFast.R
-import at.fh.swengb.beFast.models.TweetsItem
-import at.fh.swengb.beFast.news.recylcerview.TweetAdapter
-import at.fh.swengb.beFast.news.recylcerview.TweetRepository
 import com.squareup.moshi.Moshi
 import kotlinx.android.synthetic.main.fragment_news.*
+import at.fh.swengb.beFast.R
+import at.fh.swengb.beFast.models.tweets.TweetsItem
+import at.fh.swengb.beFast.news.recylcerview.TweetAdapter
+import at.fh.swengb.beFast.news.recylcerview.TweetRepository
 
 class NewsFragment : Fragment() {
 

@@ -1,15 +1,15 @@
 package at.fh.swengb.beFast.drops.recylcerview
 
+import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
-import at.fh.swengb.beFast.R
-import at.fh.swengb.beFast.drops.DropsFragment.Companion.EXTRA_DROP_ID
 import kotlinx.android.synthetic.main.activity_description.*
 import java.text.SimpleDateFormat
 import java.util.*
+import at.fh.swengb.beFast.R
+import at.fh.swengb.beFast.drops.DropsFragment.Companion.EXTRA_DROP_ID
 
 
 class DescriptionActivity : AppCompatActivity() {

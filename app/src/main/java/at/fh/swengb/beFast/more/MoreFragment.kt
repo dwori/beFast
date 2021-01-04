@@ -1,5 +1,8 @@
 package at.fh.swengb.beFast.more
 
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -7,15 +10,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
+import kotlinx.android.synthetic.main.fragment_more.*
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.login.LoginActivity
 import at.fh.swengb.beFast.settings.SettingsActivity
 import at.fh.swengb.beFast.settings.SettingsActivity.Companion.emailKey
 import at.fh.swengb.beFast.settings.SettingsActivity.Companion.usernameKey
-import kotlinx.android.synthetic.main.fragment_more.*
 
 
 class MoreFragment : Fragment() {

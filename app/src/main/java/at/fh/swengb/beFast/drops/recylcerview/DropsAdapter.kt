@@ -1,11 +1,10 @@
 package at.fh.swengb.beFast.drops.recylcerview
 
-
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView
 import at.fh.swengb.beFast.R
-import at.fh.swengb.beFast.models.Drops
+import at.fh.swengb.beFast.models.drops.Drops
 
 
 class DropsAdapter(val clickListener: (drop: Drops) -> Unit): RecyclerView.Adapter<DropViewHolder>() {

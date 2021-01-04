@@ -1,6 +1,9 @@
 package at.fh.swengb.beFast.drops
 
-
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -9,16 +12,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
+import kotlinx.android.synthetic.main.fragment_drops.*
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.brands.BrandsFragment
 import at.fh.swengb.beFast.drops.recylcerview.DescriptionActivity
 import at.fh.swengb.beFast.drops.recylcerview.DropsAdapter
 import at.fh.swengb.beFast.drops.recylcerview.DropsRepository
-import kotlinx.android.synthetic.main.fragment_drops.*
+
 
 
 class DropsFragment : Fragment() {

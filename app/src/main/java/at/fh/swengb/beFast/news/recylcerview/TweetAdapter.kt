@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import at.fh.swengb.beFast.R
-import at.fh.swengb.beFast.models.TweetsItem
+import at.fh.swengb.beFast.models.tweets.TweetsItem
 
 class TweetAdapter( val clickListener: (tweet: TweetsItem) -> Unit ): RecyclerView.Adapter<TweetViewHolder>() {
     private var tweetList = listOf<TweetsItem>()

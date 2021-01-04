@@ -1,13 +1,14 @@
 package at.fh.swengb.beFast.login
 
-import at.fh.swengb.beFast.R
+
 import androidx.appcompat.app.AppCompatActivity
 import android.content.Context
 import android.os.Bundle
 import android.view.MenuItem
-import kotlinx.android.synthetic.main.activity_login.*
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_login.*
 import at.fh.swengb.beFast.settings.SettingsActivity
+import at.fh.swengb.beFast.R
 
 class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -1,12 +1,12 @@
 package at.fh.swengb.beFast.drops.recylcerview
 
-import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import at.fh.swengb.beFast.models.Drops
+import android.view.View
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.drops_recycler_view_item.view.*
 import java.text.SimpleDateFormat
 import java.util.*
+import at.fh.swengb.beFast.models.drops.Drops
 
 class DropViewHolder(itemView: View, val clickListener: (drop: Drops) -> Unit): RecyclerView.ViewHolder(itemView) {
     fun bindItem(drop: Drops) {

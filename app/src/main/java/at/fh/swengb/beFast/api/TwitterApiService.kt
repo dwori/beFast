@@ -1,6 +1,6 @@
 package at.fh.swengb.beFast.api
 
-import at.fh.swengb.beFast.models.TweetsItem
+import at.fh.swengb.beFast.models.tweets.TweetsItem
 import retrofit2.Call
 import retrofit2.http.GET
 
