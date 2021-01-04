@@ -1,4 +1,4 @@
-package at.fh.swengb.beFast.ui.more
+package at.fh.swengb.beFast.settings
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

@@ -1,4 +1,4 @@
-package at.fh.swengb.beFast.ui.news
+package at.fh.swengb.beFast.news
 
 import android.content.Intent
 import android.net.Uri
@@ -11,11 +11,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import at.fh.swengb.beFast.MainActivity
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.models.TweetsItem
+import at.fh.swengb.beFast.news.recylcerview.TweetAdapter
+import at.fh.swengb.beFast.news.recylcerview.TweetRepository
 import com.squareup.moshi.Moshi
-import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_news.*
 
 class NewsFragment : Fragment() {
@@ -60,7 +60,7 @@ class NewsFragment : Fragment() {
                 },
                 error = {
                     // handle error
-                    Log.e("Error","Repository Error")
+                    Log.e("Error", "Repository Error")
                     Toast.makeText(activity, getString(R.string.internet_connection), Toast.LENGTH_LONG).show() //TODO: App crashes if started on AirplaneMode on lukis phone news Fragment has no corresponding activity
                     //Log.e("Error","Repository Error")
                 }

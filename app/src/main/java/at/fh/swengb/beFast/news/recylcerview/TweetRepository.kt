@@ -1,6 +1,7 @@
-package at.fh.swengb.beFast.ui.news
+package at.fh.swengb.beFast.news.recylcerview
 
 
+import at.fh.swengb.beFast.api.TwitterApi
 import at.fh.swengb.beFast.models.TweetsItem
 import retrofit2.Call
 import retrofit2.Callback

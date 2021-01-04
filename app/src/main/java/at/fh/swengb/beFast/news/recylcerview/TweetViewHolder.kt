@@ -1,44 +1,22 @@
-package at.fh.swengb.beFast.ui.news
+package at.fh.swengb.beFast.news.recylcerview
 
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.models.TweetsItem
-import kotlinx.android.synthetic.main.news_recycler_view_item.view.*
 import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.news_recycler_view_item.view.*
 import java.text.SimpleDateFormat
-import java.time.format.DateTimeFormatter
 import java.util.*
 
-class TweetAdapter( val clickListener: (tweet: TweetsItem) -> Unit ): RecyclerView.Adapter<TweetViewHolder>() {
-    private var tweetList = listOf<TweetsItem>()
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TweetViewHolder {
-        val tweetItemView = LayoutInflater.from(parent.context).inflate(R.layout.news_recycler_view_item, parent, false)
-        return TweetViewHolder(tweetItemView,clickListener)
-    }
-    override fun onBindViewHolder(holder: TweetViewHolder,position: Int) {
-        holder.bindItem(tweetList[position])
-    }
-    override fun getItemCount(): Int = tweetList.size
-
-    fun updateList(newList: List<TweetsItem>){
-        tweetList = newList
-        notifyDataSetChanged()
-    }
-
-}
 class TweetViewHolder(itemView: View, val clickListener: (tweet: TweetsItem) -> Unit ): RecyclerView.ViewHolder(itemView){
     fun bindItem(tweet: TweetsItem) {
         if (tweet.entities.media != null && tweet.entities.media.isNotEmpty()) {
             itemView.item_tweet_url.text = tweet.entities.media[0].media_url_https
 
             Glide.with(itemView)
-                .load(tweet.entities.media[0].media_url_https)
-                .fitCenter()
-                .into(itemView.item_tweet_image)
+                    .load(tweet.entities.media[0].media_url_https)
+                    .fitCenter()
+                    .into(itemView.item_tweet_image)
 
 
         } else if (tweet.entities.media[0].media_url_https == " ") {

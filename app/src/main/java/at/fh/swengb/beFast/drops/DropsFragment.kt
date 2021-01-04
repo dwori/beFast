@@ -1,32 +1,25 @@
-package at.fh.swengb.beFast.ui.drops
+package at.fh.swengb.beFast.drops
 
-import android.app.Activity
+
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.annotation.RequiresApi
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import at.fh.swengb.beFast.R
-import at.fh.swengb.beFast.models.Drops
-import at.fh.swengb.beFast.ui.brands.BrandsFragment
-import at.fh.swengb.beFast.ui.drops.DropsRepository.drops
-import at.fh.swengb.beFast.ui.news.TweetAdapter
-import kotlinx.android.synthetic.main.drops_recycler_view_item.*
-import kotlinx.android.synthetic.main.fragment_brands.*
+import at.fh.swengb.beFast.brands.BrandsFragment
+import at.fh.swengb.beFast.drops.recylcerview.DescriptionActivity
+import at.fh.swengb.beFast.drops.recylcerview.DropsAdapter
+import at.fh.swengb.beFast.drops.recylcerview.DropsRepository
 import kotlinx.android.synthetic.main.fragment_drops.*
-import kotlinx.android.synthetic.main.fragment_news.*
-import java.text.SimpleDateFormat
-import java.util.*
+
 
 class DropsFragment : Fragment() {
 
@@ -95,15 +88,8 @@ class DropsFragment : Fragment() {
             dropsAdapter.filterList("Supreme")
             Log.e("Filter","Supreme")
         }
-
-
-
         val layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         fragment_drops_recyclerview.layoutManager = layoutManager
         fragment_drops_recyclerview.adapter = dropsAdapter
-
-
-
-
     }
 }

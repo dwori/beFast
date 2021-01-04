@@ -1,4 +1,4 @@
-package at.fh.swengb.beFast.ui.news
+package at.fh.swengb.beFast.news
 
 import android.os.AsyncTask
 import android.util.Log

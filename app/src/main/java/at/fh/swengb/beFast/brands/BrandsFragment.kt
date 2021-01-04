@@ -1,4 +1,4 @@
-package at.fh.swengb.beFast.ui.brands
+package at.fh.swengb.beFast.brands
 
 import android.content.Context
 import android.os.Bundle
@@ -10,9 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import at.fh.swengb.beFast.R
-import at.fh.swengb.beFast.ui.more.SettingsActivity
-import com.google.android.gms.common.GooglePlayServicesNotAvailableException
-import kotlinx.android.synthetic.main.activity_settings.*
+import at.fh.swengb.beFast.settings.SettingsActivity
 import kotlinx.android.synthetic.main.fragment_brands.*
 
 class BrandsFragment : Fragment() {

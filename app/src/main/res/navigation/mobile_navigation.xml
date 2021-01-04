@@ -7,25 +7,25 @@
 
     <fragment
         android:id="@+id/navigation_news"
-        android:name="at.fh.swengb.beFast.ui.news.NewsFragment"
+        android:name="at.fh.swengb.beFast.news.NewsFragment"
         android:label="@string/title_news"
         tools:layout="@layout/fragment_news" />
 
     <fragment
         android:id="@+id/navigation_brands"
-        android:name="at.fh.swengb.beFast.ui.brands.BrandsFragment"
+        android:name="at.fh.swengb.beFast.brands.BrandsFragment"
         android:label="@string/title_brands"
         tools:layout="@layout/fragment_brands" />
 
     <fragment
         android:id="@+id/navigation_drops"
-        android:name="at.fh.swengb.beFast.ui.drops.DropsFragment"
+        android:name="at.fh.swengb.beFast.drops.DropsFragment"
         android:label="@string/title_drops"
         tools:layout="@layout/fragment_drops" />
 
     <fragment
         android:id="@+id/navigation_more"
-        android:name="at.fh.swengb.beFast.ui.more.MoreFragment"
+        android:name="at.fh.swengb.beFast.more.MoreFragment"
         android:label="@string/title_more"
         tools:layout="@layout/fragment_more" />
 </navigation>

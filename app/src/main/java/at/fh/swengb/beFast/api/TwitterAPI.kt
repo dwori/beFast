@@ -1,12 +1,11 @@
-package at.fh.swengb.beFast.ui.news
+package at.fh.swengb.beFast.api
 
-import at.fh.swengb.beFast.models.TweetsItem
+
 import com.squareup.moshi.Moshi
 import okhttp3.OkHttpClient
-import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
-import retrofit2.http.*
+
 
 object TwitterApi {
     // fill in your access token and base url
@@ -19,17 +18,9 @@ object TwitterApi {
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .baseUrl("https://api.twitter.com/")
             .client(OkHttpClient.Builder().addInterceptor { chain ->
-                val request = chain.request().newBuilder().addHeader("Authorization", "Bearer ${accessToken}").build()
+                val request = chain.request().newBuilder().addHeader("Authorization", "Bearer $accessToken").build()
                 chain.proceed(request)}.build())
             .build()
-
-        retrofitService = retrofit.create(TwitterApiService::class.java) }
-
+        retrofitService = retrofit.create(TwitterApiService::class.java)
+    }
 }
-// make the actual api call and defining what you want to GET
-interface TwitterApiService {
-    @GET("1.1/lists/statuses.json?slug=Sneaker&owner_screen_name=Laeuft_bei_mir&count=50&include_rts=false")
-    fun getTweetList(): Call<List<TweetsItem>>
-
-}
-

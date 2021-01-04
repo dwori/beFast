@@ -1,0 +1,39 @@
+package at.fh.swengb.beFast.drops.recylcerview
+
+
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
+import at.fh.swengb.beFast.R
+import at.fh.swengb.beFast.models.Drops
+
+
+class DropsAdapter(val clickListener: (drop: Drops) -> Unit): RecyclerView.Adapter<DropViewHolder>() {
+
+    private var dropList = listOf<Drops>()
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DropViewHolder {
+        val dropItemView = LayoutInflater.from(parent.context).inflate(
+                R.layout.drops_recycler_view_item,
+                parent,
+                false
+        )
+        return DropViewHolder(dropItemView, clickListener)
+    }
+
+    override fun getItemCount(): Int = dropList.size
+
+    override fun onBindViewHolder(holder: DropViewHolder, position: Int) {
+        holder.bindItem(dropList[position])
+    }
+
+    fun updateList(newList: List<Drops>) {
+        dropList = newList
+        notifyDataSetChanged()
+    }
+
+    fun filterList(string: String) {
+        dropList = dropList.filter { it.brand != string }
+        notifyDataSetChanged()
+    }
+}

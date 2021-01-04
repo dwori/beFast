@@ -1,40 +1,35 @@
-package at.fh.swengb.beFast.ui.more
+package at.fh.swengb.beFast.settings
 
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
 import android.view.View
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import at.fh.swengb.beFast.MainActivity
 import at.fh.swengb.beFast.R
+import at.fh.swengb.beFast.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_settings.*
-import kotlinx.android.synthetic.main.fragment_more.*
 
 
 class SettingsActivity : AppCompatActivity() {
     companion object {
-
-        val usernameKey = "USERNAME"
-        val darkmodeKey = "DARKMODE"
-        val loginBool = "LOGIN"
-        val emailKey = "EMAIL"
-
+        // settings: sharedPreferences
+        const val usernameKey = "USERNAME"
+        const val darkmodeKey = "DARKMODE"
+        const val loginBool = "LOGIN"
+        const val emailKey = "EMAIL"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_settings)
 
-
         val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
-        if (sharedPreferences.getBoolean(SettingsActivity.loginBool, false)) {
+
+        if (sharedPreferences.getBoolean(loginBool, false)) {
             settings_login.visibility = View.GONE
             settings_logout.visibility = View.VISIBLE
             textView_logged_status.text = getString(R.string.logged_in)
@@ -42,8 +37,6 @@ class SettingsActivity : AppCompatActivity() {
             val savedUsername = sharedPreferences.getString(usernameKey, null)
             editText_username.setText(savedUsername)
             editText_email.setText(sharedPreferences.getString(emailKey, null))
-
-
 
         } else {
             textView_logged_status.text = getString(R.string.logged_out)
@@ -61,7 +54,7 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         settings_logout.setOnClickListener {
-            sharedPreferences.edit().putBoolean(SettingsActivity.loginBool, false).apply()
+            sharedPreferences.edit().putBoolean(loginBool, false).apply()
             /*editUsername.setVisibility(View.VISIBLE)
             editEmail.setVisibility(View.VISIBLE)
             editUsername.setText("")
@@ -124,7 +117,8 @@ class SettingsActivity : AppCompatActivity() {
 
 
     }
-    fun saveSettings(v: View) {
+    fun saveSettings(v: View) { //todo refactor button on lick listener
+
         val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
         sharedPreferences.edit().putString(usernameKey, editText_username.text.toString()).apply()
         sharedPreferences.edit().putString(emailKey, editText_email.text.toString()).apply()
@@ -154,7 +148,7 @@ class SettingsActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
-        if (sharedPreferences.getBoolean(SettingsActivity.loginBool, false)) {
+        if (sharedPreferences.getBoolean(loginBool, false)) {
             settings_login.visibility = View.GONE
             textView_email.visibility = View.VISIBLE
             settings_logout.visibility = View.VISIBLE
