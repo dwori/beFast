@@ -4,15 +4,19 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentManager
+import at.fh.swengb.beFast.MainActivity
 import at.fh.swengb.beFast.R
-import at.fh.swengb.beFast.ui.drops.DescriptionActivity
-import at.fh.swengb.beFast.ui.drops.DropsFragment
 import kotlinx.android.synthetic.main.activity_settings.*
+import kotlinx.android.synthetic.main.fragment_more.*
+
 
 class SettingsActivity : AppCompatActivity() {
     companion object {
@@ -28,9 +32,53 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
+
         val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
-        //val savedUsername = sharedPreferences.getString(usernameKey, null)
-        //editText_username.setText(savedUsername)
+        if (sharedPreferences.getBoolean(SettingsActivity.loginBool, false)) {
+            settings_login.visibility = View.GONE
+            settings_logout.visibility = View.VISIBLE
+            textView_logged_status.text = "Logged in as:"
+            val savedUsername = sharedPreferences.getString(usernameKey, null)
+            editText_username.setText(savedUsername)
+
+
+
+        } else {
+            textView_logged_status.text = "You are not logged in:"
+            editText_username.visibility = View.GONE
+            settings_logout.visibility = View.GONE
+
+        }
+        settings_login.setOnClickListener {
+
+            val loginIntent = Intent(this, LoginActivity::class.java)
+            startActivity(loginIntent)
+
+        }
+
+        settings_logout.setOnClickListener {
+            sharedPreferences.edit().putBoolean(SettingsActivity.loginBool, false).apply()
+            /*editUsername.setVisibility(View.VISIBLE)
+            editEmail.setVisibility(View.VISIBLE)
+            editUsername.setText("")
+            editEmail.setText("")*/
+            textView_logged_status.text = "You are not logged in:"
+            settings_login.visibility = View.VISIBLE
+            editText_username.visibility = View.INVISIBLE
+            settings_logout.visibility = View.INVISIBLE
+
+
+
+            //Delete the sharedPreferences
+            //Log.i("INFO", "Prefs deleted")
+            sharedPreferences.edit().remove(usernameKey).commit()
+            sharedPreferences.edit().remove(emailKey).commit()
+        }
+
+
+
+        val savedUsername = sharedPreferences.getString(usernameKey, null)
+        editText_username.setText(savedUsername)
         val savedDarkmode = sharedPreferences.getBoolean(darkmodeKey, false)
         switch_darkmode.isChecked = savedDarkmode
 
@@ -45,10 +93,7 @@ class SettingsActivity : AppCompatActivity() {
             startActivity(shareIntent)
         }
 
-        //version
-        settings_version.setOnClickListener {
-            Toast.makeText(this, "Version Build 3.2", Toast.LENGTH_LONG).show()
-        }
+
 
         //contact us
         settings_support.setOnClickListener {
@@ -75,7 +120,7 @@ class SettingsActivity : AppCompatActivity() {
     }
     fun saveSettings(v: View) {
         val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
-        //sharedPreferences.edit().putString(usernameKey, editText_username.text.toString()).apply()
+        sharedPreferences.edit().putString(usernameKey, editText_username.text.toString()).apply()
         sharedPreferences.edit().putBoolean(darkmodeKey, switch_darkmode.isChecked).apply()
 
         val isNightMode = sharedPreferences.getBoolean(darkmodeKey, true)
@@ -84,6 +129,8 @@ class SettingsActivity : AppCompatActivity() {
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
+
+
         finish()
     }
 
@@ -95,4 +142,34 @@ class SettingsActivity : AppCompatActivity() {
         }
         return true
     }
+
+
+    override fun onResume() {
+        super.onResume()
+        val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
+        if (sharedPreferences.getBoolean(SettingsActivity.loginBool, false)) {
+            settings_login.visibility = View.GONE
+            settings_logout.visibility = View.VISIBLE
+            editText_username.visibility = View.VISIBLE
+            textView_logged_status.text = "Logged in as:"
+            val savedUsername = sharedPreferences.getString(usernameKey, null)
+            editText_username.setText(savedUsername)
+
+
+
+        } else {
+            textView_logged_status.text = "You are not logged in:"
+            editText_username.visibility = View.GONE
+            settings_logout.visibility = View.GONE
+
+        }
+
+    }
+
+
+
+
+
+
+
 }

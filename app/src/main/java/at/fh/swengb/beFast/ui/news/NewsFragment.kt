@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.models.TweetsItem
 import com.squareup.moshi.Moshi
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_news.*
 
 class NewsFragment : Fragment() {
@@ -39,6 +40,8 @@ class NewsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         init()
+
+
     }
     private fun init() {
         SleepyAsyncTask()

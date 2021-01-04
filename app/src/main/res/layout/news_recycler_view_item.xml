@@ -37,6 +37,7 @@
 
         <ImageView
             android:id="@+id/item_tweet_image"
+            android:scaleType="centerCrop"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             app:layout_constraintEnd_toEndOf="parent"
