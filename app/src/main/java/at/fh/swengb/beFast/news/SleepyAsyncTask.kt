@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package at.fh.swengb.beFast.news
 
 import android.os.AsyncTask

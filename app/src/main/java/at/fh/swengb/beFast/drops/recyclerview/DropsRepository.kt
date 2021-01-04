@@ -11,9 +11,6 @@ object DropsRepository {
             Drops("4","Puma", "Air Force 1", "31.12.2020 +0100 11:00", "250$", "https://images.crocs.com/is/image/Crocs/205516_0DA_ALT140?&fmt=jpeg&qlt=85,1&op_sharpen=0&resMode=sharp2&op_usm=1,1,6,0&iccEmbed=0&printRes=72&wid=440&hei=365","https://sizeer.at/media/cache/gallery/rc/pc2kfrx8/nike-air-force-1-gs-junior-sneaker-weiss-314192-117_3.jpg"),
             Drops("5","Supreme", "Air Force 1", "31.12.2020 +0100 11:00", "250$", "https://images.crocs.com/is/image/Crocs/205516_0DA_ALT140?&fmt=jpeg&qlt=85,1&op_sharpen=0&resMode=sharp2&op_usm=1,1,6,0&iccEmbed=0&printRes=72&wid=440&hei=365","https://sizeer.at/media/cache/gallery/rc/pc2kfrx8/nike-air-force-1-gs-junior-sneaker-weiss-314192-117_3.jpg")
     )
-    fun dropsList(): List<Drops> {
-        return drops
-    }
 
     fun dropById(id: String): Drops? {
         return drops.find { it.id == id}

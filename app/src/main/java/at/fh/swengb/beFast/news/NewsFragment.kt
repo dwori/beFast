@@ -23,18 +23,11 @@ class NewsFragment : Fragment() {
     private lateinit var newsViewModel: NewsViewModel
     private lateinit var tweetAdapter: TweetAdapter
 
-    override fun onCreateView(
-            inflater: LayoutInflater,
-            container: ViewGroup?,
-            savedInstanceState: Bundle?
-    ): View? {
-        newsViewModel =
-                ViewModelProvider(this).get(NewsViewModel::class.java)
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        newsViewModel = ViewModelProvider(this).get(NewsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_news, container, false)
         val textView: TextView = root.findViewById(R.id.text_news)
-        newsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+        newsViewModel.text.observe(viewLifecycleOwner, Observer { textView.text = it })
         return root
     }
 
@@ -71,7 +64,7 @@ class NewsFragment : Fragment() {
         fragment_recycler_view_news.layoutManager = layoutManager
         fragment_recycler_view_news.adapter = tweetAdapter
     }
-    fun parseJson() {
+    private fun parseJson() {
         val moshi = Moshi.Builder().build()
         val jsonAdapter = moshi.adapter<TweetsItem>(TweetsItem::class.java)
         val tweet = jsonAdapter.fromJson("""

@@ -15,14 +15,12 @@ import kotlinx.android.synthetic.main.fragment_brands.*
 
 class BrandsFragment : Fragment() {
     companion object {
-
         val nikeKey = "Nike"
         val adidasKey = "Adidas"
         val fearofgofKey = "Fear Of God"
         val newbalanceKey = "New Balance"
         val pumaKey = "Puma"
         val supremeKey = "Supreme"
-
     }
 
     private lateinit var brandsViewModel: BrandsViewModel
@@ -31,9 +29,7 @@ class BrandsFragment : Fragment() {
         brandsViewModel = ViewModelProvider(this).get(BrandsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_brands, container, false)
         val textView: TextView = root.findViewById(R.id.text_brands)
-        brandsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
+        brandsViewModel.text.observe(viewLifecycleOwner, Observer { textView.text = it })
         return root
     }
 
@@ -63,7 +59,6 @@ class BrandsFragment : Fragment() {
                 sharedPreferences.edit().putBoolean(newbalanceKey, switch4.isChecked).apply()
                 sharedPreferences.edit().putBoolean(pumaKey, switch5.isChecked).apply()
                 sharedPreferences.edit().putBoolean(supremeKey, switch6.isChecked).apply()
-
             }
 
         } else {
