@@ -15,9 +15,9 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.fragment_drops.*
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.brands.BrandsFragment
-import at.fh.swengb.beFast.drops.recylcerview.DescriptionActivity
-import at.fh.swengb.beFast.drops.recylcerview.DropsAdapter
-import at.fh.swengb.beFast.drops.recylcerview.DropsRepository
+import at.fh.swengb.beFast.drops.recyclerview.DescriptionActivity
+import at.fh.swengb.beFast.drops.recyclerview.DropsAdapter
+import at.fh.swengb.beFast.drops.recyclerview.DropsRepository
 
 
 

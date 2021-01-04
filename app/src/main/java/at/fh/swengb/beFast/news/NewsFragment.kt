@@ -14,9 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.squareup.moshi.Moshi
 import kotlinx.android.synthetic.main.fragment_news.*
 import at.fh.swengb.beFast.R
+import at.fh.swengb.beFast.api.TwitterApi
 import at.fh.swengb.beFast.models.tweets.TweetsItem
-import at.fh.swengb.beFast.news.recylcerview.TweetAdapter
-import at.fh.swengb.beFast.news.recylcerview.TweetRepository
+import at.fh.swengb.beFast.news.recyclerview.TweetAdapter
 
 class NewsFragment : Fragment() {
 
@@ -53,7 +53,7 @@ class NewsFragment : Fragment() {
             startActivity(intent)
         }
 
-        TweetRepository.tweetList(
+        TwitterApi.tweetList(
                 success = {
                     // handle success
                     tweetAdapter.updateList(it)

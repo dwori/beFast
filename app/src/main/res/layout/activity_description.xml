@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".drops.recylcerview.DescriptionActivity">
+    tools:context=".drops.recyclerview.DescriptionActivity">
 
     <TextView
         android:id="@+id/description_price"

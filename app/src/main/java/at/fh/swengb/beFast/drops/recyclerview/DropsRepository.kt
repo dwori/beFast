@@ -1,4 +1,4 @@
-package at.fh.swengb.beFast.drops.recylcerview
+package at.fh.swengb.beFast.drops.recyclerview
 
 import at.fh.swengb.beFast.models.drops.Drops
 

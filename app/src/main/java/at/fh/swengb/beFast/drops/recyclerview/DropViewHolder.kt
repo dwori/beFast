@@ -1,4 +1,4 @@
-package at.fh.swengb.beFast.drops.recylcerview
+package at.fh.swengb.beFast.drops.recyclerview
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.View
