@@ -104,6 +104,9 @@ class MoreFragment : Fragment() {
             logoutButton.setVisibility(View.VISIBLE)
         } else {
             //Else the logoutButton gets hidden and the login one shown. And a matching message is shown on the screen
+            /*editUsername.setText(sharedPreferences.getString(usernameKey, null))
+            editEmail.setText(sharedPreferences.getString(emailKey, null))*/
+
 
             logged_in_as.text = getString(R.string.logged_out)
             logoutButton.setVisibility(View.GONE)

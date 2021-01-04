@@ -38,14 +38,18 @@ class SettingsActivity : AppCompatActivity() {
             settings_login.visibility = View.GONE
             settings_logout.visibility = View.VISIBLE
             textView_logged_status.text = "Logged in as:"
+            textView_email.visibility = View.VISIBLE
             val savedUsername = sharedPreferences.getString(usernameKey, null)
             editText_username.setText(savedUsername)
+            editText_email.setText(sharedPreferences.getString(emailKey, null))
 
 
 
         } else {
             textView_logged_status.text = "You are not logged in:"
             editText_username.visibility = View.GONE
+            editText_email.visibility = View.GONE
+            textView_email.visibility = View.GONE
             settings_logout.visibility = View.GONE
 
         }
@@ -63,8 +67,10 @@ class SettingsActivity : AppCompatActivity() {
             editUsername.setText("")
             editEmail.setText("")*/
             textView_logged_status.text = "You are not logged in:"
+            textView_email.visibility = View.GONE
             settings_login.visibility = View.VISIBLE
             editText_username.visibility = View.INVISIBLE
+            editText_email.visibility = View.INVISIBLE
             settings_logout.visibility = View.INVISIBLE
 
 
@@ -121,6 +127,7 @@ class SettingsActivity : AppCompatActivity() {
     fun saveSettings(v: View) {
         val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
         sharedPreferences.edit().putString(usernameKey, editText_username.text.toString()).apply()
+        sharedPreferences.edit().putString(emailKey, editText_email.text.toString()).apply()
         sharedPreferences.edit().putBoolean(darkmodeKey, switch_darkmode.isChecked).apply()
 
         val isNightMode = sharedPreferences.getBoolean(darkmodeKey, true)
@@ -149,16 +156,22 @@ class SettingsActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
         if (sharedPreferences.getBoolean(SettingsActivity.loginBool, false)) {
             settings_login.visibility = View.GONE
+            textView_email.visibility = View.VISIBLE
             settings_logout.visibility = View.VISIBLE
+            editText_email.visibility = View.VISIBLE
             editText_username.visibility = View.VISIBLE
             textView_logged_status.text = "Logged in as:"
             val savedUsername = sharedPreferences.getString(usernameKey, null)
             editText_username.setText(savedUsername)
+            editText_email.setText(sharedPreferences.getString(emailKey, null))
 
 
 
         } else {
             textView_logged_status.text = "You are not logged in:"
+
+            textView_email.visibility = View.GONE
+            editText_email.visibility = View.GONE
             editText_username.visibility = View.GONE
             settings_logout.visibility = View.GONE
 
