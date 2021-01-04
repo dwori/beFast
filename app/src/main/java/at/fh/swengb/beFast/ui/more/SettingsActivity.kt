@@ -37,7 +37,7 @@ class SettingsActivity : AppCompatActivity() {
         if (sharedPreferences.getBoolean(SettingsActivity.loginBool, false)) {
             settings_login.visibility = View.GONE
             settings_logout.visibility = View.VISIBLE
-            textView_logged_status.text = "Logged in as:"
+            textView_logged_status.text = getString(R.string.logged_in)
             textView_email.visibility = View.VISIBLE
             val savedUsername = sharedPreferences.getString(usernameKey, null)
             editText_username.setText(savedUsername)
@@ -46,7 +46,7 @@ class SettingsActivity : AppCompatActivity() {
 
 
         } else {
-            textView_logged_status.text = "You are not logged in:"
+            textView_logged_status.text = getString(R.string.logged_out)
             editText_username.visibility = View.GONE
             editText_email.visibility = View.GONE
             textView_email.visibility = View.GONE
@@ -66,7 +66,7 @@ class SettingsActivity : AppCompatActivity() {
             editEmail.setVisibility(View.VISIBLE)
             editUsername.setText("")
             editEmail.setText("")*/
-            textView_logged_status.text = "You are not logged in:"
+            textView_logged_status.text = getString(R.string.logged_out)
             textView_email.visibility = View.GONE
             settings_login.visibility = View.VISIBLE
             editText_username.visibility = View.INVISIBLE
@@ -92,7 +92,7 @@ class SettingsActivity : AppCompatActivity() {
         settings_share.setOnClickListener {
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, "Get the new beFast app here: https://www.fh-joanneum.at")
+                putExtra(Intent.EXTRA_TEXT, getString(R.string.get_app) + " " + "https://www.fh-joanneum.at")
                 type = "text/plain"
             }
             val shareIntent = Intent.createChooser(sendIntent, null)
@@ -105,8 +105,8 @@ class SettingsActivity : AppCompatActivity() {
         settings_support.setOnClickListener {
             val email = Intent(Intent.ACTION_SENDTO)
             email.data = Uri.parse("mailto:mbukvarevic@gmail.com")
-            email.putExtra(Intent.EXTRA_SUBJECT, "Subject")
-            email.putExtra(Intent.EXTRA_TEXT, "My Email message")
+            email.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.email_subject))
+            email.putExtra(Intent.EXTRA_TEXT, getString(R.string.email_message))
             startActivity(email)
 
         }
@@ -160,7 +160,7 @@ class SettingsActivity : AppCompatActivity() {
             settings_logout.visibility = View.VISIBLE
             editText_email.visibility = View.VISIBLE
             editText_username.visibility = View.VISIBLE
-            textView_logged_status.text = "Logged in as:"
+            textView_logged_status.text = getString(R.string.logged_in)
             val savedUsername = sharedPreferences.getString(usernameKey, null)
             editText_username.setText(savedUsername)
             editText_email.setText(sharedPreferences.getString(emailKey, null))
@@ -168,7 +168,7 @@ class SettingsActivity : AppCompatActivity() {
 
 
         } else {
-            textView_logged_status.text = "You are not logged in:"
+            textView_logged_status.text = getString(R.string.logged_out)
 
             textView_email.visibility = View.GONE
             editText_email.visibility = View.GONE

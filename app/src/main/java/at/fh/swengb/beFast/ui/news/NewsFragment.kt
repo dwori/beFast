@@ -11,6 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import at.fh.swengb.beFast.MainActivity
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.models.TweetsItem
 import com.squareup.moshi.Moshi
@@ -59,8 +60,9 @@ class NewsFragment : Fragment() {
                 },
                 error = {
                     // handle error
-                    Toast.makeText(activity, "Please check your internet connection.", Toast.LENGTH_LONG).show()
                     Log.e("Error","Repository Error")
+                    Toast.makeText(activity, getString(R.string.internet_connection), Toast.LENGTH_LONG).show() //TODO: App crashes if started on AirplaneMode on lukis phone news Fragment has no corresponding activity
+                    //Log.e("Error","Repository Error")
                 }
         )
         parseJson()

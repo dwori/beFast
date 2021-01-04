@@ -24,7 +24,7 @@ class LoginActivity : AppCompatActivity() {
             if (login_username?.text.toString().trim().isNullOrBlank() || login_password?.text.toString()
                     .trim().isNullOrBlank()
             ) {
-                Toast.makeText(this, "Please enter a valid username & email.", Toast.LENGTH_LONG)
+                Toast.makeText(this, getString(R.string.valid_email), Toast.LENGTH_LONG)
                     .show()
 
                 //on login we change the visibility of the editTexts and the login/logout buttons.

@@ -20,17 +20,17 @@ class DescriptionActivity : AppCompatActivity() {
         val dropId = intent.getStringExtra(EXTRA_DROP_ID)
 
         if (dropId != null) {
-            description_brand.text = DropsRepository.dropById(dropId)?.brand ?: "no brand found"
-            description_name.text = DropsRepository.dropById(dropId)?.name ?: "no name found"
-            description_price.text = DropsRepository.dropById(dropId)?.price ?: "no price found"
+            description_brand.text = DropsRepository.dropById(dropId)?.brand ?: getString(R.string.brand_error) //Dynamic language
+            description_name.text = DropsRepository.dropById(dropId)?.name ?: getString(R.string.name_error)
+            description_price.text = DropsRepository.dropById(dropId)?.price ?: getString(R.string.price_error)
 
         }
 
 
-        val brand = dropId?.let { DropsRepository.dropById(it)?.brand } ?: "no brand found"
-        val name = dropId?.let { DropsRepository.dropById(it)?.name } ?: "no name found"
-        val datetime = dropId?.let { DropsRepository.dropById(it)?.datetime } ?: "no date found"
-        val homepageUrl = dropId?.let { DropsRepository.dropById(it)?.homepageUrl } ?: "no homepageUrl found"
+        val brand = dropId?.let { DropsRepository.dropById(it)?.brand } ?: getString(R.string.brand_error)
+        val name = dropId?.let { DropsRepository.dropById(it)?.name } ?: getString(R.string.name_error)
+        val datetime = dropId?.let { DropsRepository.dropById(it)?.datetime } ?: getString(R.string.date_error)
+        val homepageUrl = dropId?.let { DropsRepository.dropById(it)?.homepageUrl } ?: getString(R.string.hompageURL_error)
 
 
 

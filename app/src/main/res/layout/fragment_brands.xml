@@ -6,6 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".ui.brands.BrandsFragment">
 
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </TableLayout>
+
     <TextView
         android:id="@+id/item_brands_nike"
         android:layout_width="wrap_content"
@@ -154,7 +175,7 @@
         android:id="@+id/save_brands"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save hardcoded"
+        android:text="@string/save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

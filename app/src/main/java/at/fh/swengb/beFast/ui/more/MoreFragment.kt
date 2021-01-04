@@ -124,5 +124,5 @@ class MoreFragment : Fragment() {
 
 
 
-//TODO: update fragment when sign-in and sign-out process is complete
-//TODO: Replace hardcoded strings
+
+
