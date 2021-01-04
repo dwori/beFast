@@ -2,20 +2,76 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/settings_id"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ui.more.SettingsActivity">
 
     <TextView
+        android:id="@+id/textView_logged_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Username:"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.158"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textView_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="Email:"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/textView_logged_status"
+        app:layout_constraintHorizontal_bias="0.594"
+        app:layout_constraintStart_toStartOf="@+id/textView_logged_status"
+        app:layout_constraintTop_toBottomOf="@+id/textView_logged_status" />
+
+    <EditText
+        android:id="@+id/editText_username"
+        android:layout_width="182dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_logged_status"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView_logged_status"
+        app:layout_constraintTop_toTopOf="@+id/textView_logged_status"
+        app:layout_constraintVertical_bias="0.538" />
+
+    <EditText
+        android:id="@+id/editText_email"
+        android:layout_width="182dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="8dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="@+id/textView_email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView_email"
+        app:layout_constraintTop_toTopOf="@+id/textView_email"
+        app:layout_constraintVertical_bias="0.576" />
+
+    <TextView
         android:id="@+id/textView_darkmode"
         android:layout_width="wrap_content"
         android:layout_height="32dp"
-        android:layout_marginStart="48dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="40dp"
         android:text="@string/darkmode"
         android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/textView_email"
+        app:layout_constraintHorizontal_bias="0.485"
+        app:layout_constraintStart_toStartOf="@+id/textView_email"
+        app:layout_constraintTop_toBottomOf="@+id/textView_email" />
 
     <Switch
         android:id="@+id/switch_darkmode"
@@ -24,9 +80,20 @@
         android:layout_marginStart="92dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView_darkmode"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.579"
+        app:layout_constraintHorizontal_bias="0.449"
         app:layout_constraintStart_toEndOf="@+id/textView_darkmode"
         app:layout_constraintTop_toTopOf="@+id/textView_darkmode"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/settings_logout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="Logout"
+        app:layout_constraintBottom_toBottomOf="@+id/save_settings"
+        app:layout_constraintEnd_toStartOf="@+id/save_settings"
+        app:layout_constraintTop_toTopOf="@+id/save_settings"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
@@ -43,14 +110,15 @@
         app:layout_constraintTop_toBottomOf="@+id/switch_darkmode" />
 
     <Button
-        android:id="@+id/settings_version"
+        android:id="@+id/settings_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Version"
-        app:icon="@drawable/ic_baseline_perm_device_information_24"
-        app:iconGravity="end"
-        tools:layout_editor_absoluteX="157dp"
-        tools:layout_editor_absoluteY="472dp" />
+        android:layout_marginEnd="36dp"
+        android:text="Login Now"
+        app:layout_constraintBottom_toTopOf="@+id/switch_darkmode"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.489" />
 
     <Button
         android:id="@+id/settings_share"
@@ -85,7 +153,7 @@
     <androidx.constraintlayout.helper.widget.Flow
         android:layout_width="379dp"
         android:layout_height="226dp"
-        app:constraint_referenced_ids="settings_version,settings_support,settings_share,settings_conditions"
+        app:constraint_referenced_ids="settings_support,settings_share,settings_conditions"
         app:flow_horizontalGap="25dp"
         app:flow_maxElementsWrap="1"
         app:flow_verticalAlign="center"
@@ -96,5 +164,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.534" />
+        app:layout_constraintVertical_bias="0.865" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="24dp"
+        android:text="Version 1.7.10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

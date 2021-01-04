@@ -7,6 +7,76 @@
     tools:context=".ui.brands.BrandsFragment">
 
     <TextView
+        android:id="@+id/item_brands_nike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="112dp"
+        android:layout_marginTop="24dp"
+        android:text="Nike"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/item_brands_adidas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:text="Adidas"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/item_brands_nike"
+        app:layout_constraintStart_toStartOf="@+id/item_brands_nike"
+        app:layout_constraintTop_toBottomOf="@+id/item_brands_nike" />
+
+    <TextView
+        android:id="@+id/item_brands_fearofgod"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="Fear Of God"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/item_brands_adidas"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="@+id/item_brands_adidas"
+        app:layout_constraintTop_toBottomOf="@+id/item_brands_adidas" />
+
+    <TextView
+        android:id="@+id/item_brands_newbalance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:text="New Balance"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/item_brands_fearofgod"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/item_brands_fearofgod"
+        app:layout_constraintTop_toBottomOf="@+id/item_brands_fearofgod" />
+
+    <TextView
+        android:id="@+id/item_brands_puma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:text="Puma"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/item_brands_newbalance"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="@+id/item_brands_newbalance"
+        app:layout_constraintTop_toBottomOf="@+id/item_brands_newbalance" />
+
+    <TextView
+        android:id="@+id/item_brands_supreme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="Supreme"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="@+id/item_brands_puma"
+        app:layout_constraintHorizontal_bias="0.416"
+        app:layout_constraintStart_toStartOf="@+id/item_brands_puma"
+        app:layout_constraintTop_toBottomOf="@+id/item_brands_puma" />
+
+    <TextView
         android:id="@+id/text_brands"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -15,8 +85,79 @@
         android:layout_marginEnd="8dp"
         android:textAlignment="center"
         android:textSize="20sp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="92dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="@+id/switch1"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/switch1"
+        app:layout_constraintTop_toBottomOf="@+id/switch1" />
+
+    <Switch
+        android:id="@+id/switch3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toEndOf="@+id/switch2"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/switch2"
+        app:layout_constraintTop_toBottomOf="@+id/switch2" />
+
+    <Switch
+        android:id="@+id/switch4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        app:layout_constraintEnd_toEndOf="@+id/switch3"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/switch3"
+        app:layout_constraintTop_toBottomOf="@+id/switch3" />
+
+    <Switch
+        android:id="@+id/switch5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        app:layout_constraintEnd_toEndOf="@+id/switch4"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/switch4"
+        app:layout_constraintTop_toBottomOf="@+id/switch4" />
+
+    <Switch
+        android:id="@+id/switch6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        app:layout_constraintEnd_toEndOf="@+id/switch5"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/switch5"
+        app:layout_constraintTop_toBottomOf="@+id/switch5" />
+
+    <Button
+        android:id="@+id/save_brands"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Save hardcoded"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.871" />
 </androidx.constraintlayout.widget.ConstraintLayout>

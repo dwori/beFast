@@ -1,11 +1,15 @@
 package at.fh.swengb.beFast.ui.drops
 
+import android.app.Activity
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.models.Drops
+import at.fh.swengb.beFast.ui.brands.BrandsFragment
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.drops_recycler_view_item.view.*
 import java.text.SimpleDateFormat
@@ -36,6 +40,10 @@ class DropsAdapter(val clickListener: (drop: Drops) -> Unit): RecyclerView.Adapt
         notifyDataSetChanged()
     }
 
+    fun filterList(string: String) {
+        dropList = dropList.filter { it.brand != string }
+        notifyDataSetChanged()
+    }
 
 }
 

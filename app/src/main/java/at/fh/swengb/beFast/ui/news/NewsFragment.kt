@@ -4,9 +4,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -16,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.models.TweetsItem
 import com.squareup.moshi.Moshi
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_news.*
 
 class NewsFragment : Fragment() {
@@ -41,6 +40,8 @@ class NewsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         init()
+
+
     }
     private fun init() {
         SleepyAsyncTask()
