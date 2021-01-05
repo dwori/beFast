@@ -24,10 +24,10 @@ import at.fh.swengb.beFast.settings.SettingsActivity
 class DropsFragment : Fragment() {
 
     private lateinit var dropsViewModel: DropsViewModel
-    lateinit var dropsAdapter: DropsAdapter
+    private lateinit var dropsAdapter: DropsAdapter
 
     companion object {
-        val EXTRA_DROP_ID = "DROP_ID_EXTRA"
+        const val EXTRA_DROP_ID = "DROP_ID_EXTRA"
     }
 
 
@@ -48,7 +48,7 @@ class DropsFragment : Fragment() {
             startActivity(descriptionIntent)
         }
         val sharedPreferences = requireContext().getSharedPreferences(requireContext().packageName, Context.MODE_PRIVATE)
-        val loginBool = sharedPreferences.getBoolean(SettingsActivity.loginBool, false)
+        val loginBool = sharedPreferences.getBoolean(SettingsActivity.loginBoolKey, false)
 
         val savedNike = sharedPreferences.getBoolean(BrandsFragment.nikeKey, true)
         val savedAdidas = sharedPreferences.getBoolean(BrandsFragment.adidasKey, true)

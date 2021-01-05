@@ -13,6 +13,6 @@ object DropsRepository {
     )
 
     fun dropById(id: String): Drops? {
-        return drops.find { it.id == id}
+        return drops.find { it.id == id }
     }
 }

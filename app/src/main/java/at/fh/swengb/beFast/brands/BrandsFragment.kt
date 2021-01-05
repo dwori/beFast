@@ -1,6 +1,7 @@
 package at.fh.swengb.beFast.brands
 
 import android.content.Context
+import android.content.SharedPreferences
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,6 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.settings.SettingsActivity
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_brands.*
 
 class BrandsFragment : Fragment() {
@@ -25,6 +27,7 @@ class BrandsFragment : Fragment() {
     }
 
     private lateinit var brandsViewModel: BrandsViewModel
+    private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         brandsViewModel = ViewModelProvider(this).get(BrandsViewModel::class.java)
@@ -36,10 +39,12 @@ class BrandsFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        sharedPreferences = requireContext().getSharedPreferences(requireContext().packageName, Context.MODE_PRIVATE)
 
-        val sharedPreferences = requireContext().getSharedPreferences(requireContext().packageName, Context.MODE_PRIVATE)
+        Glide.with(this).load("https://i.pinimg.com/736x/4e/b7/9c/4eb79c5e8456cb65830a6ef1faa0f688.jpg").into(imageView)
 
-        if (sharedPreferences.getBoolean(SettingsActivity.loginBool, false)) {
+
+        if (sharedPreferences.getBoolean(SettingsActivity.loginBoolKey, false)) {
 
             switch1.isChecked = sharedPreferences.getBoolean(nikeKey, true)
 
@@ -70,6 +75,7 @@ class BrandsFragment : Fragment() {
             switch4.visibility = View.GONE
             switch5.visibility = View.GONE
             switch6.visibility = View.GONE
+            save_brands.visibility = View.GONE
         }
     }
 }

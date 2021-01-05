@@ -33,7 +33,7 @@ class LoginActivity : AppCompatActivity() {
                         .apply()
                 sharedPreferences
                         .edit()
-                        .putBoolean(SettingsActivity.loginBool, true)
+                        .putBoolean(SettingsActivity.loginBoolKey, true)
                         .apply()
                 finish()
             }

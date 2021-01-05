@@ -14,7 +14,7 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.fragment_more.*
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.login.LoginActivity
-import at.fh.swengb.beFast.settings.SettingsActivity
+import at.fh.swengb.beFast.settings.SettingsActivity.Companion.loginBoolKey
 import at.fh.swengb.beFast.settings.SettingsActivity.Companion.emailKey
 import at.fh.swengb.beFast.settings.SettingsActivity.Companion.usernameKey
 
@@ -23,19 +23,22 @@ class MoreFragment : Fragment() {
 
     private lateinit var moreViewModel: MoreViewModel
 
-    private fun loadUserDetails(){
-        val sharedPreferences: SharedPreferences = requireContext().getSharedPreferences(requireContext().packageName, Context.MODE_PRIVATE)
+    private lateinit var sharedPreferences: SharedPreferences
+    private var loginBoolPreferences: Boolean = false
+
+    private fun loadMoreUserDetails(){
+        sharedPreferences = requireContext().getSharedPreferences(requireContext().packageName, Context.MODE_PRIVATE)
+        loginBoolPreferences = sharedPreferences.getBoolean(loginBoolKey, false)
+
         login_name.text = sharedPreferences.getString(usernameKey, "null")
         login_email.text = sharedPreferences.getString(emailKey, "null")
 
-        if (sharedPreferences.getBoolean(SettingsActivity.loginBool, false)) {
+        if (loginBoolPreferences) {
             logged_in_as.text =  getString(R.string.logged_in) // todo: better xml name
 
             loginButton.visibility = View.GONE
             logoutButton.visibility = View.VISIBLE
 
-            login_name.visibility = View.VISIBLE
-            login_email.visibility = View.VISIBLE
         } else {
             logged_in_as.text = getString(R.string.logged_out)
 
@@ -44,9 +47,8 @@ class MoreFragment : Fragment() {
         }
     }
     private fun logout() {
-        val sharedPreferences = requireContext().getSharedPreferences(requireContext().packageName, Context.MODE_PRIVATE)
         //Delete the sharedPreferences
-        sharedPreferences.edit().putBoolean(SettingsActivity.loginBool, false).apply()
+        sharedPreferences.edit().putBoolean(loginBoolKey, false).apply()
         sharedPreferences.edit().remove(usernameKey).apply()
         sharedPreferences.edit().remove(emailKey).apply()
     }
@@ -59,24 +61,24 @@ class MoreFragment : Fragment() {
         return root
     }
 
+    // on Create Fragment
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        loadUserDetails()
+
+        loadMoreUserDetails()
 
         logoutButton.setOnClickListener {
-            //Delete the sharedPreferences
             logout()
-            loadUserDetails()
+            loadMoreUserDetails()
         }
 
         loginButton.setOnClickListener {
             val loginIntent = Intent(context, LoginActivity::class.java)
             startActivity(loginIntent)
-
         }
     }
     override fun onResume() {
         super.onResume()
-        loadUserDetails()
+        loadMoreUserDetails()
     }
 }

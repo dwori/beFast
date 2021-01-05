@@ -22,5 +22,4 @@ class TweetAdapter( val clickListener: (tweet: TweetsItem) -> Unit ): RecyclerVi
         tweetList = newList
         notifyDataSetChanged()
     }
-
 }

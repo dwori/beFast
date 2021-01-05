@@ -2,6 +2,7 @@ package at.fh.swengb.beFast.settings
 
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Bundle
 import android.view.MenuItem
@@ -12,75 +13,105 @@ import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_settings.*
 
-//todo refactor hole class
 class SettingsActivity : AppCompatActivity() {
     companion object {
-        // settings: sharedPreferences
         const val usernameKey = "USERNAME"
-        const val darkmodeKey = "DARKMODE"
-        const val loginBool = "LOGIN"
+        const val nightModeKey = "NIGHTMARE"
+        const val loginBoolKey = "LOGIN"
         const val emailKey = "EMAIL"
     }
+
+    private lateinit var sharedPreferences: SharedPreferences
+
+    private var loginBoolPreferences: Boolean = false
+    private var savedNightMode: Boolean = false
+
+    private fun getLoginBoolPreferences() {
+        sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
+        loginBoolPreferences = sharedPreferences.getBoolean(loginBoolKey, false)
+    }
+
     private fun logout() {
-        val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
         //Delete the sharedPreferences
-        sharedPreferences.edit().putBoolean(loginBool, false).apply()
+        sharedPreferences.edit().putBoolean(loginBoolKey, false).apply()
         sharedPreferences.edit().remove(usernameKey).apply()
         sharedPreferences.edit().remove(emailKey).apply()
+    }
+    private fun loadAccountSettings(){
+        val savedUsername = sharedPreferences.getString(usernameKey, null)
+        val savedEmail = sharedPreferences.getString(emailKey, null)
+
+        if (loginBoolPreferences) {
+            textView_logged_status.text = getString(R.string.logged_in)
+
+            editText_username.setText(savedUsername)
+            editText_email.setText(savedEmail)
+
+            settings_login.visibility = View.GONE
+            changeVisibility(View.VISIBLE)
+
+        } else {
+            textView_logged_status.text = getString(R.string.logged_out)
+
+            settings_login.visibility = View.VISIBLE
+            changeVisibility(View.GONE)
+        }
+    }
+    private fun changeVisibility(v: Int) {
+        textView_email.visibility = v
+        settings_logout.visibility = v
+        editText_email.visibility = v
+        editText_username.visibility = v
+    }
+    private fun saveSettings() {
+        if (loginBoolPreferences) {
+            sharedPreferences.edit().putString(usernameKey, editText_username.text.toString()).apply()
+            sharedPreferences.edit().putString(emailKey, editText_email.text.toString()).apply()
+        }
+
+        sharedPreferences.edit().putBoolean(nightModeKey, switch_darkmode.isChecked).apply()
+
+        savedNightMode = switch_darkmode.isChecked
+
+        if (savedNightMode) {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+        } else {
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+        }
     }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_settings)
 
-        val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
+        getLoginBoolPreferences()
 
-        if (sharedPreferences.getBoolean(loginBool, false)) {
-            settings_login.visibility = View.GONE
-            settings_logout.visibility = View.VISIBLE
-            textView_logged_status.text = getString(R.string.logged_in)
-            textView_email.visibility = View.VISIBLE
-            val savedUsername = sharedPreferences.getString(usernameKey, null)
-            editText_username.setText(savedUsername)
-            editText_email.setText(sharedPreferences.getString(emailKey, null))
+        savedNightMode = sharedPreferences.getBoolean(nightModeKey, false)
+        switch_darkmode.isChecked = savedNightMode
 
-        } else {
-            textView_logged_status.text = getString(R.string.logged_out)
-            editText_username.visibility = View.GONE
-            editText_email.visibility = View.GONE
-            textView_email.visibility = View.GONE
-            settings_logout.visibility = View.GONE
+        loadAccountSettings()
 
+        //save Account settings
+        save_settings.setOnClickListener {
+            saveSettings()
+            finish()
         }
-        settings_login.setOnClickListener {
 
+        //login button
+        settings_login.setOnClickListener {
             val loginIntent = Intent(this, LoginActivity::class.java)
             startActivity(loginIntent)
-
         }
 
+        //logout button
         settings_logout.setOnClickListener {
-           logout()
-
-            textView_logged_status.text = getString(R.string.logged_out)
-            textView_email.visibility = View.GONE
-            settings_login.visibility = View.VISIBLE
-            editText_username.visibility = View.INVISIBLE
-            editText_email.visibility = View.INVISIBLE
-            settings_logout.visibility = View.INVISIBLE
-
+            logout()
+            getLoginBoolPreferences()
+            loadAccountSettings()
         }
 
-
-
-        val savedUsername = sharedPreferences.getString(usernameKey, null)
-        editText_username.setText(savedUsername)
-        val savedDarkmode = sharedPreferences.getBoolean(darkmodeKey, false)
-        switch_darkmode.isChecked = savedDarkmode
-
-        //share this app
+        //share this app button
         settings_share.setOnClickListener {
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
@@ -91,9 +122,7 @@ class SettingsActivity : AppCompatActivity() {
             startActivity(shareIntent)
         }
 
-
-
-        //contact us
+        //contact us button
         settings_support.setOnClickListener {
             val email = Intent(Intent.ACTION_SENDTO)
             email.data = Uri.parse("mailto:mbukvarevic@gmail.com")
@@ -103,7 +132,7 @@ class SettingsActivity : AppCompatActivity() {
 
         }
 
-        //terms and conditions
+        //terms and conditions button // todo datenschutz
         settings_conditions.setOnClickListener {
             val conditionsIntent = Intent(this, ConditionsActivity::class.java)
             startActivity(conditionsIntent)
@@ -111,29 +140,7 @@ class SettingsActivity : AppCompatActivity() {
 
         //back button
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
-
-
-
     }
-    fun saveSettings(v: View) { //todo refactor button on lick listener
-
-        val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
-        sharedPreferences.edit().putString(usernameKey, editText_username.text.toString()).apply()
-        sharedPreferences.edit().putString(emailKey, editText_email.text.toString()).apply()
-        sharedPreferences.edit().putBoolean(darkmodeKey, switch_darkmode.isChecked).apply()
-
-        val isNightMode = sharedPreferences.getBoolean(darkmodeKey, true)
-        if (isNightMode) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        }
-
-
-        finish()
-    }
-
     //back button
     override fun onOptionsItemSelected(item: MenuItem):Boolean {
         super.onOptionsItemSelected(item)
@@ -142,40 +149,9 @@ class SettingsActivity : AppCompatActivity() {
         }
         return true
     }
-
-
     override fun onResume() {
         super.onResume()
-        val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
-        if (sharedPreferences.getBoolean(loginBool, false)) {
-            settings_login.visibility = View.GONE
-            textView_email.visibility = View.VISIBLE
-            settings_logout.visibility = View.VISIBLE
-            editText_email.visibility = View.VISIBLE
-            editText_username.visibility = View.VISIBLE
-            textView_logged_status.text = getString(R.string.logged_in)
-            val savedUsername = sharedPreferences.getString(usernameKey, null)
-            editText_username.setText(savedUsername)
-            editText_email.setText(sharedPreferences.getString(emailKey, null))
-
-
-
-        } else {
-            textView_logged_status.text = getString(R.string.logged_out)
-
-            textView_email.visibility = View.GONE
-            editText_email.visibility = View.GONE
-            editText_username.visibility = View.GONE
-            settings_logout.visibility = View.GONE
-
-        }
-
+        getLoginBoolPreferences()
+        loadAccountSettings()
     }
-
-
-
-
-
-
-
 }

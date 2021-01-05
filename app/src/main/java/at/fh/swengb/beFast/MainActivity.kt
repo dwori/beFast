@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
 
         //DARK MODE
         val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
-        val isNightMode = sharedPreferences.getBoolean(SettingsActivity.darkmodeKey, true)
+        val isNightMode = sharedPreferences.getBoolean(SettingsActivity.nightModeKey, true)
         if (isNightMode) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {

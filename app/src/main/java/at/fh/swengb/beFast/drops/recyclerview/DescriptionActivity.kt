@@ -38,7 +38,7 @@ class DescriptionActivity : AppCompatActivity() {
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
                 putExtra(Intent.EXTRA_TEXT, "$brand $name Drop by beFast")
-                type = "text/plain"
+                type = "text/plain" //todo send the link not text
             }
             val shareIntent = Intent.createChooser(sendIntent, null)
             startActivity(shareIntent)

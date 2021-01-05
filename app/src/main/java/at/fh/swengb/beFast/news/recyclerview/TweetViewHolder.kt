@@ -20,7 +20,7 @@ class TweetViewHolder(itemView: View, val clickListener: (tweet: TweetsItem) -> 
 
 
         } else if (tweet.entities.media[0].media_url_https == " ") {
-
+         // todo
         }
 
         itemView.item_tweet_text.text = tweet.text
@@ -31,6 +31,7 @@ class TweetViewHolder(itemView: View, val clickListener: (tweet: TweetsItem) -> 
             }
         } else {
             // itemView.item_tweet_url.text = "no link"
+            // todo
         }
         // time zones
         val date: String = tweet.created_at
