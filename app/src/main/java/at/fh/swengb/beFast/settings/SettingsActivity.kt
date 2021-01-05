@@ -12,7 +12,7 @@ import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.login.LoginActivity
 import kotlinx.android.synthetic.main.activity_settings.*
 
-
+//todo refactor hole class
 class SettingsActivity : AppCompatActivity() {
     companion object {
         // settings: sharedPreferences
@@ -21,6 +21,14 @@ class SettingsActivity : AppCompatActivity() {
         const val loginBool = "LOGIN"
         const val emailKey = "EMAIL"
     }
+    private fun logout() {
+        val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
+        //Delete the sharedPreferences
+        sharedPreferences.edit().putBoolean(loginBool, false).apply()
+        sharedPreferences.edit().remove(usernameKey).apply()
+        sharedPreferences.edit().remove(emailKey).apply()
+    }
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,11 +62,8 @@ class SettingsActivity : AppCompatActivity() {
         }
 
         settings_logout.setOnClickListener {
-            sharedPreferences.edit().putBoolean(loginBool, false).apply()
-            /*editUsername.setVisibility(View.VISIBLE)
-            editEmail.setVisibility(View.VISIBLE)
-            editUsername.setText("")
-            editEmail.setText("")*/
+           logout()
+
             textView_logged_status.text = getString(R.string.logged_out)
             textView_email.visibility = View.GONE
             settings_login.visibility = View.VISIBLE
@@ -66,12 +71,6 @@ class SettingsActivity : AppCompatActivity() {
             editText_email.visibility = View.INVISIBLE
             settings_logout.visibility = View.INVISIBLE
 
-
-
-            //Delete the sharedPreferences
-            //Log.i("INFO", "Prefs deleted")
-            sharedPreferences.edit().remove(usernameKey).commit()
-            sharedPreferences.edit().remove(emailKey).commit()
         }
 
 

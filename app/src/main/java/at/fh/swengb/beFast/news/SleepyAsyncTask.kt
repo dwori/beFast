@@ -5,7 +5,7 @@ package at.fh.swengb.beFast.news
 import android.os.AsyncTask
 import android.util.Log
 
-class SleepyAsyncTask(): AsyncTask<Unit, Unit, Unit>() {
+class SleepyAsyncTask : AsyncTask<Unit, Unit, Unit>() {
 
     override fun onPreExecute() {
         super.onPreExecute()

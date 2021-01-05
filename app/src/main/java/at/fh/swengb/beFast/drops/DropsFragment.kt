@@ -18,7 +18,7 @@ import at.fh.swengb.beFast.brands.BrandsFragment
 import at.fh.swengb.beFast.drops.recyclerview.DescriptionActivity
 import at.fh.swengb.beFast.drops.recyclerview.DropsAdapter
 import at.fh.swengb.beFast.drops.recyclerview.DropsRepository
-
+import at.fh.swengb.beFast.settings.SettingsActivity
 
 
 class DropsFragment : Fragment() {
@@ -42,44 +42,53 @@ class DropsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        dropsAdapter = DropsAdapter() {
+        dropsAdapter = DropsAdapter {
             val descriptionIntent = Intent(activity, DescriptionActivity::class.java)
             descriptionIntent.putExtra(EXTRA_DROP_ID, it.id)
             startActivity(descriptionIntent)
         }
         val sharedPreferences = requireContext().getSharedPreferences(requireContext().packageName, Context.MODE_PRIVATE)
+        val loginBool = sharedPreferences.getBoolean(SettingsActivity.loginBool, false)
+
         val savedNike = sharedPreferences.getBoolean(BrandsFragment.nikeKey, true)
         val savedAdidas = sharedPreferences.getBoolean(BrandsFragment.adidasKey, true)
         val savedFear = sharedPreferences.getBoolean(BrandsFragment.fearofgofKey, true)
         val savedNewB= sharedPreferences.getBoolean(BrandsFragment.newbalanceKey, true)
         val savedPuma = sharedPreferences.getBoolean(BrandsFragment.pumaKey, true)
         val savedSupreme = sharedPreferences.getBoolean(BrandsFragment.supremeKey, true)
-
-
-        dropsAdapter.updateList(DropsRepository.drops)
-        if (!savedNike) {
-            dropsAdapter.filterList("Nike")
-            Log.e("Filter", "Nike")
+        if (!savedNike && !savedAdidas && !savedFear && !savedNewB && !savedPuma && !savedSupreme){
+            text_drops.visibility = View.VISIBLE
+        } else {
+            text_drops.visibility = View.GONE
         }
-        if (!savedAdidas) {
-            dropsAdapter.filterList("Adidas")
-            Log.e("Filter", "Adidas")
-        }
-        if (!savedFear) {
-            dropsAdapter.filterList("Fear Of God")
-            Log.e("Filter","Fear Of God")
-        }
-        if (!savedNewB) {
-            dropsAdapter.filterList("New Balance")
-            Log.e("Filter","New Balance")
-        }
-        if (!savedPuma) {
-            dropsAdapter.filterList("Puma")
-            Log.e("Filter","Puma")
-        }
-        if (!savedSupreme) {
-            dropsAdapter.filterList("Supreme")
-            Log.e("Filter","Supreme")
+        if (loginBool) {
+            dropsAdapter.updateList(DropsRepository.drops)
+            if (!savedNike) {
+                dropsAdapter.filterList("Nike")
+                Log.e("Filter", "Nike")
+            }
+            if (!savedAdidas) {
+                dropsAdapter.filterList("Adidas")
+                Log.e("Filter", "Adidas")
+            }
+            if (!savedFear) {
+                dropsAdapter.filterList("Fear Of God")
+                Log.e("Filter", "Fear Of God")
+            }
+            if (!savedNewB) {
+                dropsAdapter.filterList("New Balance")
+                Log.e("Filter", "New Balance")
+            }
+            if (!savedPuma) {
+                dropsAdapter.filterList("Puma")
+                Log.e("Filter", "Puma")
+            }
+            if (!savedSupreme) {
+                dropsAdapter.filterList("Supreme")
+                Log.e("Filter", "Supreme")
+            }
+        } else {
+            dropsAdapter.updateList(DropsRepository.drops)
         }
         val layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         fragment_drops_recyclerview.layoutManager = layoutManager

@@ -39,7 +39,7 @@ class NewsFragment : Fragment() {
     }
     private fun init() {
         SleepyAsyncTask()
-        tweetAdapter = TweetAdapter() {
+        tweetAdapter = TweetAdapter {
             val url = it.entities.urls[0].url
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse(url)
@@ -98,4 +98,3 @@ class NewsFragment : Fragment() {
         """.trimIndent())
     }
 }
-

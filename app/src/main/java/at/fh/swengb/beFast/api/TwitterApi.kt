@@ -18,32 +18,39 @@ object TwitterApi {
 
     init {
         val moshi = Moshi.Builder().build()
-        retrofit = Retrofit.Builder()
+        retrofit = Retrofit
+            .Builder()
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .baseUrl("https://api.twitter.com/")
-            .client(OkHttpClient.Builder().addInterceptor { chain ->
-                val request = chain.request().newBuilder().addHeader("Authorization", "Bearer $accessToken").build()
-                chain.proceed(request)}.build())
+            .client(
+                OkHttpClient.Builder().addInterceptor { chain ->
+                    val request = chain
+                        .request()
+                        .newBuilder()
+                        .addHeader("Authorization", "Bearer $accessToken")
+                        .build()
+                    chain.proceed(request)
+                }.build()
+            )
             .build()
         retrofitService = retrofit.create(TwitterApiService::class.java)
     }
 
     fun tweetList(success: (articleList: List<TweetsItem>) -> Unit, error: (errorMessage: String) -> Unit) {
-        retrofitService.getTweetList().enqueue(object:
-                Callback<List<TweetsItem>> {
-            override fun onFailure(call: Call<List<TweetsItem>>, t: Throwable) {
-                error("The call failed")
-            }
-
-            override fun onResponse(call: Call<List<TweetsItem>>, response: Response<List<TweetsItem>>) {
-                val responseBody = response.body()
-                if (response.isSuccessful && responseBody != null) {
-                    success(responseBody)
-                } else {
-                    error("Something went wrong")
+        retrofitService.getTweetList().enqueue(
+            object: Callback<List<TweetsItem>> {
+                override fun onFailure(call: Call<List<TweetsItem>>, t: Throwable) {
+                    error("The call failed")
+                }
+                override fun onResponse(call: Call<List<TweetsItem>>, response: Response<List<TweetsItem>>) {
+                    val responseBody = response.body()
+                    if (response.isSuccessful && responseBody != null) {
+                        success(responseBody)
+                    } else {
+                        error("Something went wrong")
+                    }
                 }
             }
-
-        })
+        )
     }
 }
