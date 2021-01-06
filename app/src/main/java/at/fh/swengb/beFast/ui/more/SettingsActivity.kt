@@ -38,7 +38,6 @@ class SettingsActivity : AppCompatActivity() {
             settings_login.visibility = View.GONE
             settings_logout.visibility = View.VISIBLE
             textView_logged_status.text = getString(R.string.logged_in)
-            textView_email.visibility = View.VISIBLE
             val savedUsername = sharedPreferences.getString(usernameKey, null)
             editText_username.setText(savedUsername)
             editText_email.setText(sharedPreferences.getString(emailKey, null))
@@ -49,7 +48,6 @@ class SettingsActivity : AppCompatActivity() {
             textView_logged_status.text = getString(R.string.logged_out)
             editText_username.visibility = View.GONE
             editText_email.visibility = View.GONE
-            textView_email.visibility = View.GONE
             settings_logout.visibility = View.GONE
 
         }
@@ -67,7 +65,6 @@ class SettingsActivity : AppCompatActivity() {
             editUsername.setText("")
             editEmail.setText("")*/
             textView_logged_status.text = getString(R.string.logged_out)
-            textView_email.visibility = View.GONE
             settings_login.visibility = View.VISIBLE
             editText_username.visibility = View.INVISIBLE
             editText_email.visibility = View.INVISIBLE
@@ -156,7 +153,6 @@ class SettingsActivity : AppCompatActivity() {
         val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
         if (sharedPreferences.getBoolean(SettingsActivity.loginBool, false)) {
             settings_login.visibility = View.GONE
-            textView_email.visibility = View.VISIBLE
             settings_logout.visibility = View.VISIBLE
             editText_email.visibility = View.VISIBLE
             editText_username.visibility = View.VISIBLE
@@ -170,7 +166,7 @@ class SettingsActivity : AppCompatActivity() {
         } else {
             textView_logged_status.text = getString(R.string.logged_out)
 
-            textView_email.visibility = View.GONE
+
             editText_email.visibility = View.GONE
             editText_username.visibility = View.GONE
             settings_logout.visibility = View.GONE

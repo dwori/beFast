@@ -7,78 +7,60 @@
     android:layout_height="match_parent"
     tools:context=".ui.more.SettingsActivity">
 
+
     <TextView
         android:id="@+id/textView_logged_status"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="44dp"
         android:text="@string/username"
         android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.066"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
-    <TextView
-        android:id="@+id/textView_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:text="@string/email"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView_logged_status"
-        app:layout_constraintHorizontal_bias="0.594"
-        app:layout_constraintStart_toStartOf="@+id/textView_logged_status"
-        app:layout_constraintTop_toBottomOf="@+id/textView_logged_status" />
 
     <EditText
         android:id="@+id/editText_username"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginStart="56dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="@+id/textView_logged_status"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView_logged_status"
         app:layout_constraintTop_toTopOf="@+id/textView_logged_status"
         app:layout_constraintVertical_bias="0.538" />
 
     <EditText
         android:id="@+id/editText_email"
-        android:layout_width="182dp"
+        android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="12dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/textView_email"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView_email"
-        app:layout_constraintTop_toTopOf="@+id/textView_email"
-        app:layout_constraintVertical_bias="0.576" />
+        app:layout_constraintEnd_toEndOf="@+id/editText_username"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="@+id/editText_username"
+        app:layout_constraintTop_toBottomOf="@+id/editText_username" />
 
     <TextView
         android:id="@+id/textView_darkmode"
         android:layout_width="wrap_content"
         android:layout_height="32dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="104dp"
         android:text="@string/darkmode"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView_email"
-        app:layout_constraintHorizontal_bias="0.485"
-        app:layout_constraintStart_toStartOf="@+id/textView_email"
-        app:layout_constraintTop_toBottomOf="@+id/textView_email" />
+        app:layout_constraintStart_toStartOf="@+id/textView_logged_status"
+        app:layout_constraintTop_toBottomOf="@+id/textView_logged_status" />
 
     <Switch
         android:id="@+id/switch_darkmode"
         android:layout_width="47dp"
         android:layout_height="32dp"
-        android:layout_marginStart="92dp"
+        android:layout_marginStart="208dp"
         app:layout_constraintBottom_toBottomOf="@+id/textView_darkmode"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.449"
         app:layout_constraintStart_toEndOf="@+id/textView_darkmode"
         app:layout_constraintTop_toTopOf="@+id/textView_darkmode"
         app:layout_constraintVertical_bias="0.0" />
@@ -111,12 +93,11 @@
         android:id="@+id/settings_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="36dp"
+        android:layout_marginEnd="8dp"
         android:text="@string/login"
-        app:layout_constraintBottom_toTopOf="@+id/switch_darkmode"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.489" />
+        app:layout_constraintBottom_toBottomOf="@+id/textView_logged_status"
+        app:layout_constraintEnd_toEndOf="@+id/editText_username"
+        app:layout_constraintTop_toTopOf="@+id/textView_logged_status" />
 
     <Button
         android:id="@+id/settings_share"
@@ -132,7 +113,7 @@
         android:id="@+id/settings_support"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text= "@string/contact"
+        android:text="@string/contact"
         app:icon="@drawable/ic_baseline_contact_mail_24"
         app:iconGravity="end"
         tools:layout_editor_absoluteX="142dp"
