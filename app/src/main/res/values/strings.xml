@@ -7,8 +7,8 @@
     <!-- how to comment in xml -->
     <string name="login">Login</string>
     <string name="logout">Logout</string>
-    <string name="logged_in">You are logged in:</string>
-    <string name="logged_out">You are logged out:</string>
+    <string name="logged_in">You are logged in.</string>
+    <string name="logged_out">You are logged out.</string>
     <string name="username">Username</string>
     <string name="email">Email</string>
     <string name="darkmode">Darkmode</string>
