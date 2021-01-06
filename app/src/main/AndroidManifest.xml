@@ -13,14 +13,14 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BeFast">
         <activity
-            android:name=".ui.more.LoginActivity"
+            android:name=".login.LoginActivity"
             android:label="Login" />
         <activity
-            android:name=".ui.more.ConditionsActivity"
+            android:name=".settings.ConditionsActivity"
             android:label="Terms and Conditions" />
-        <activity android:name=".ui.drops.DescriptionActivity" />
+        <activity android:name=".drops.recyclerview.DescriptionActivity" />
         <activity
-            android:name=".ui.more.SettingsActivity"
+            android:name=".settings.SettingsActivity"
             android:label="Settings" />
         <activity
             android:name=".MainActivity"

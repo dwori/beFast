@@ -5,7 +5,7 @@
     android:id="@+id/settings_id"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.more.SettingsActivity">
+    tools:context=".settings.SettingsActivity">
 
     <TextView
         android:id="@+id/textView_logged_status"
@@ -99,7 +99,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
-        android:onClick="saveSettings"
         android:text="@string/save"
         app:iconGravity="end"
         app:layout_constraintEnd_toEndOf="@+id/switch_darkmode"

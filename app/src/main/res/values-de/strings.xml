@@ -6,8 +6,8 @@
     <string name="title_more">Mehr</string>
     <string name="login">Anmelden</string>
     <string name="logout">Abmelden</string>
-    <string name="logged_in">Du bist angemeldet.</string>
-    <string name="logged_out">Du bist abgemeldet.</string>
+    <string name="logged_in">Du bist angemeldet:</string>
+    <string name="logged_out">Du bist abgemeldet:</string>
     <string name="username">Benutzername</string>
     <string name="email">Email</string>
     <string name="darkmode">Dunkler Modus</string>

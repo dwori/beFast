@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.drops.DropsFragment">
+    tools:context=".drops.DropsFragment">
 
     <TextView
         android:id="@+id/text_drops"
@@ -27,5 +27,8 @@
         android:layout_height="match_parent"
         tools:layout_editor_absoluteX="107dp"
         tools:layout_editor_absoluteY="82dp"
-        android:paddingBottom="?attr/actionBarSize"/>
+        android:paddingBottom="?attr/actionBarSize">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
