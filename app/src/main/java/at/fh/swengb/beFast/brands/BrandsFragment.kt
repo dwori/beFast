@@ -46,6 +46,10 @@ class BrandsFragment : Fragment() {
 
         if (sharedPreferences.getBoolean(SettingsActivity.loginBoolKey, false)) {
 
+            brands_info.visibility = View.GONE
+
+            save_brands.visibility = View.VISIBLE
+
             switch1.isChecked = sharedPreferences.getBoolean(nikeKey, true)
 
             switch2.isChecked = sharedPreferences.getBoolean(adidasKey, true)
@@ -69,6 +73,8 @@ class BrandsFragment : Fragment() {
             }
 
         } else {
+            brands_info.visibility = View.VISIBLE
+            save_brands.visibility = View.GONE
             switch1.visibility = View.GONE
             switch2.visibility = View.GONE
             switch3.visibility = View.GONE
