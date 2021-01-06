@@ -58,7 +58,7 @@ class SettingsActivity : AppCompatActivity() {
         }
     }
     private fun changeVisibility(v: Int) {
-        textView_email.visibility = v
+        //textView_email.visibility = v
         settings_logout.visibility = v
         editText_email.visibility = v
         editText_username.visibility = v

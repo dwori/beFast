@@ -45,11 +45,6 @@ class BrandsFragment : Fragment() {
 
 
         if (sharedPreferences.getBoolean(SettingsActivity.loginBoolKey, false)) {
-
-            brands_info.visibility = View.GONE
-
-            save_brands.visibility = View.VISIBLE
-
             switch1.isChecked = sharedPreferences.getBoolean(nikeKey, true)
 
             switch2.isChecked = sharedPreferences.getBoolean(adidasKey, true)
@@ -71,10 +66,9 @@ class BrandsFragment : Fragment() {
                 sharedPreferences.edit().putBoolean(supremeKey, switch6.isChecked).apply()
                 Toast.makeText(activity, "Saved brands", Toast.LENGTH_LONG).show() //todo hardcoded string
             }
+            brands_info.visibility = View.GONE
 
         } else {
-            brands_info.visibility = View.VISIBLE
-            save_brands.visibility = View.GONE
             switch1.visibility = View.GONE
             switch2.visibility = View.GONE
             switch3.visibility = View.GONE
@@ -82,6 +76,7 @@ class BrandsFragment : Fragment() {
             switch5.visibility = View.GONE
             switch6.visibility = View.GONE
             save_brands.visibility = View.GONE
+            brands_info.visibility = View.VISIBLE
         }
     }
 }
