@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -51,6 +52,10 @@ class BrandsFragment : Fragment() {
 
         if (sharedPreferences.getBoolean(SettingsActivity.loginBool, false)) {
 
+            brands_info.visibility = View.GONE
+
+            save_brands.visibility = View.VISIBLE
+
             switch1.isChecked = sharedPreferences.getBoolean(nikeKey, true)
 
             switch2.isChecked = sharedPreferences.getBoolean(adidasKey, true)
@@ -74,6 +79,8 @@ class BrandsFragment : Fragment() {
             }
 
         } else {
+            brands_info.visibility = View.VISIBLE
+            save_brands.visibility = View.GONE
             switch1.visibility = View.GONE
             switch2.visibility = View.GONE
             switch3.visibility = View.GONE
