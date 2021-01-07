@@ -9,7 +9,6 @@
     <string name="logged_in">Du bist angemeldet:</string>
     <string name="logged_out">Du bist abgemeldet:</string>
     <string name="username">Benutzername</string>
-    <string name="email">Email</string>
     <string name="darkmode">Dunkler Modus</string>
     <string name="save">Speichern</string>
     <string name="reminder">Alarm setzen</string>
@@ -125,5 +124,8 @@ Solange die Website sowie die Informationen und Dienstleistungen auf der Website
     <string name="price_error">Keinen Preis gefunden</string>
     <string name="date_error">Kein Datum gefunden</string>
     <string name="hompageURL_error">Kein Hauptseiten URL gefunden</string>
+    <string name="brands_saved">Ihre Marken wurden gespeichert</string>
+    <string name="brands_info">Du musst eingeloggt sein um Marken zu folgen.</string>
+    <string name="drops_info">Folge Marken um Drops zu sehen.</string>
 
 </resources>

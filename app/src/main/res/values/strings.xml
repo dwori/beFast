@@ -10,8 +10,8 @@
     <string name="logged_in">You are logged in:</string>
     <string name="logged_out">You are logged out:</string>
     <string name="username">Username</string>
-    <string name="email">Email</string>
-    <string name="darkmode">Darkmode</string>
+    <string name="email" translatable="false">Email</string>
+    <string name="darkmode">Nachtmodus</string>
     <string name="save">Save</string>
     <string name="reminder">Set Reminder</string>
     <string name="conditions_text"><b>Terms and Conditions</b>
@@ -125,6 +125,9 @@ As long as the website and the information and services on the website are provi
     <string name="price_error">no price found</string>
     <string name="date_error">no date found</string>
     <string name="hompageURL_error">no homepage URL found</string>
+    <string name="brands_saved">Your brands have been saved!</string>
+    <string name="brands_info">You have to login to follow brands.</string>
+    <string name="drops_info">Follow brands to see drops.</string>
 
 
 </resources>

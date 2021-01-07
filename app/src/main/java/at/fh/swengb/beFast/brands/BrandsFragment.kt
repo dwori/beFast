@@ -41,8 +41,8 @@ class BrandsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         sharedPreferences = requireContext().getSharedPreferences(requireContext().packageName, Context.MODE_PRIVATE)
 
-        Glide.with(this).load("https://i.pinimg.com/736x/4e/b7/9c/4eb79c5e8456cb65830a6ef1faa0f688.jpg").into(imageView)
-
+        //Glide.with(this).load("https://i.pinimg.com/736x/4e/b7/9c/4eb79c5e8456cb65830a6ef1faa0f688.jpg").into(imageView)
+        Glide.with(this).load("https://i.pinimg.com/originals/21/21/b5/2121b5dc445a1d0cb69965ecaecfaf80.jpg").into(imageView)
 
         if (sharedPreferences.getBoolean(SettingsActivity.loginBoolKey, false)) {
             switch1.isChecked = sharedPreferences.getBoolean(nikeKey, true)
@@ -64,7 +64,7 @@ class BrandsFragment : Fragment() {
                 sharedPreferences.edit().putBoolean(newbalanceKey, switch4.isChecked).apply()
                 sharedPreferences.edit().putBoolean(pumaKey, switch5.isChecked).apply()
                 sharedPreferences.edit().putBoolean(supremeKey, switch6.isChecked).apply()
-                Toast.makeText(activity, "Saved brands", Toast.LENGTH_LONG).show() //todo hardcoded string
+                Toast.makeText(activity, getString(R.string.brands_saved), Toast.LENGTH_LONG).show()
             }
             brands_info.visibility = View.GONE
 
