@@ -19,6 +19,8 @@ import at.fh.swengb.beFast.drops.recyclerview.DescriptionActivity
 import at.fh.swengb.beFast.drops.recyclerview.DropsAdapter
 import at.fh.swengb.beFast.drops.recyclerview.DropsRepository
 import at.fh.swengb.beFast.settings.SettingsActivity
+import com.bumptech.glide.Glide
+import kotlinx.android.synthetic.main.fragment_brands.*
 
 
 class DropsFragment : Fragment() {
@@ -42,6 +44,8 @@ class DropsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
+        Glide.with(this).load("https://i.pinimg.com/736x/4e/b7/9c/4eb79c5e8456cb65830a6ef1faa0f688.jpg").into(imageBack)
+        //Glide.with(this).load("https://i.pinimg.com/originals/ab/cd/29/abcd298bb80c91c0e75a5d9deff9528b.jpg").into(imageBack)
         dropsAdapter = DropsAdapter {
             val descriptionIntent = Intent(activity, DescriptionActivity::class.java)
             descriptionIntent.putExtra(EXTRA_DROP_ID, it.id)

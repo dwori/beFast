@@ -6,6 +6,17 @@
     android:layout_height="match_parent"
     tools:context=".drops.DropsFragment">
 
+    <ImageView
+        android:id="@+id/imageBack"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
     <TextView
         android:id="@+id/text_drops"
         android:layout_width="match_parent"
@@ -23,11 +34,13 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/fragment_drops_recyclerview"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="107dp"
-        tools:layout_editor_absoluteY="82dp"
-        android:paddingBottom="?attr/actionBarSize">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:paddingBottom="?attr/actionBarSize"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
     </androidx.recyclerview.widget.RecyclerView>
 

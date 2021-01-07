@@ -53,7 +53,8 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.479" />
+        app:layout_constraintVertical_bias="0.479"
+        android:textCursorDrawable="@null"/>
 
     <EditText
         android:id="@+id/login_password"
@@ -70,7 +71,8 @@
         app:layout_constraintEnd_toEndOf="@+id/login_username"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/login_username"
-        app:layout_constraintTop_toBottomOf="@+id/login_username" />
+        app:layout_constraintTop_toBottomOf="@+id/login_username"
+        android:textCursorDrawable="@null"/>
 
     <Button
         android:id="@+id/login_loginButton"
