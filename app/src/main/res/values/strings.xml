@@ -127,6 +127,7 @@ As long as the website and the information and services on the website are provi
     <string name="hompageURL_error">no homepage URL found</string>
     <string name="brands_saved">Your brands have been saved!</string>
     <string name="brands_info">You have to login to follow brands.</string>
+    <string name="drops_info">Follow brands to see drops.</string>
 
 
 </resources>

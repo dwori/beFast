@@ -61,9 +61,12 @@ class DropsFragment : Fragment() {
         val savedPuma = sharedPreferences.getBoolean(BrandsFragment.pumaKey, true)
         val savedSupreme = sharedPreferences.getBoolean(BrandsFragment.supremeKey, true)
         if (!savedNike && !savedAdidas && !savedFear && !savedNewB && !savedPuma && !savedSupreme){
-            text_drops.visibility = View.VISIBLE
+            drops_info.visibility = View.VISIBLE
+            Log.i("INFO","SHOW drops_info")
         } else {
-            text_drops.visibility = View.GONE
+            drops_info.visibility = View.GONE
+            Log.i("INFO","SHOW drops_info")
+
         }
         if (loginBool) {
             dropsAdapter.updateList(DropsRepository.drops)
