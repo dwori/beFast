@@ -64,7 +64,7 @@ class BrandsFragment : Fragment() {
                 sharedPreferences.edit().putBoolean(newbalanceKey, switch4.isChecked).apply()
                 sharedPreferences.edit().putBoolean(pumaKey, switch5.isChecked).apply()
                 sharedPreferences.edit().putBoolean(supremeKey, switch6.isChecked).apply()
-                Toast.makeText(activity, "Saved brands", Toast.LENGTH_LONG).show() //todo hardcoded string
+                Toast.makeText(activity, getString(R.string.brands_saved), Toast.LENGTH_LONG).show()
             }
             brands_info.visibility = View.GONE
 

@@ -5,5 +5,6 @@
         android:title="settings"
         app:showAsAction="always"
         android:visible="true"
+
         android:icon="@drawable/ic_baseline_settings_24"></item>
 </menu>

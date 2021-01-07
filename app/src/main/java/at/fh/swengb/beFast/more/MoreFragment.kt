@@ -30,17 +30,17 @@ class MoreFragment : Fragment() {
         sharedPreferences = requireContext().getSharedPreferences(requireContext().packageName, Context.MODE_PRIVATE)
         loginBoolPreferences = sharedPreferences.getBoolean(loginBoolKey, false)
 
-        login_name.text = sharedPreferences.getString(usernameKey, "null")
-        login_email.text = sharedPreferences.getString(emailKey, "null")
+        login_name.text = sharedPreferences.getString(usernameKey, "")
+        login_email.text = sharedPreferences.getString(emailKey, "")
 
         if (loginBoolPreferences) {
-            logged_in_as.text =  getString(R.string.logged_in) // todo: better xml name
+            more_header_text.text =  getString(R.string.logged_in)
 
             loginButton.visibility = View.GONE
             logoutButton.visibility = View.VISIBLE
 
         } else {
-            logged_in_as.text = getString(R.string.logged_out)
+            more_header_text.text = getString(R.string.logged_out)
 
             loginButton.visibility = View.VISIBLE
             logoutButton.visibility = View.GONE
