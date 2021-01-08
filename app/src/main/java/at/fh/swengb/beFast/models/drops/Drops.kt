@@ -7,5 +7,6 @@ class Drops (
         val datetime: String,
         val price: String,
         val imageUrl: String,
-        val homepageUrl: String
+        val homepageUrl: String,
+        val stockxUrl: String
 )
