@@ -48,11 +48,12 @@ class MainActivity : AppCompatActivity() {
         inflater.inflate(R.menu.top_nav_menu, menu)
         return true
     }
-
+    //Function that takes a lamda and executes it TODO correct description?
     inline fun consume(f: () -> Unit): Boolean {
         f()
         return true
     }
+    //function to start the
     fun settings(){
         val intent = Intent(this, SettingsActivity::class.java)
         startActivity(intent)

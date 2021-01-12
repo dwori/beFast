@@ -26,6 +26,7 @@ class MoreFragment : Fragment() {
     private lateinit var sharedPreferences: SharedPreferences
     private var loginBoolPreferences: Boolean = false
 
+    //Load all variables stored in the shared preferences
     private fun loadMoreUserDetails(){
         sharedPreferences = requireContext().getSharedPreferences(requireContext().packageName, Context.MODE_PRIVATE)
         loginBoolPreferences = sharedPreferences.getBoolean(loginBoolKey, false)
@@ -33,6 +34,9 @@ class MoreFragment : Fragment() {
         login_name.text = sharedPreferences.getString(usernameKey, "")
         login_email.text = sharedPreferences.getString(emailKey, "")
 
+        //If the login boolean in the sharedPreferences is true, the loginButton is invisible
+        //and the logoutButton is visible. The header text is set to logged_in which is stored in the strings.xml
+        //Else the exact opposite will happen and the looged_out text is shown.
         if (loginBoolPreferences) {
             more_header_text.text =  getString(R.string.logged_in)
 
@@ -46,6 +50,7 @@ class MoreFragment : Fragment() {
             logoutButton.visibility = View.GONE
         }
     }
+    //Function used to set the login boolean true and delete the username and email from the sharedPreferences.
     private fun logout() {
         //Delete the sharedPreferences
         sharedPreferences.edit().putBoolean(loginBoolKey, false).apply()
@@ -67,6 +72,7 @@ class MoreFragment : Fragment() {
 
         loadMoreUserDetails()
 
+        //ClickListener for loginButton and logoutButton, which executes defined functions.
         logoutButton.setOnClickListener {
             logout()
             loadMoreUserDetails()
