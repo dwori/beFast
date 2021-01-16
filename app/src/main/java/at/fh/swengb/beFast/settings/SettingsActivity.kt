@@ -20,9 +20,8 @@ class SettingsActivity : AppCompatActivity() {
         const val loginBoolKey = "LOGIN"
         const val emailKey = "EMAIL"
     }
-
+    //Declaration of variables
     private lateinit var sharedPreferences: SharedPreferences
-
     private var loginBoolPreferences: Boolean = false
     private var savedNightMode: Boolean = false
 
@@ -30,13 +29,14 @@ class SettingsActivity : AppCompatActivity() {
         sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
         loginBoolPreferences = sharedPreferences.getBoolean(loginBoolKey, false)
     }
-
+    //Function used to set the login boolean true and delete the username and email from the sharedPreferences.
     private fun logout() {
         //Delete the sharedPreferences
         sharedPreferences.edit().putBoolean(loginBoolKey, false).apply()
         sharedPreferences.edit().remove(usernameKey).apply()
         sharedPreferences.edit().remove(emailKey).apply()
     }
+    //Function to load username and email string from the sharedPreferences
     private fun loadAccountSettings(){
         val savedUsername = sharedPreferences.getString(usernameKey, null)
         val savedEmail = sharedPreferences.getString(emailKey, null)
@@ -57,12 +57,15 @@ class SettingsActivity : AppCompatActivity() {
             changeVisibility(View.GONE)
         }
     }
+    //Function to change Views visibility
     private fun changeVisibility(v: Int) {
         //textView_email.visibility = v
         settings_logout.visibility = v
         editText_email.visibility = v
         editText_username.visibility = v
     }
+    //Function that gets executed onClick of the saveButton.
+    //Saves all changes into the sharedPreferences, means: username, email and darkmode
     private fun saveSettings() {
         if (loginBoolPreferences) {
             sharedPreferences.edit().putString(usernameKey, editText_username.text.toString()).apply()
@@ -72,7 +75,7 @@ class SettingsActivity : AppCompatActivity() {
         sharedPreferences.edit().putBoolean(nightModeKey, switch_darkmode.isChecked).apply()
 
         savedNightMode = switch_darkmode.isChecked
-
+        //Change the appearence of the app to Day- or Nightmode
         if (savedNightMode) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {
@@ -132,7 +135,7 @@ class SettingsActivity : AppCompatActivity() {
 
         }
 
-        //terms and conditions button // todo datenschutz
+        //terms and conditions button
         settings_conditions.setOnClickListener {
             val conditionsIntent = Intent(this, ConditionsActivity::class.java)
             startActivity(conditionsIntent)
