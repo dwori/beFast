@@ -12,6 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BeFast">
+        <activity android:name=".drops.DescriptionNoteActivity"></activity>
         <activity
             android:name=".login.LoginActivity"
             android:label="Login" />
