@@ -8,5 +8,6 @@ class Drops (
         val price: String,
         val imageUrl: String,
         val homepageUrl: String,
-        val stockxUrl: String
+        val stockxUrl: String,
+        val descriptionText: String
 )

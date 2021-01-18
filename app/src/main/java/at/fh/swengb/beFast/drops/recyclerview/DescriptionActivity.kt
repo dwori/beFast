@@ -31,6 +31,7 @@ class DescriptionActivity : AppCompatActivity() {
             description_brand.text = DropsRepository.dropById(dropId)?.brand ?: getString(R.string.brand_error) //Dynamic language
             description_name.text = DropsRepository.dropById(dropId)?.name ?: getString(R.string.name_error)
             description_price.text = DropsRepository.dropById(dropId)?.price ?: getString(R.string.price_error)
+            description_description.text = DropsRepository.dropById(dropId)?.descriptionText ?: "no description available"
 
             // set image
             Glide.with(this)
@@ -43,6 +44,7 @@ class DescriptionActivity : AppCompatActivity() {
         val datetime = dropId?.let { DropsRepository.dropById(it)?.datetime } ?: getString(R.string.date_error)
         val homepageUrl = dropId?.let { DropsRepository.dropById(it)?.homepageUrl } ?: getString(R.string.hompageURL_error)
         val stockxUrl = dropId?.let { DropsRepository.dropById(it)?.stockxUrl } ?: "no stockx URL found"
+
 
 
 
