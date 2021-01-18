@@ -42,7 +42,8 @@ class SettingsActivity : AppCompatActivity() {
         val savedEmail = sharedPreferences.getString(emailKey, null)
 
         if (loginBoolPreferences) {
-            textView_logged_status.text = getString(R.string.logged_in)
+            textView_email.visibility = View.VISIBLE
+            textView_logged_status.text = getString(R.string.username)
 
             editText_username.setText(savedUsername)
             editText_email.setText(savedEmail)
@@ -52,6 +53,7 @@ class SettingsActivity : AppCompatActivity() {
 
         } else {
             textView_logged_status.text = getString(R.string.logged_out)
+            textView_email.visibility = View.GONE
 
             settings_login.visibility = View.VISIBLE
             changeVisibility(View.GONE)
