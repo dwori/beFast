@@ -49,12 +49,12 @@
     <EditText
         android:id="@+id/editText_email"
         android:layout_width="0dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="28dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="@+id/editText_username"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editText_username"
         app:layout_constraintTop_toBottomOf="@+id/editText_username" />
 

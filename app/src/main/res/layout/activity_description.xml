@@ -128,8 +128,8 @@
         <androidx.constraintlayout.helper.widget.Flow
             android:layout_width="413dp"
             android:layout_height="221dp"
-            android:layout_marginTop="24dp"
-            app:constraint_referenced_ids="description_reminder,description_homepage,description_note,description_share,description_stockX"
+            android:layout_marginTop="32dp"
+            app:constraint_referenced_ids="description_stockX,description_reminder,description_homepage,description_note,description_share"
             app:flow_firstVerticalStyle="spread_inside"
             app:flow_horizontalGap="20dp"
             app:flow_maxElementsWrap="1"
