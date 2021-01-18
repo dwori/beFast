@@ -14,7 +14,6 @@
     <string name="darkmode">Nachtmodus</string>
     <string name="save">Save</string>
     <string name="reminder">Set Reminder</string>
-    <string name="id0">Mit den Sneakern aus der Rayguns Kollektion hat Nike damals eine unglaublich gute Story drum herum erschaffen, die sich um eine Fantasie-Basketballmannschaft im Weltall drehte. Mit aufwendigen Videos und coolen Marketingaktionen, kam der Nike Dunk damals auf den Markt, nun stehen zwei weitere Releases unter der Rayguns-Flagge bevor. Neben dem Kyrie 7 erwartet uns mit dem Air Force 1 ein echter Klassiker, welcher der Thematik unterzogen wurde.</string>
     <string name="conditions_text"><b>Terms and Conditions</b>
 <br />Welcome to beFast!<br />
 
@@ -129,6 +128,7 @@ As long as the website and the information and services on the website are provi
     <string name="brands_saved">Your brands have been saved!</string>
     <string name="brands_info">You have to login to follow brands.</string>
     <string name="drops_info">Follow brands to see drops.</string>
+    <string name="id0">Mit den Sneakern aus der Rayguns Kollektion hat Nike damals eine unglaublich gute Story drum herum erschaffen, die sich um eine Fantasie-Basketballmannschaft im Weltall drehte. Mit aufwendigen Videos und coolen Marketingaktionen, kam der Nike Dunk damals auf den Markt, nun stehen zwei weitere Releases unter der Rayguns-Flagge bevor. Neben dem Kyrie 7 erwartet uns mit dem Air Force 1 ein echter Klassiker, welcher der Thematik unterzogen wurde.</string>
 
 
 </resources>

@@ -64,11 +64,10 @@
         <TextView
             android:id="@+id/description_description"
             android:layout_width="365dp"
-            android:layout_height="169dp"
+            android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
             android:layout_marginTop="308dp"
             android:layout_marginEnd="16dp"
-            android:text="Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
@@ -129,8 +128,8 @@
         <androidx.constraintlayout.helper.widget.Flow
             android:layout_width="413dp"
             android:layout_height="221dp"
-            android:layout_marginTop="24dp"
-            app:constraint_referenced_ids="description_reminder,description_homepage,description_note,description_share,description_stockX"
+            android:layout_marginTop="32dp"
+            app:constraint_referenced_ids="description_stockX,description_reminder,description_homepage,description_note,description_share"
             app:flow_firstVerticalStyle="spread_inside"
             app:flow_horizontalGap="20dp"
             app:flow_maxElementsWrap="1"
