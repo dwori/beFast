@@ -54,8 +54,11 @@ class NewsFragment : Fragment() {
                 error = {
                     // handle error
                     Log.e("Error", "Repository Error")
-                    Toast.makeText(activity, getString(R.string.internet_connection), Toast.LENGTH_LONG).show() //TODO: App crashes if started on AirplaneMode on lukis phone news Fragment has no corresponding activity
-                    //Log.e("Error","Repository Error")
+                    if (activity != null) {           //TODO: App crashes if started on AirplaneMode on lukis phone news Fragment has no corresponding activity
+                        Toast
+                            .makeText(activity, getString(R.string.internet_connection), Toast.LENGTH_LONG)
+                            .show()
+                    }
                 }
         )
         parseJson()

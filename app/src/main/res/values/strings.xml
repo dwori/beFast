@@ -119,7 +119,7 @@ As long as the website and the information and services on the website are provi
     <string name="get_app">Get the new beFast app here:</string>
     <string name="email_subject">Your Subject</string>
     <string name="email_message">Put your email message here.</string>
-    <string name="internet_connection">Please check your internet connection.</string>
+    <string name="internet_connection">Could not fetch data from API.</string>
     <string name="brand_error">no brand found</string>
     <string name="name_error">no name found</string>
     <string name="price_error">no price found</string>

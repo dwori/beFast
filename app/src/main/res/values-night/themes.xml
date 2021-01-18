@@ -14,7 +14,7 @@
         <!-- Customize your theme here. -->
     </style>
     <style name="TransparentCardview" parent="Widget.MaterialComponents.CardView">
-        <item name="cardBackgroundColor">@color/black_transparent</item>
+        <!-- <item name="cardBackgroundColor">@color/black_transparent</item> -->
     </style>
     <style name="customTable" parent="Widget.Design.TabLayout">
         <item name="android:background">@color/black_transparent</item>

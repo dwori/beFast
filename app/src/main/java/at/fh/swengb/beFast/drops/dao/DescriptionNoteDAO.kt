@@ -1,9 +1,10 @@
-package at.fh.swengb.beFast.drops
+package at.fh.swengb.beFast.drops.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import at.fh.swengb.beFast.drops.DescriptionNote
 
 @Dao
 interface DescriptionNoteDAO {

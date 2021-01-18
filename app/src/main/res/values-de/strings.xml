@@ -118,7 +118,7 @@ Solange die Website sowie die Informationen und Dienstleistungen auf der Website
     <string name="get_app">Holen Sie die neue beFast App hier:</string>
     <string name="email_subject">Dein Betreff</string>
     <string name="email_message">Geben Sie hier Ihre Email-Nachricht ein.</string>
-    <string name="internet_connection">Bitte überprüfe deine Inernet Verbindung.</string>
+    <string name="internet_connection">News konnten nicht von der API geladen werden</string>
     <string name="brand_error">Keine Marke gefunden</string>
     <string name="name_error">Kein Name gefunden</string>
     <string name="price_error">Keinen Preis gefunden</string>

@@ -1,16 +1,8 @@
 package at.fh.swengb.beFast.drops.recyclerview
 
 import android.content.Context
-import android.content.res.Resources
-import android.content.res.Resources.getSystem
-import android.provider.Settings.Global.getString
-import android.provider.Settings.Secure.getString
-import android.provider.Settings.System.getString
-import androidx.core.content.res.TypedArrayUtils.getString
-import at.fh.swengb.beFast.R
-import at.fh.swengb.beFast.R.string.id0
 import at.fh.swengb.beFast.drops.DescriptionNote
-import at.fh.swengb.beFast.drops.DescriptionNoteDB
+import at.fh.swengb.beFast.drops.dao.DescriptionNoteDB
 import at.fh.swengb.beFast.models.drops.Drops
 
 //val id0: String = Context.getString(R.string.id0)

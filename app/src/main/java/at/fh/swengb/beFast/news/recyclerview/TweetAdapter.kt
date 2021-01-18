@@ -7,7 +7,7 @@ import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.models.tweets.TweetsItem
 
 class TweetAdapter( val clickListener: (tweet: TweetsItem) -> Unit ): RecyclerView.Adapter<TweetViewHolder>() {
-    private var tweetList = listOf<TweetsItem>()
+    var tweetList = listOf<TweetsItem>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TweetViewHolder {
         val tweetItemView = LayoutInflater.from(parent.context).inflate(R.layout.news_recycler_view_item, parent, false)

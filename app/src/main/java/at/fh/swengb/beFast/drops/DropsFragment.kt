@@ -44,7 +44,7 @@ class DropsFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        Glide.with(this).load("https://i.pinimg.com/736x/4e/b7/9c/4eb79c5e8456cb65830a6ef1faa0f688.jpg").into(imageBack)
+        //Glide.with(this).load("https://i.pinimg.com/736x/4e/b7/9c/4eb79c5e8456cb65830a6ef1faa0f688.jpg").into(imageBack)
         //Glide.with(this).load("https://i.pinimg.com/originals/ab/cd/29/abcd298bb80c91c0e75a5d9deff9528b.jpg").into(imageBack)
         dropsAdapter = DropsAdapter {
             val descriptionIntent = Intent(activity, DescriptionActivity::class.java)
@@ -60,15 +60,12 @@ class DropsFragment : Fragment() {
         val savedNewB= sharedPreferences.getBoolean(BrandsFragment.newbalanceKey, true)
         val savedPuma = sharedPreferences.getBoolean(BrandsFragment.pumaKey, true)
         val savedSupreme = sharedPreferences.getBoolean(BrandsFragment.supremeKey, true)
-        if (!savedNike && !savedAdidas && !savedFear && !savedNewB && !savedPuma && !savedSupreme){
-            drops_info.visibility = View.VISIBLE
-            Log.i("INFO","SHOW drops_info")
-        } else {
-            drops_info.visibility = View.GONE
-            Log.i("INFO","SHOW drops_info")
-
-        }
+        drops_info.visibility = View.GONE
         if (loginBool) {
+            if (!savedNike && !savedAdidas && !savedFear && !savedNewB && !savedPuma && !savedSupreme) {
+                drops_info.visibility = View.VISIBLE
+                Log.i("INFO", "SHOW drops_info")
+            }
             dropsAdapter.updateList(DropsRepository.drops)
             if (!savedNike) {
                 dropsAdapter.filterList("Nike")
@@ -79,8 +76,8 @@ class DropsFragment : Fragment() {
                 Log.e("Filter", "Adidas")
             }
             if (!savedFear) {
-                dropsAdapter.filterList("Fear Of God")
-                Log.e("Filter", "Fear Of God")
+                dropsAdapter.filterList("Fear of God")
+                Log.e("Filter", "Fear of God")
             }
             if (!savedNewB) {
                 dropsAdapter.filterList("New Balance")
