@@ -61,6 +61,9 @@ class DropsFragment : Fragment() {
         val savedPuma = sharedPreferences.getBoolean(BrandsFragment.pumaKey, true)
         val savedSupreme = sharedPreferences.getBoolean(BrandsFragment.supremeKey, true)
         drops_info.visibility = View.GONE
+
+        //If the user is logged in the list of drops gets filtered, refering to the states of the switches in the BrandsFragment
+        //If all of them are unchecked the texview drops_info is displayed
         if (loginBool) {
             if (!savedNike && !savedAdidas && !savedFear && !savedNewB && !savedPuma && !savedSupreme) {
                 drops_info.visibility = View.VISIBLE

@@ -41,9 +41,12 @@ class BrandsFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         sharedPreferences = requireContext().getSharedPreferences(requireContext().packageName, Context.MODE_PRIVATE)
 
+        //Setting the background picture
         //Glide.with(this).load("https://i.pinimg.com/736x/4e/b7/9c/4eb79c5e8456cb65830a6ef1faa0f688.jpg").into(imageView)
         Glide.with(this).load("https://i.pinimg.com/originals/21/21/b5/2121b5dc445a1d0cb69965ecaecfaf80.jpg").into(imageView)
 
+        //Checking if a switch is changed and store their boolean in the shared preferences
+        //also check if the user is logged in, if not hide the switches and show brands_info message
         if (sharedPreferences.getBoolean(SettingsActivity.loginBoolKey, false)) {
             switch1.isChecked = sharedPreferences.getBoolean(nikeKey, true)
 
@@ -57,6 +60,7 @@ class BrandsFragment : Fragment() {
 
             switch6.isChecked = sharedPreferences.getBoolean(supremeKey, true)
 
+            //used to save the booleans in the shared preferences
             save_brands.setOnClickListener {
                 sharedPreferences.edit().putBoolean(nikeKey, switch1.isChecked).apply()
                 sharedPreferences.edit().putBoolean(adidasKey, switch2.isChecked).apply()
@@ -69,6 +73,7 @@ class BrandsFragment : Fragment() {
             brands_info.visibility = View.GONE
 
         } else {
+            //loginboolean is false all switches needed to follow get hidden and the texview brands_info is shown with an information message.
             switch1.visibility = View.GONE
             switch2.visibility = View.GONE
             switch3.visibility = View.GONE

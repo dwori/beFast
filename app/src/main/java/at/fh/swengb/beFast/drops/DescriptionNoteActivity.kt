@@ -23,11 +23,11 @@ class DescriptionNoteActivity : AppCompatActivity() {
         }
 
         val noteFromDb = DropsRepository.findSameID(applicationContext, dropID.toString())
-
+        //show stored personal note
         personalNote.setText(noteFromDb?.text)
 
 
-
+        //save personal note in the database
         save_note.setOnClickListener() {
             val noteObj = DescriptionNote(dropID.toString(), drop_name.toString(),personalNote.text.toString())
             DropsRepository.addDescriptionNote(applicationContext, noteObj)

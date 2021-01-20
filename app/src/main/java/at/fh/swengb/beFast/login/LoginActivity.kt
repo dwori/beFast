@@ -17,6 +17,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
+        //OnClick of loginbutton the provided username and email is checked if they are empty a toast with an error message is shown
         login_loginButton.setOnClickListener {
             if (login_username?.text.toString().trim().isBlank() || login_password?.text.toString().trim().isBlank()) {
                 Toast
