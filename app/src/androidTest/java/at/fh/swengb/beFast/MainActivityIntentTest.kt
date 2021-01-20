@@ -1,4 +1,4 @@
-
+package at.fh.swengb.beFast
 
 import android.content.Intent
 import androidx.test.espresso.Espresso.onView

@@ -6,14 +6,16 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
+import at.fh.swengb.beFast.news.NewsFragment
 import at.fh.swengb.beFast.settings.SettingsActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
 
@@ -59,10 +61,10 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
 
     }
+
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
-            R.id.settings -> consume{settings()}
-
+            R.id.settings -> consume { settings() }
             else -> super.onOptionsItemSelected(item)
         }
     }
