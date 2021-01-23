@@ -3,6 +3,8 @@ package at.fh.swengb.beFast.drops
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.viewModels
+import androidx.lifecycle.observe
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.drops.DropsFragment.Companion.EXTRA_DROP_ID
 import at.fh.swengb.beFast.drops.recyclerview.DropsRepository
@@ -10,6 +12,7 @@ import kotlinx.android.synthetic.main.activity_description.*
 import kotlinx.android.synthetic.main.activity_description_note.*
 
 class DescriptionNoteActivity : AppCompatActivity() {
+    private val viewModel: DescriptionNoteViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_description_note)
@@ -26,6 +29,13 @@ class DescriptionNoteActivity : AppCompatActivity() {
 
         personalNote.setText(noteFromDb?.text)
 
+        //view model implementation
+        viewModel.note.observe(this){
+            personalNote_textView.text = it?.text
+        }
+
+        viewModel.findLessonNoteById(dropID.toString())
+
 
 
         save_note.setOnClickListener() {
@@ -33,8 +43,8 @@ class DescriptionNoteActivity : AppCompatActivity() {
             DropsRepository.addDescriptionNote(applicationContext, noteObj)
             Toast.makeText(this, "Note saved.", Toast.LENGTH_LONG).show()
 
-            val noteFromDb = DropsRepository.findSameID(applicationContext, dropID.toString())
-            personalNote.setText(noteFromDb?.text)
+            /*val noteFromDb = DropsRepository.findSameID(applicationContext, dropID.toString())
+            personalNote.setText(noteFromDb?.text)*/
 
         }
     }

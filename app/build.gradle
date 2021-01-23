@@ -105,4 +105,11 @@ dependencies {
     // dependency to appear on your APK's compile classpath or the test APK
     // classpath.
     androidTestImplementation 'androidx.test.espresso:espresso-idling-resource:3.3.0'
+
+    // ViewModel
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0"
+    // LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
+    // Extensions for Activity (e.g. by viewmodels)
+    implementation "androidx.activity:activity-ktx:1.1.0"
 }

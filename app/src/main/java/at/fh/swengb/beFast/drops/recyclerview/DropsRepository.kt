@@ -4,6 +4,7 @@ import android.app.Activity
 import android.app.Application
 import android.content.Context
 import android.content.res.Resources
+import androidx.lifecycle.LiveData
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.drops.DescriptionNote
 import at.fh.swengb.beFast.drops.dao.DescriptionNoteDB
@@ -55,5 +56,10 @@ object DropsRepository {
         val applicationContext = context.applicationContext
         val db = DescriptionNoteDB.getDatabase(applicationContext)
         return db.descriptionNoteDao.findDropBySameID(id)
+    }
+    fun findSameIDByLiveData(context: Context, id: String): LiveData<DescriptionNote?> {
+        val applicationContext = context.applicationContext
+        val db = DescriptionNoteDB.getDatabase(applicationContext)
+        return db.descriptionNoteDao.selectWithLiveData(id)
     }
 }

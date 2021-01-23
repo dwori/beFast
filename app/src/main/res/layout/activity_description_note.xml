@@ -6,25 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".drops.DescriptionNoteActivity">
 
+    <Button
+        android:id="@+id/save_note"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="Save your Note "
+        app:layout_constraintEnd_toEndOf="@+id/personalNote_textView"
+        app:layout_constraintStart_toStartOf="@+id/personalNote_textView"
+        app:layout_constraintTop_toBottomOf="@+id/personalNote_textView" />
+
     <TextView
         android:id="@+id/dropName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="48dp"
         android:text="TextView"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/save_note"
+    <TextView
+        android:id="@+id/personalNote_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="92dp"
-        android:text="Save your Note "
+        android:layout_marginTop="88dp"
+        android:text="TextView"
         app:layout_constraintEnd_toEndOf="@+id/personalNote"
-        app:layout_constraintHorizontal_bias="0.477"
         app:layout_constraintStart_toStartOf="@+id/personalNote"
         app:layout_constraintTop_toBottomOf="@+id/personalNote" />
 
@@ -32,11 +42,13 @@
         android:id="@+id/personalNote"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="64dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="Name"
         app:layout_constraintEnd_toEndOf="@+id/dropName"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="@+id/dropName"
         app:layout_constraintTop_toBottomOf="@+id/dropName" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
