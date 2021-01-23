@@ -1,5 +1,6 @@
 package at.fh.swengb.beFast.drops.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -14,4 +15,7 @@ interface DescriptionNoteDAO {
 
     @Query("SELECT * FROM DescriptionNote where id = :id")
     fun findDropBySameID(id: String): DescriptionNote
+
+    @Query("SELECT * FROM DescriptionNote where id = :id")
+    fun selectWithLiveData(id: String?): LiveData<DescriptionNote?>
 }

@@ -9,5 +9,5 @@ class Drops (
         val imageUrl: String,
         val homepageUrl: String,
         val stockxUrl: String,
-        val descriptionText: String
+        val descriptionTextId: Int
 )

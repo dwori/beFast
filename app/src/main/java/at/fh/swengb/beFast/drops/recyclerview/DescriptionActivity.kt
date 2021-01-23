@@ -4,8 +4,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
+import androidx.core.content.ContentProviderCompat.requireContext
 import kotlinx.android.synthetic.main.activity_description.*
 import java.text.SimpleDateFormat
 import java.util.*
@@ -25,18 +27,23 @@ class DescriptionActivity : AppCompatActivity() {
         var drop: Drops? = null
         setContentView(R.layout.activity_description)
 
+
+
+
         val dropId = intent.getStringExtra(EXTRA_DROP_ID)
 
         if (dropId != null) {
-            description_brand.text = DropsRepository.dropById(dropId)?.brand ?: getString(R.string.brand_error) //Dynamic language
-            description_name.text = DropsRepository.dropById(dropId)?.name ?: getString(R.string.name_error)
-            description_price.text = DropsRepository.dropById(dropId)?.price ?: getString(R.string.price_error)
-            description_description.text = DropsRepository.dropById(dropId)?.descriptionText ?: "no description available"
-
-            // set image
-            Glide.with(this)
-                .load(DropsRepository.dropById(dropId)?.imageUrl ?: "no image")
-                .into(this.description_imageView)
+            val drop = DropsRepository.dropById(dropId)
+            if(drop != null) {
+                description_brand.text = drop.brand  //Dynamic language
+                description_name.text = drop.name
+                description_price.text = drop.price
+                description_description.text = getString(drop.descriptionTextId)
+                // set image
+                Glide.with(this)
+                    .load(DropsRepository.dropById(dropId)?.imageUrl ?: "no image")
+                    .into(this.description_imageView)
+            }
         }
 
         val brand = dropId?.let { DropsRepository.dropById(it)?.brand } ?: getString(R.string.brand_error)
@@ -44,6 +51,7 @@ class DescriptionActivity : AppCompatActivity() {
         val datetime = dropId?.let { DropsRepository.dropById(it)?.datetime } ?: getString(R.string.date_error)
         val homepageUrl = dropId?.let { DropsRepository.dropById(it)?.homepageUrl } ?: getString(R.string.hompageURL_error)
         val stockxUrl = dropId?.let { DropsRepository.dropById(it)?.stockxUrl } ?: "no stockx URL found"
+
 
 
 

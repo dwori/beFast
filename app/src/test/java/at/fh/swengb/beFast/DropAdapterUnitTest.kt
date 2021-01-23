@@ -12,6 +12,7 @@ import org.mockito.Mockito.times
 import org.mockito.Mockito.verify
 import org.mockito.junit.MockitoJUnitRunner
 
+
 @RunWith(MockitoJUnitRunner::class)
 class DropAdapterUnitTest {
     val drops = (1..15).map {
