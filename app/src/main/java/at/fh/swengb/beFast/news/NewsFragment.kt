@@ -8,15 +8,17 @@ import android.view.*
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.squareup.moshi.Moshi
-import kotlinx.android.synthetic.main.fragment_news.*
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.api.TwitterApi
 import at.fh.swengb.beFast.models.tweets.TweetsItem
 import at.fh.swengb.beFast.news.recyclerview.TweetAdapter
+import com.squareup.moshi.Moshi
+import kotlinx.android.synthetic.main.fragment_news.*
+
 
 class NewsFragment : Fragment() {
 
@@ -56,8 +58,8 @@ class NewsFragment : Fragment() {
                     Log.e("Error", "Repository Error")
                     if (activity != null) {           //TODO: App crashes if started on AirplaneMode on lukis phone news Fragment has no corresponding activity
                         Toast
-                            .makeText(activity, getString(R.string.internet_connection), Toast.LENGTH_LONG)
-                            .show()
+                                .makeText(activity, getString(R.string.internet_connection), Toast.LENGTH_LONG)
+                                .show()
                     }
                 }
         )
@@ -100,4 +102,33 @@ class NewsFragment : Fragment() {
     }   
         """.trimIndent())
     }
+    fun refresh(){
+        val ftr: FragmentTransaction = requireFragmentManager().beginTransaction()
+        ftr.detach(this@NewsFragment).attach(this@NewsFragment).commit()
+
+    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.top_nav_menu_news, menu);
+
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    inline fun consume(f: () -> Unit): Boolean {
+        f()
+        return true
+    }
+    //function to start the
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.refresh -> consume { refresh() }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
 }
