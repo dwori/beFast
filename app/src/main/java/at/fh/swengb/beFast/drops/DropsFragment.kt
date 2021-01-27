@@ -8,19 +8,17 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.TextView
+import androidx.core.content.ContextCompat
+import at.fh.swengb.beFast.Menu.consume
 import kotlinx.android.synthetic.main.fragment_drops.*
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.brands.BrandsFragment
-import at.fh.swengb.beFast.drops.recyclerview.DescriptionActivity
+import at.fh.swengb.beFast.drops.recyclerview.description.DescriptionActivity
 import at.fh.swengb.beFast.drops.recyclerview.DropsAdapter
 import at.fh.swengb.beFast.drops.recyclerview.DropsRepository
 import at.fh.swengb.beFast.settings.SettingsActivity
-import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.fragment_brands.*
 
 
 class DropsFragment : Fragment() {
@@ -97,5 +95,25 @@ class DropsFragment : Fragment() {
         val layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         fragment_drops_recyclerview.layoutManager = layoutManager
         fragment_drops_recyclerview.adapter = dropsAdapter
+    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.top_nav_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.settings -> consume { settings() }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+    fun settings(){
+        val intent = Intent(activity, SettingsActivity::class.java)
+        startActivity(intent)
     }
 }

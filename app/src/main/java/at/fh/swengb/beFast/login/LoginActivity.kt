@@ -11,6 +11,7 @@ import at.fh.swengb.beFast.settings.SettingsActivity
 import at.fh.swengb.beFast.R
 
 class LoginActivity : AppCompatActivity() {
+    private val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -18,7 +19,7 @@ class LoginActivity : AppCompatActivity() {
 
         val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
         login_loginButton.setOnClickListener {
-            if (login_username?.text.toString().trim().isBlank() || login_password?.text.toString().trim().isBlank()) {
+            if (login_username?.text.toString().trim().isBlank() || !login_Email?.text.toString().matches(emailPattern.toRegex())) {
                 Toast
                         .makeText(this, getString(R.string.valid_email), Toast.LENGTH_LONG)
                         .show()
@@ -29,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
                         .apply()
                 sharedPreferences
                         .edit()
-                        .putString(SettingsActivity.emailKey, login_password.text.toString())
+                        .putString(SettingsActivity.emailKey, login_Email.text.toString())
                         .apply()
                 sharedPreferences
                         .edit()

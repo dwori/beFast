@@ -1,40 +1,31 @@
-package at.fh.swengb.beFast.drops.recyclerview
+package at.fh.swengb.beFast.drops.recyclerview.description
 
 import androidx.appcompat.app.AppCompatActivity
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.MenuItem
-import android.view.View
-import androidx.core.content.ContentProviderCompat.requireContext
 import kotlinx.android.synthetic.main.activity_description.*
 import java.text.SimpleDateFormat
 import java.util.*
 import at.fh.swengb.beFast.R
-import at.fh.swengb.beFast.drops.DescriptionNote
-import at.fh.swengb.beFast.drops.DescriptionNoteActivity
 import at.fh.swengb.beFast.drops.DropsFragment.Companion.EXTRA_DROP_ID
+import at.fh.swengb.beFast.drops.recyclerview.DropsRepository
 import at.fh.swengb.beFast.models.drops.Drops
 import com.bumptech.glide.Glide
-import kotlinx.android.synthetic.main.drops_recycler_view_item.view.*
-import kotlinx.android.synthetic.main.fragment_brands.*
 
 
 class DescriptionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        var drop: Drops? = null
         setContentView(R.layout.activity_description)
 
-
-
-
+        var drop: Drops?
         val dropId = intent.getStringExtra(EXTRA_DROP_ID)
 
         if (dropId != null) {
-            val drop = DropsRepository.dropById(dropId)
-            if(drop != null) {
+            drop = DropsRepository.dropById(dropId)
+            if (drop != null) {
                 description_brand.text = drop.brand  //Dynamic language
                 description_name.text = drop.name
                 description_price.text = drop.price
@@ -62,7 +53,7 @@ class DescriptionActivity : AppCompatActivity() {
                 action = Intent.ACTION_SEND
                 putExtra(Intent.EXTRA_TEXT, "$brand $name Drop by beFast: $homepageUrl")
                 putExtra(Intent.EXTRA_TITLE, "$brand $name")
-                type = "text/plain" //todo send the link not text
+                type = "text/plain"
             }
             val shareIntent = Intent.createChooser(sendIntent, null)
             startActivity(shareIntent)

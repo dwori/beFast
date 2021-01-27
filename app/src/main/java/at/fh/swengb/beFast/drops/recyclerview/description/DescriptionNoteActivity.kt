@@ -1,14 +1,15 @@
-package at.fh.swengb.beFast.drops
+package at.fh.swengb.beFast.drops.recyclerview.description
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.observe
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.drops.DropsFragment.Companion.EXTRA_DROP_ID
+import at.fh.swengb.beFast.drops.dao.DescriptionNote
 import at.fh.swengb.beFast.drops.recyclerview.DropsRepository
-import kotlinx.android.synthetic.main.activity_description.*
 import kotlinx.android.synthetic.main.activity_description_note.*
 
 class DescriptionNoteActivity : AppCompatActivity() {
@@ -47,5 +48,14 @@ class DescriptionNoteActivity : AppCompatActivity() {
             personalNote.setText(noteFromDb?.text)*/
 
         }
+        // back button
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+    override fun onOptionsItemSelected(item: MenuItem):Boolean {
+        super.onOptionsItemSelected(item)
+        when (item.itemId) {
+            android.R.id.home -> finish()
+        }
+        return true
     }
 }

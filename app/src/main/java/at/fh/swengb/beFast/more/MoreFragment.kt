@@ -7,13 +7,13 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.widget.TextView
+import at.fh.swengb.beFast.Menu.consume
 import kotlinx.android.synthetic.main.fragment_more.*
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.login.LoginActivity
+import at.fh.swengb.beFast.settings.SettingsActivity
 import at.fh.swengb.beFast.settings.SettingsActivity.Companion.loginBoolKey
 import at.fh.swengb.beFast.settings.SettingsActivity.Companion.emailKey
 import at.fh.swengb.beFast.settings.SettingsActivity.Companion.usernameKey
@@ -86,5 +86,27 @@ class MoreFragment : Fragment() {
     override fun onResume() {
         super.onResume()
         loadMoreUserDetails()
+    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.top_nav_menu, menu);
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.settings -> consume { settings() }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+
+
+
+    fun settings(){
+        val intent = Intent(activity, SettingsActivity::class.java)
+        startActivity(intent)
     }
 }

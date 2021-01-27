@@ -1,4 +1,4 @@
-package at.fh.swengb.beFast.drops
+package at.fh.swengb.beFast.drops.dao
 
 import androidx.room.*
 

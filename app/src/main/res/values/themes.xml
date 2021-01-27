@@ -12,12 +12,13 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-    </style>
-    <style name="TransparentCardview" parent="Widget.MaterialComponents.CardView">
-        <item name="cardBackgroundColor">@color/white_transparent</item>
-        <item name="android:textColor">@color/black</item>
+
     </style>
     <style name="customTable" parent="Widget.Design.TabLayout">
         <item name="android:background">@color/white_transparent</item>
+    </style>
+    <style name="ShapeAppearance.MyApp.RoundButton" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
     </style>
 </resources>
