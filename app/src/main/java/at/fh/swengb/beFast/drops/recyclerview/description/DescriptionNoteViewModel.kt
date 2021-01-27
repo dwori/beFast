@@ -6,7 +6,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
-import at.fh.swengb.beFast.drops.dao.DescriptionNote
+import at.fh.swengb.beFast.drops.recyclerview.description.dao.DescriptionNote
 import at.fh.swengb.beFast.drops.recyclerview.DropsRepository
 
 class DescriptionNoteViewModel(application: Application): AndroidViewModel(application) {

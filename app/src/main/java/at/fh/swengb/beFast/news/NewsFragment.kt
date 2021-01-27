@@ -14,6 +14,7 @@ import at.fh.swengb.beFast.Menu.consume
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.api.TwitterApi
 import at.fh.swengb.beFast.news.recyclerview.TweetAdapter
+import at.fh.swengb.beFast.settings.SettingsActivity
 import kotlinx.android.synthetic.main.fragment_news.*
 
 
@@ -64,6 +65,10 @@ class NewsFragment : Fragment() {
         ftr.detach(this@NewsFragment).attach(this@NewsFragment).commit()
 
     }
+    fun settings(){
+        val intent = Intent(activity, SettingsActivity::class.java)
+        startActivity(intent)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
@@ -77,6 +82,7 @@ class NewsFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
             R.id.refresh -> consume { refresh() }
+            R.id.settings -> consume { settings() }
             else -> super.onOptionsItemSelected(item)
         }
     }

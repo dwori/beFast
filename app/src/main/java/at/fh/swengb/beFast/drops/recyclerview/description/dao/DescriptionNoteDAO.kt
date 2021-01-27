@@ -1,4 +1,4 @@
-package at.fh.swengb.beFast.drops.dao
+package at.fh.swengb.beFast.drops.recyclerview.description.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

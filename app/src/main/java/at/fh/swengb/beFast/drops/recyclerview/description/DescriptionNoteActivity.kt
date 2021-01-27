@@ -8,7 +8,7 @@ import androidx.activity.viewModels
 import androidx.lifecycle.observe
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.drops.DropsFragment.Companion.EXTRA_DROP_ID
-import at.fh.swengb.beFast.drops.dao.DescriptionNote
+import at.fh.swengb.beFast.drops.recyclerview.description.dao.DescriptionNote
 import at.fh.swengb.beFast.drops.recyclerview.DropsRepository
 import kotlinx.android.synthetic.main.activity_description_note.*
 

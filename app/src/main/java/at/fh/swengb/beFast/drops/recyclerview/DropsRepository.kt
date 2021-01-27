@@ -3,8 +3,8 @@ package at.fh.swengb.beFast.drops.recyclerview
 import android.content.Context
 import androidx.lifecycle.LiveData
 import at.fh.swengb.beFast.R
-import at.fh.swengb.beFast.drops.dao.DescriptionNoteDB
-import at.fh.swengb.beFast.drops.dao.DescriptionNote
+import at.fh.swengb.beFast.drops.recyclerview.description.dao.DescriptionNoteDB
+import at.fh.swengb.beFast.drops.recyclerview.description.dao.DescriptionNote
 import at.fh.swengb.beFast.models.drops.Drops
 
 //val id0: String = Context.getString(R.string.id0)
