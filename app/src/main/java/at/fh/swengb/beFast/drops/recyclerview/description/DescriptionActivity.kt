@@ -16,6 +16,8 @@ import com.bumptech.glide.Glide
 
 
 class DescriptionActivity : AppCompatActivity() {
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_description)
@@ -32,7 +34,7 @@ class DescriptionActivity : AppCompatActivity() {
                 description_description.text = getString(drop.descriptionTextId)
                 // set image
                 Glide.with(this)
-                    .load(DropsRepository.dropById(dropId)?.imageUrl ?: "no image")
+                    .load(drop.imageUrl)
                     .into(this.description_imageView)
             }
         }

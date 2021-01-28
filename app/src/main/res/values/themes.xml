@@ -6,18 +6,17 @@
         <item name="colorPrimaryVariant">@color/blue_light</item>
         <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/red_light</item>
-        <item name="colorSecondaryVariant">@color/red_dark</item>
+        <item name="colorSecondary">@color/blue_dark</item>
+        <item name="colorSecondaryVariant">@color/blue_light</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
-
     </style>
     <style name="customTable" parent="Widget.Design.TabLayout">
         <item name="android:background">@color/white_transparent</item>
     </style>
-    <style name="ShapeAppearance.MyApp.RoundButton" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+    <style name="roundButton" parent="ShapeAppearance.MaterialComponents.SmallComponent">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item>
     </style>

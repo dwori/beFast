@@ -26,14 +26,14 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="80dp"
-        android:layout_marginTop="48dp"
+        android:layout_width="334dp"
+        android:layout_height="202dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/befast_logo" />
+        app:srcCompat="@drawable/befast_logo_variant" />
 
     <EditText
         android:id="@+id/login_username"
@@ -84,5 +84,5 @@
         app:layout_constraintEnd_toEndOf="@+id/login_Email"
         app:layout_constraintStart_toStartOf="@+id/login_Email"
         app:layout_constraintTop_toBottomOf="@+id/login_Email"
-        app:shapeAppearance="@style/ShapeAppearance.MyApp.RoundButton" />
+        app:shapeAppearance="@style/roundButton" />
 </androidx.constraintlayout.widget.ConstraintLayout>
