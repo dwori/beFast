@@ -11,7 +11,7 @@ import at.fh.swengb.beFast.settings.SettingsActivity
 import at.fh.swengb.beFast.R
 
 class LoginActivity : AppCompatActivity() {
-    private val emailPattern = "[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+"
+    private val emailPattern = "[a-zA-Z0-9._-]+@[a-z.]+\\.+[a-z._-]+"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 

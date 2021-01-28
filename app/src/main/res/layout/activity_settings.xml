@@ -8,85 +8,78 @@
     tools:context=".settings.SettingsActivity">
 
 
-    <TextView
-        android:id="@+id/textView_logged_status"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInput_username"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="44dp"
-        android:text="@string/username"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="@string/email"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@+id/textView_logged_status"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/textView_logged_status"
-        app:layout_constraintTop_toBottomOf="@+id/textView_logged_status" />
-
-    <EditText
-        android:id="@+id/editText_username"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="@+id/textView_logged_status"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView_logged_status"
-        app:layout_constraintTop_toTopOf="@+id/textView_logged_status"
-        app:layout_constraintVertical_bias="0.538" />
-
-    <EditText
-        android:id="@+id/editText_email"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/editText_username"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editText_username"
-        app:layout_constraintTop_toBottomOf="@+id/editText_username" />
+        android:layout_marginEnd="20dp"
+        android:hint="@string/username"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:startIconDrawable="@drawable/ic_baseline_person_outline_24">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/TextInput_email"
+        app:startIconDrawable="@drawable/ic_baseline_mail_outline_24"
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="20dp"
+        android:hint="@string/email"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInput_username"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView_darkmode"
         android:layout_width="wrap_content"
         android:layout_height="32dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="28dp"
         android:text="@string/darkmode"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.028"
+        app:layout_constraintHorizontal_bias="0.123"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_email" />
+        app:layout_constraintTop_toBottomOf="@+id/TextInput_email" />
 
     <Switch
         android:id="@+id/switch_darkmode"
         android:layout_width="47dp"
         android:layout_height="32dp"
-        app:layout_constraintBottom_toBottomOf="@+id/textView_darkmode"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="52dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.873"
+        app:layout_constraintHorizontal_bias="0.825"
         app:layout_constraintStart_toEndOf="@+id/textView_darkmode"
-        app:layout_constraintTop_toBottomOf="@+id/editText_email"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/TextInput_email" />
 
     <Button
         android:id="@+id/settings_logout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="24dp"
         android:text="@string/logout"
         app:layout_constraintStart_toStartOf="parent"
@@ -97,7 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginEnd="40dp"
         android:text="@string/save"
         app:iconGravity="end"
         app:layout_constraintEnd_toEndOf="parent"
@@ -107,11 +100,11 @@
         android:id="@+id/settings_login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="24dp"
         android:text="@string/login"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_darkmode" />
 
     <Button
         android:id="@+id/settings_share"
@@ -121,7 +114,8 @@
         app:icon="@drawable/ic_baseline_share_24"
         app:iconGravity="end"
         tools:layout_editor_absoluteX="126dp"
-        tools:layout_editor_absoluteY="352dp" />
+        tools:layout_editor_absoluteY="352dp"
+        />
 
     <Button
         android:id="@+id/settings_support"
@@ -133,6 +127,7 @@
         tools:layout_editor_absoluteX="142dp"
         tools:layout_editor_absoluteY="592dp" />
 
+
     <Button
         android:id="@+id/settings_conditions"
         android:layout_width="wrap_content"
@@ -142,16 +137,16 @@
         app:icon="@drawable/ic_baseline_article_24"
         app:iconGravity="end"
         tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="480dp" />
+        tools:layout_editor_absoluteY="480dp"
+        />
 
     <androidx.constraintlayout.helper.widget.Flow
         android:id="@+id/flow"
         android:layout_width="379dp"
         android:layout_height="226dp"
         android:layout_marginStart="4dp"
-        android:layout_marginTop="64dp"
         android:layout_marginEnd="4dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="36dp"
         app:constraint_referenced_ids="settings_support,settings_share,settings_conditions"
         app:flow_horizontalGap="25dp"
         app:flow_maxElementsWrap="1"
@@ -162,22 +157,19 @@
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/settings_logout"
-        app:layout_constraintVertical_bias="0.888" />
+
+        />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="22dp"
         android:layout_marginEnd="100dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="24dp"
         android:text="Version 2.10.0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.525"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/flow" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
