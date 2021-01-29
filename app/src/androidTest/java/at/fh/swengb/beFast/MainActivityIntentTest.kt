@@ -32,7 +32,7 @@ class MainActivityIntentTest {
     fun tearDown() {
         Intents.release()
     }
-
+    //check Settings
     @Test
     fun clickingSettingsButton_shouldLaunchSettingsActivity() {
         onView(withId(R.id.settings)).perform(click())

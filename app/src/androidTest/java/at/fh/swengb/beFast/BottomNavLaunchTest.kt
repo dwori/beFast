@@ -16,6 +16,7 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
+//checks whether the BrandsFragment, DropsFragment and MoreFragment can be clicked and are properly displayed
 class BottomNavLaunchTest {
         @get:Rule
         val rule = ActivityScenarioRule(MainActivity::class.java)

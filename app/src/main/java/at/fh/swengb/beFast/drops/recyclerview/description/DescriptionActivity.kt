@@ -25,6 +25,8 @@ class DescriptionActivity : AppCompatActivity() {
         var drop: Drops?
         val dropId = intent.getStringExtra(EXTRA_DROP_ID)
 
+
+        // get the corresponding data by referencing with the id
         if (dropId != null) {
             drop = DropsRepository.dropById(dropId)
             if (drop != null) {

@@ -15,7 +15,7 @@ class DropViewHolder(itemView: View, val clickListener: (drop: Drops) -> Unit): 
         itemView.drop_item_name.text = drop.name
         itemView.drop_item_price.text = drop.price
 
-        // time zones
+        // formatting time zones
         val date: String = drop.datetime
         val sdf = SimpleDateFormat("dd.MM.yyyy z HH:mm", Locale.ENGLISH)
         val formattedDate = sdf.parse(date)

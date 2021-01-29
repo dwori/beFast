@@ -12,10 +12,11 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 
 
 object TwitterApi {
+    //providing the bearer token in order to connect with the twitter api
     private const val accessToken = "AAAAAAAAAAAAAAAAAAAAAJkxKwEAAAAAAe17jtzpFcF%2FJ18O8QoxfW3ToPU%3D6PAygRGoLojJ24cAHPQQByzv5ziPv1hHU66JWTnvEGQx6uzOme"
     private val retrofit: Retrofit
     private val retrofitService: TwitterApiService
-
+    //request a connection
     init {
         val moshi = Moshi.Builder().build()
         retrofit = Retrofit
@@ -35,7 +36,7 @@ object TwitterApi {
             .build()
         retrofitService = retrofit.create(TwitterApiService::class.java)
     }
-
+    //call a list of Tweets
     fun tweetList(success: (articleList: List<TweetsItem>) -> Unit, error: (errorMessage: String) -> Unit) {
         retrofitService.getTweetList().enqueue(
             object: Callback<List<TweetsItem>> {

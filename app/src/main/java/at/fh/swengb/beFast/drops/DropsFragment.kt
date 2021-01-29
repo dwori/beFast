@@ -59,6 +59,8 @@ class DropsFragment : Fragment() {
         val savedPuma = sharedPreferences.getBoolean(BrandsFragment.pumaKey, true)
         val savedSupreme = sharedPreferences.getBoolean(BrandsFragment.supremeKey, true)
         drops_info.visibility = View.GONE
+        //if one brand gets switched off, the filterList function is called
+        //and the brand is no longer in Drops until the switch is turned on again
         if (loginBool) {
             if (!savedNike && !savedAdidas && !savedFear && !savedNewB && !savedPuma && !savedSupreme) {
                 drops_info.visibility = View.VISIBLE

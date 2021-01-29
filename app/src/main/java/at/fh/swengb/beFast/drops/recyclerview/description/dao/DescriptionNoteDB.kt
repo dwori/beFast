@@ -16,7 +16,7 @@ abstract class DescriptionNoteDB : RoomDatabase() {
                 INSTANCE ?: buildDatabase(context).also { INSTANCE = it }
             }
         }
-
+        //build the database for our descrpition note with Room
         private fun buildDatabase(context: Context): DescriptionNoteDB {
             return Room.databaseBuilder(
                 context,

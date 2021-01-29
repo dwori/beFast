@@ -26,11 +26,13 @@ object DropsRepository {
     fun dropById(id: String): Drops? {
         return drops.find { it.id == id }
     }
+    //inserts the note into the database
     fun addDescriptionNote(context: Context, descriptionNote: DescriptionNote) {
         val applicationContext = context.applicationContext
         val db = DescriptionNoteDB.getDatabase(applicationContext)
         db.descriptionNoteDao.insert(descriptionNote)
     }
+    //finds the corresponding data
     fun findSameIDByLiveData(context: Context, id: String): LiveData<DescriptionNote?> {
         val applicationContext = context.applicationContext
         val db = DescriptionNoteDB.getDatabase(applicationContext)
