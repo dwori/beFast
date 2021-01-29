@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="8dp"
-    app:cardElevation="8dp"
-    style="@style/TransparentCardview">
+    app:cardElevation="8dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/drops_recyler_view_item"
@@ -25,7 +24,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.122"
             app:layout_constraintStart_toEndOf="@+id/drop_item_image"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:textAppearance="?attr/textAppearanceHeadline6"
+            />
 
         <TextView
             android:id="@+id/drop_item_name"
@@ -38,7 +39,9 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/drop_item_image"
-            app:layout_constraintTop_toBottomOf="@+id/drop_item_brand" />
+            app:layout_constraintTop_toBottomOf="@+id/drop_item_brand"
+            android:textAppearance="?attr/textAppearanceBody2"
+            />
 
         <TextView
             android:id="@+id/drop_item_price"

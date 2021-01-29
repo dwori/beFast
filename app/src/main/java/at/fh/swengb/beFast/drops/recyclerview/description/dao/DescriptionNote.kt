@@ -1,4 +1,4 @@
-package at.fh.swengb.beFast.drops
+package at.fh.swengb.beFast.drops.recyclerview.description.dao
 
 import androidx.room.*
 

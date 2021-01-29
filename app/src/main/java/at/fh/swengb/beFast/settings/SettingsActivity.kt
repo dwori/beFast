@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.login.LoginActivity
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_settings.*
 
 class SettingsActivity : AppCompatActivity() {
@@ -20,7 +21,8 @@ class SettingsActivity : AppCompatActivity() {
         const val loginBoolKey = "LOGIN"
         const val emailKey = "EMAIL"
     }
-    //Declaration of variables
+
+    private val emailPattern = "[a-zA-Z0-9._-]+@[a-z.]+\\.+[a-z._-]+"
     private lateinit var sharedPreferences: SharedPreferences
     private var loginBoolPreferences: Boolean = false
     private var savedNightMode: Boolean = false
@@ -42,8 +44,8 @@ class SettingsActivity : AppCompatActivity() {
         val savedEmail = sharedPreferences.getString(emailKey, null)
 
         if (loginBoolPreferences) {
-            textView_email.visibility = View.VISIBLE
-            textView_logged_status.text = getString(R.string.username)
+            //textView_email.visibility = View.VISIBLE
+            //textView_logged_status.text = getString(R.string.username)
 
             editText_username.setText(savedUsername)
             editText_email.setText(savedEmail)
@@ -52,8 +54,8 @@ class SettingsActivity : AppCompatActivity() {
             changeVisibility(View.VISIBLE)
 
         } else {
-            textView_logged_status.text = getString(R.string.logged_out)
-            textView_email.visibility = View.GONE
+            //textView_logged_status.text = getString(R.string.logged_out)
+            //textView_email.visibility = View.GONE
 
             settings_login.visibility = View.VISIBLE
             changeVisibility(View.GONE)
@@ -63,17 +65,29 @@ class SettingsActivity : AppCompatActivity() {
     private fun changeVisibility(v: Int) {
         //textView_email.visibility = v
         settings_logout.visibility = v
-        editText_email.visibility = v
-        editText_username.visibility = v
+        TextInput_email.visibility = v
+        textInput_username.visibility = v
     }
     //Function that gets executed onClick of the saveButton.
     //Saves all changes into the sharedPreferences, means: username, email and darkmode
     private fun saveSettings() {
         if (loginBoolPreferences) {
-            sharedPreferences.edit().putString(usernameKey, editText_username.text.toString()).apply()
-            sharedPreferences.edit().putString(emailKey, editText_email.text.toString()).apply()
+            if (editText_username?.text.toString().trim().isBlank() ) {
+                textInput_username.error = "Username cant be empty"
+            } else {
+                textInput_username.error = null
+            }
+            if (!editText_email?.text.toString().matches(emailPattern.toRegex()) ){
+                TextInput_email.error = "no valid email"
+            } else {
+                TextInput_email.error = null
+            }
+            if (editText_email?.text.toString().matches(emailPattern.toRegex()) && !editText_username?.text.toString().trim().isBlank()){
+                sharedPreferences.edit().putString(usernameKey, editText_username.text.toString()).apply()
+                sharedPreferences.edit().putString(emailKey, editText_email.text.toString()).apply()
+                finish()
+            }
         }
-
         sharedPreferences.edit().putBoolean(nightModeKey, switch_darkmode.isChecked).apply()
 
         savedNightMode = switch_darkmode.isChecked
@@ -100,7 +114,7 @@ class SettingsActivity : AppCompatActivity() {
         //save Account settings
         save_settings.setOnClickListener {
             saveSettings()
-            finish()
+
         }
 
         //login button

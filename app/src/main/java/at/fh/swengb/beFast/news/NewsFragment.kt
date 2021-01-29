@@ -5,39 +5,30 @@ import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import at.fh.swengb.beFast.Menu.consume
 import at.fh.swengb.beFast.R
 import at.fh.swengb.beFast.api.TwitterApi
-import at.fh.swengb.beFast.models.tweets.TweetsItem
 import at.fh.swengb.beFast.news.recyclerview.TweetAdapter
-import com.squareup.moshi.Moshi
+import at.fh.swengb.beFast.settings.SettingsActivity
 import kotlinx.android.synthetic.main.fragment_news.*
 
 
 class NewsFragment : Fragment() {
 
-    private lateinit var newsViewModel: NewsViewModel
     private lateinit var tweetAdapter: TweetAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        newsViewModel = ViewModelProvider(this).get(NewsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_news, container, false)
-        val textView: TextView = root.findViewById(R.id.text_news)
-        newsViewModel.text.observe(viewLifecycleOwner, Observer { textView.text = it })
-        return root
+        return inflater.inflate(R.layout.fragment_news, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         init()
-
-
     }
     private fun init() {
         SleepyAsyncTask()
@@ -56,20 +47,46 @@ class NewsFragment : Fragment() {
                 error = {
                     // handle error
                     Log.e("Error", "Repository Error")
-                    if (activity != null) {           //TODO: App crashes if started on AirplaneMode on lukis phone news Fragment has no corresponding activity
-                        Toast
-                                .makeText(activity, getString(R.string.internet_connection), Toast.LENGTH_LONG)
-                                .show()
+                    if (activity != null) {
+                        Toast.makeText(activity, getString(R.string.internet_connection), Toast.LENGTH_LONG).show()
                     }
                 }
         )
-        parseJson()
 
         val layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
         fragment_recycler_view_news.layoutManager = layoutManager
         fragment_recycler_view_news.adapter = tweetAdapter
+        //parseJson()
     }
-    private fun parseJson() {
+
+
+    private fun refresh(){
+        val ftr: FragmentTransaction = requireFragmentManager().beginTransaction()
+        ftr.detach(this@NewsFragment).attach(this@NewsFragment).commit()
+
+    }
+    fun settings(){
+        val intent = Intent(activity, SettingsActivity::class.java)
+        startActivity(intent)
+    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.top_nav_menu_news, menu);
+
+        super.onCreateOptionsMenu(menu, inflater)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when(item.itemId) {
+            R.id.refresh -> consume { refresh() }
+            R.id.settings -> consume { settings() }
+            else -> super.onOptionsItemSelected(item)
+        }
+    }
+    /*private fun parseJson() {
         val moshi = Moshi.Builder().build()
         val jsonAdapter = moshi.adapter<TweetsItem>(TweetsItem::class.java)
         val tweet = jsonAdapter.fromJson("""
@@ -94,41 +111,13 @@ class NewsFragment : Fragment() {
 
                     "media_url_https": "https://pbs.twimg.com/media/Ep70mToVgAEGDIR.jpg"
                 }
-   
- 
+
+
             ]
         }
-    
-    }   
+
+    }
         """.trimIndent())
     }
-    fun refresh(){
-        val ftr: FragmentTransaction = requireFragmentManager().beginTransaction()
-        ftr.detach(this@NewsFragment).attach(this@NewsFragment).commit()
-
-    }
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setHasOptionsMenu(true)
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.top_nav_menu_news, menu);
-
-        super.onCreateOptionsMenu(menu, inflater)
-    }
-
-    inline fun consume(f: () -> Unit): Boolean {
-        f()
-        return true
-    }
-    //function to start the
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId) {
-            R.id.refresh -> consume { refresh() }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-
+    */
 }

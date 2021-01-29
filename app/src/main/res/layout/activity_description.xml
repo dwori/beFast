@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".drops.recyclerview.DescriptionActivity">
+        tools:context=".drops.recyclerview.description.DescriptionActivity">
 
         <TextView
             android:id="@+id/description_price"

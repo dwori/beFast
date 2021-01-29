@@ -1,4 +1,4 @@
-package at.fh.swengb.beFast.drops
+package at.fh.swengb.beFast.drops.recyclerview.description
 
 
 import android.app.Application
@@ -6,6 +6,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
+import at.fh.swengb.beFast.drops.recyclerview.description.dao.DescriptionNote
 import at.fh.swengb.beFast.drops.recyclerview.DropsRepository
 
 class DescriptionNoteViewModel(application: Application): AndroidViewModel(application) {
@@ -15,15 +16,7 @@ class DescriptionNoteViewModel(application: Application): AndroidViewModel(appli
     val note: LiveData<DescriptionNote?> = Transformations.switchMap(noteId) {
         DropsRepository.findSameIDByLiveData(getApplication(), it)
     }
-
-    val noteText = Transformations.map(note) {
-        it?.text
-    }
-
     fun findLessonNoteById(str: String) {
         noteId.value = str
     }
-
-
-
 }

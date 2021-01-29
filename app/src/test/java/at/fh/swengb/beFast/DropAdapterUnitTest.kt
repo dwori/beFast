@@ -25,7 +25,7 @@ class DropAdapterUnitTest {
                 "https://www.google.com/url?sa=i&url=https",
                 "https://www.google.com/url?sa=i&url=https",
                 "https://www.google.com/url?sa=i&url=https",
-                "idk"
+                1
         )
     }
     @Test

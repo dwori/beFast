@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <color name="dark_green_main">#006466</color>
+    <color name="light_green">#007F81</color>
+
+    <color name="green_light">#8BC34A</color>
+    <color name="green_dark">#388E3C</color>
+
+
+    <color name="blue_light">#3F51B5</color>
+    <color name="blue_dark">#303F9F</color>
+
+    <color name="red_light">#DA3B2F</color>
+    <color name="red_dark">#B63229</color>
+
+    <color name="white_transparent">#E6FFFFFF</color>
+    <color name="black_transparent">#121212</color>
+
+    <color name="black">#FF000000</color>
+    <color name="grey">#E8454545</color>
+    <color name="white">#FFFFFFFF</color>
+
+
     <color name="purple_200">#FFBB86FC</color>
     <color name="purple_500">#FF6200EE</color>
     <color name="purple_700">#FF3700B3</color>
     <color name="teal_200">#FF03DAC5</color>
     <color name="teal_700">#FF018786</color>
-    <color name="black">#FF000000</color>
-    <color name="grey">#E8454545</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="orange_light">#ff5500</color>
+
     <color name="orangeDark">#B33D17</color>
     <color name="orange_shadow">#ADFF5722</color>
-    <color name="green_light">#8BC34A</color>
-    <color name="green_dark">#388E3C</color>
-    <color name="red_light">#DA3B2F</color>
-    <color name="red_dark">#B63229</color>
-    <color name="blue_light">#3F51B5</color>
-    <color name="blue_dark">#303F9F</color>
-    <color name="white_transparent">#BFFFFFFF</color>
-    <color name="black_transparent">#CC000000</color>
 </resources>

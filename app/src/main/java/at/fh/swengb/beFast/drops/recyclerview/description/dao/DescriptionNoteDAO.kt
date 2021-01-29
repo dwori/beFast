@@ -1,11 +1,10 @@
-package at.fh.swengb.beFast.drops.dao
+package at.fh.swengb.beFast.drops.recyclerview.description.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import at.fh.swengb.beFast.drops.DescriptionNote
 
 @Dao
 interface DescriptionNoteDAO {

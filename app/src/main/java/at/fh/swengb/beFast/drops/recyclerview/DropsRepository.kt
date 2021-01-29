@@ -1,34 +1,14 @@
 package at.fh.swengb.beFast.drops.recyclerview
 
-import android.app.Activity
-import android.app.Application
 import android.content.Context
-import android.content.res.Resources
 import androidx.lifecycle.LiveData
 import at.fh.swengb.beFast.R
-import at.fh.swengb.beFast.drops.DescriptionNote
-import at.fh.swengb.beFast.drops.dao.DescriptionNoteDB
+import at.fh.swengb.beFast.drops.recyclerview.description.dao.DescriptionNoteDB
+import at.fh.swengb.beFast.drops.recyclerview.description.dao.DescriptionNote
 import at.fh.swengb.beFast.models.drops.Drops
 
-//val id0: String = Context.getString(R.string.id0)
-
-    //val id0: String = getSystem().getString(R.string.id0)
 
 object DropsRepository {
-
-    //val id0: String = Resources.getSystem().getString(R.string.id0)
-
-
-    /*private var context1: Context? = null
-
-    fun getContext(con: Context) {
-         context1 = con
-     }
-
-    fun setApplication(application: Application) {
-        context1 = application.applicationContext
-    }*/
-
 
     val drops: List<Drops> = listOf(
             Drops("0","Nike", "Air Force 1 Rayguns", "05.02.2021 +0100 09:00", "120€", "https://stockx.imgix.net/images/Nike-Air-Force-1-Low-Raygun.png?fit=fill&bg=FFFFFFhttps://image-cdn.hypb.st/https%3A%2F%2Fhypebeast.com%2Fimage%2F2021%2F01%2Fadidas-zx-5000-vieux-lyon-jacquard-release-details-05.jpg?q=75&w=800&cbr=1&fit=max","https://www.nike.com/de/launch?s=upcoming","https://stockx.com/de-de/nike-air-force-1-low-raygun", R.string.id0),
@@ -43,7 +23,6 @@ object DropsRepository {
             Drops("9","Nike","Air Jordan 1 High OG Gold", "10.02.2020 +0100 09:00","160€","https://stockx.imgix.net/images/Air-Jordan-1-Retro-High-White-Black-Volt-University-Gold.png?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&q=90&trim=color&updated_at=1605645198&w=1000","https://www.nike.com/de/launch?s=upcoming","https://stockx.com/de-de/air-jordan-1-retro-high-white-black-volt-university-gold?utm_source=af&utm_medium=imp&utm_campaign=2089136&impactSiteId=0wTzeIXuvxyOWzVwUx0Mo3EAUkEy5hRilWRRXU0&clickid=0wTzeIXuvxyOWzVwUx0Mo3EAUkEy5hRilWRRXU0&utm_term=0wTzeIXuvxyOWzVwUx0Mo3EAUkEy5hRilWRRXU0&utm_content=_530344&irgwc=1",R.string.id9),
             Drops("10","Nike","Air Max 97 Sail","12.02.2020 +0100 09:00","180€","https://stockx.imgix.net/images/Nike-Air-Max-97-Undefeated-UCLA.png?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&q=90&trim=color&updated_at=1609455487&w=1000","https://www.nike.com/de/launch?s=upcoming","https://stockx.com/de-de/nike-air-max-97-undefeated-ucla?utm_source=af&utm_medium=imp&utm_campaign=2089136&impactSiteId=0wTzeIXuvxyOWzVwUx0Mo3EAUkEy5mzalWRRXU0&clickid=0wTzeIXuvxyOWzVwUx0Mo3EAUkEy5mzalWRRXU0&utm_term=0wTzeIXuvxyOWzVwUx0Mo3EAUkEy5mzalWRRXU0&utm_content=_530344&irgwc=1",R.string.id10)
     )
-
     fun dropById(id: String): Drops? {
         return drops.find { it.id == id }
     }
@@ -51,11 +30,6 @@ object DropsRepository {
         val applicationContext = context.applicationContext
         val db = DescriptionNoteDB.getDatabase(applicationContext)
         db.descriptionNoteDao.insert(descriptionNote)
-    }
-    fun findSameID(context: Context, id: String): DescriptionNote {
-        val applicationContext = context.applicationContext
-        val db = DescriptionNoteDB.getDatabase(applicationContext)
-        return db.descriptionNoteDao.findDropBySameID(id)
     }
     fun findSameIDByLiveData(context: Context, id: String): LiveData<DescriptionNote?> {
         val applicationContext = context.applicationContext

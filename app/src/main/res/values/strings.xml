@@ -7,15 +7,15 @@
     <!-- how to comment in xml -->
     <string name="login">Login</string>
     <string name="logout">Logout</string>
-    <string name="logged_in">You are logged in:</string>
-    <string name="logged_out">You are logged out:</string>
+    <string name="logged_in">You are logged in</string>
+    <string name="logged_out">You are logged out</string>
     <string name="username">Username</string>
     <string name="email" translatable="false">Email</string>
-    <string name="darkmode">Nachtmodus</string>
+    <string name="darkmode">Nightmode</string>
     <string name="save">Save</string>
     <string name="reminder">Set Reminder</string>
     <string name="conditions_text"><b>Terms and Conditions</b><br/>
-    Welcome to beFast!<br/>
+    Welcome to beFast! \n
     These terms and conditions outline the rules and regulations for the use of beFasts Website, located at www.beFast.com.
     By accessing this website we assume you accept these terms and conditions. Do not continue to use beFast if you do not agree to take all of the terms and conditions stated on this page.
     The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: "Client", "You" and "Your" refers to you, the person log on this website and compliant to the Company’s terms and conditions. "The Company", "Ourselves", "We", "Our" and "Us", refers to our Company. "Party", "Parties", or "Us", refers to both the Client and ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner for the express purpose of meeting the Client’s needs in respect of provision of the Company’s stated services, in accordance with and subject to, prevailing law of Netherlands. Any use of the above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as interchangeable and therefore as referring to same.
@@ -100,10 +100,10 @@
     The limitations and prohibitions of liability set in this Section and elsewhere in this disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer, including liabilities arising in contract, in tort and for breach of statutory duty.
     As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.</string>
     <string name="share_drop">Share this Drop</string>
-    <string name="share_app">Share this App</string>
+    <string name="share_app">Share</string>
     <string name="homepage">Visit website</string>
-    <string name="contact">Contact us</string>
-    <string name="terms_cons">Terms &amp; Conditions</string>
+    <string name="contact">Contact</string>
+    <string name="terms_cons">Privacy</string>
     <string name="valid_email">Please enter a valid username &amp; email.</string>
     <string name="get_app">Get the new beFast app here:</string>
     <string name="email_subject">Your Subject</string>
@@ -128,5 +128,5 @@
     <string name="id8">The first colorway of the Ambush Nike Dunk High appeared a few weeks ago, now the lethal pink, which has long been teased, is appearing. Yoon is known for her creative and individual approach and she showed this once again on her own dunk high.</string>
     <string name="id9">The year starts again with really strong colourways on the Jordan 1 High! The popular sneaker is given a color combination of black, white, neon yellow and yellow gold details. The choice of materials was based on high-quality smooth leather. In addition, the sneaker has slight vintage moments thanks to the foam tongue. The color of the foam is also golden yellow and therefore matches the color of the heel perfectly.</string>
     <string name="id10">The Air Max 97 has never been a particularly subtle sneaker. The multi-layered wave aesthetics and the continuous, visible air element were a real eye-catcher when it was released. Even 20 years later, the design of the shoe, with which the casual, corrugated upper material has been improved, is still striking.</string>
-
+    <string name="settings">Settings</string>
 </resources>
