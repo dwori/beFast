@@ -55,12 +55,10 @@
         android:id="@+id/textView_darkmode"
         android:layout_width="wrap_content"
         android:layout_height="32dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="40dp"
         android:layout_marginTop="28dp"
         android:text="@string/darkmode"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.123"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextInput_email" />
 
@@ -133,12 +131,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/terms_cons"
-        android:textSize="12sp"
         app:icon="@drawable/ic_baseline_article_24"
         app:iconGravity="end"
         tools:layout_editor_absoluteX="160dp"
-        tools:layout_editor_absoluteY="480dp"
-        />
+        tools:layout_editor_absoluteY="480dp" />
 
     <androidx.constraintlayout.helper.widget.Flow
         android:id="@+id/flow"
@@ -167,7 +163,7 @@
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="24dp"
-        android:text="Version 2.10.0"
+        android:text="Version 1.0"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
