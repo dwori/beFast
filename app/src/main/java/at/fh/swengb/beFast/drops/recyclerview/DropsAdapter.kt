@@ -30,7 +30,7 @@ class DropsAdapter(private val clickListener: (drop: Drops) -> Unit): RecyclerVi
         dropList = newList
         notifyDataSetChanged()
     }
-
+    //filterList is used to find all items the Drops List which have a specific brand
     fun filterList(string: String) {
         dropList = dropList.filter { it.brand != string }
         notifyDataSetChanged()

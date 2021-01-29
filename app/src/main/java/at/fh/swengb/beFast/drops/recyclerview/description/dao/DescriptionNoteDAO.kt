@@ -13,8 +13,5 @@ interface DescriptionNoteDAO {
     fun insert(descriptionNote: DescriptionNote)
 
     @Query("SELECT * FROM DescriptionNote where id = :id")
-    fun findDropBySameID(id: String): DescriptionNote
-
-    @Query("SELECT * FROM DescriptionNote where id = :id")
     fun selectWithLiveData(id: String?): LiveData<DescriptionNote?>
 }

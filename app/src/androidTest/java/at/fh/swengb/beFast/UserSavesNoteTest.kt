@@ -1,7 +1,9 @@
 package at.fh.swengb.beFast
 
 import androidx.test.espresso.Espresso
+import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.action.ViewActions.scrollTo
 import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.contrib.RecyclerViewActions
 import androidx.test.espresso.intent.Intents
@@ -34,10 +36,10 @@ class UserSavesNoteTest {
     }
     @Test
     fun UserSavesANote() {
-        Espresso.onView(withId(R.id.navigation_drops)).perform(ViewActions.click())
+        onView(withId(R.id.navigation_drops)).perform(ViewActions.click())
 
         Thread.sleep(2000)
-        Espresso.onView(withId(R.id.fragment_drops_recyclerview))
+        onView(withId(R.id.fragment_drops_recyclerview))
                 .perform(
                         RecyclerViewActions.actionOnItem<DropViewHolder>(
                                 ViewMatchers.hasDescendant(
@@ -47,12 +49,14 @@ class UserSavesNoteTest {
                 )
         Intents.intended(hasComponent(DescriptionActivity::class.java.name))
         Thread.sleep(2000)
-        Espresso.onView(withId(R.id.description_name)).check(ViewAssertions.matches(ViewMatchers.withText("Air Force 1 Rayguns")))
+        onView(withId(R.id.description_name)).check(ViewAssertions.matches(ViewMatchers.withText("Air Force 1 Rayguns")))
 
-        Espresso.onView(withId(R.id.description_note)).perform(ViewActions.click())
+        onView(withId(R.id.description_note))
+                .perform(scrollTo())
+                .perform(ViewActions.click())
         Intents.intended(hasComponent(DescriptionNoteActivity::class.java.name))
 
-        Espresso.onView(withId(R.id.save_note)).perform(ViewActions.click())
+        onView(withId(R.id.save_note)).perform(ViewActions.click())
         Intents.intended(hasComponent(DescriptionActivity::class.java.name))
     }
 }

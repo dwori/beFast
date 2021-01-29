@@ -38,7 +38,7 @@ class NewsFragment : Fragment() {
             intent.data = Uri.parse(url)
             startActivity(intent)
         }
-
+        //call the tweets and handle the result
         TwitterApi.tweetList(
                 success = {
                     // handle success

@@ -8,5 +8,4 @@ class TweetsItem(
         val text: String,
         val created_at: String,
         val entities: Entities
-        //val profile_image_url: String
 )

@@ -44,6 +44,8 @@ class BrandsFragment : Fragment() {
         //Glide.with(this).load("https://i.pinimg.com/736x/4e/b7/9c/4eb79c5e8456cb65830a6ef1faa0f688.jpg").into(imageView)
         //Glide.with(this).load("https://i.pinimg.com/originals/21/21/b5/2121b5dc445a1d0cb69965ecaecfaf80.jpg").into(imageView)
 
+
+
         if (sharedPreferences.getBoolean(SettingsActivity.loginBoolKey, false)) {
             switch1.isChecked = sharedPreferences.getBoolean(nikeKey, true)
 

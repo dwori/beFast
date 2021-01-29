@@ -19,11 +19,13 @@ class LoginActivity : AppCompatActivity() {
 
         val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
         login_loginButton.setOnClickListener {
+            //setting constraints for email and username
             if (login_username?.text.toString().trim().isBlank() || !login_Email?.text.toString().matches(emailPattern.toRegex())) {
                 Toast
                         .makeText(this, getString(R.string.valid_email), Toast.LENGTH_LONG)
                         .show()
             } else {
+                //when successful logged in, save the keys & values in the shared preferences
                 sharedPreferences
                         .edit()
                         .putString(SettingsActivity.usernameKey, login_username.text.toString())

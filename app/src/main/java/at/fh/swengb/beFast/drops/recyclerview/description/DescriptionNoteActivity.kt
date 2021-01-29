@@ -29,6 +29,7 @@ class DescriptionNoteActivity : AppCompatActivity() {
         val dropname = dropID?.let { DropsRepository.dropById(it)?.name }
         dropName.text = dropname
 
+        //saves the note and inserts it into the database
         save_note.setOnClickListener() {
             val noteObj = DescriptionNote(dropID.toString(), dropname.toString(),personalNote.text.toString())
             DropsRepository.addDescriptionNote(applicationContext, noteObj)
