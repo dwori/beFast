@@ -13,7 +13,7 @@ import at.fh.swengb.beFast.models.tweets.TweetsItem
  * This class connects data with view items.
  * First it receives data, then makes data displayable in a view and adds data to the view.
  * Manages creating, updating, adding, deleting View items as underlying data changes.
- * @param clickListener is used so that i the fragment it can be filled with a lambda that holds the intent for the clickListener.
+ * @param clickListener is used so that in the fragment it can be filled with a lambda that holds the intent for the clickListener.
  */
 class TweetAdapter(private val clickListener: (tweet: TweetsItem) -> Unit ): RecyclerView.Adapter<TweetViewHolder>() {
 
@@ -42,7 +42,7 @@ class TweetAdapter(private val clickListener: (tweet: TweetsItem) -> Unit ): Rec
     override fun getItemCount(): Int = tweetList.size
 
     /**
-     * this function sets the var tweetList to the input newList.
+     * @param newList is used to set the var tweetList
      */
     fun updateList(newList: List<TweetsItem>){
         tweetList = newList

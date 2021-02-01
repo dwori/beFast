@@ -22,7 +22,7 @@ class PrivacyActivity : AppCompatActivity() {
         setContentView(R.layout.activity_privacy)
         privacy_text.setJustificationMode(Layout.JUSTIFICATION_MODE_INTER_WORD);
 
-        /**this makes sure that the back button redirects to the previous fragment.*/
+        /** this makes sure that the back button redirects to the previous fragment.*/
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
     override fun onOptionsItemSelected(item: MenuItem):Boolean {

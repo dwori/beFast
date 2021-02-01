@@ -16,8 +16,8 @@ import org.junit.Test
 import org.junit.runner.RunWith
 
 @RunWith(AndroidJUnit4::class)
-/** checks whether the NewsFragment, BrandsFragment, DropsFragment and MoreFragment can be clicked and are properly displayed */
-class BottomNavLaunchTest {
+/**checks if the Settings get displayed when clicking the the top navigation button settings in NewsFragment, BrandsFragment, DropsFragment and MoreFragment*/
+class TopNavLaunchTest {
         @get:Rule
         val rule = ActivityScenarioRule(MainActivity::class.java)
 
@@ -31,26 +31,29 @@ class BottomNavLaunchTest {
         }
 
         @Test
-        fun clickingNews_shouldLaunchNewsFragment() {
-            Espresso.onView(ViewMatchers.withId(R.id.navigation_news)).perform(ViewActions.click())
-            Espresso.onView(ViewMatchers.withId(R.id.fragment_recycler_view_news)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+        fun clickingSettingsNews_shouldLaunchSettingsActivity() {
+            Espresso.onView(ViewMatchers.withId(R.id.settings)).perform(ViewActions.click())
+            Intents.intended(IntentMatchers.hasComponent(SettingsActivity::class.java.name))
         }
 
         @Test
-        fun clickingBrands_shouldLaunchBrandsFragment() {
+        fun clickingSettingsBrands_shouldLaunchSettingsActivity() {
             Espresso.onView(ViewMatchers.withId(R.id.navigation_brands)).perform(ViewActions.click())
-            Espresso.onView(ViewMatchers.withId(R.id.fragment_brands)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+            Espresso.onView(ViewMatchers.withId(R.id.settings)).perform(ViewActions.click())
+            Intents.intended(IntentMatchers.hasComponent(SettingsActivity::class.java.name))
         }
 
         @Test
-        fun clickingDrops_shouldLaunchDropsFragment() {
+        fun clickingSettingsDrops_shouldLaunchDropsFragment() {
             Espresso.onView(ViewMatchers.withId(R.id.navigation_drops)).perform(ViewActions.click())
-            Espresso.onView(ViewMatchers.withId(R.id.fragment_drops_recyclerview)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+            Espresso.onView(ViewMatchers.withId(R.id.settings)).perform(ViewActions.click())
+            Intents.intended(IntentMatchers.hasComponent(SettingsActivity::class.java.name))
         }
 
         @Test
-        fun clickingMore_shouldLaunchMoreFragment() {
+        fun clickingSettingsMore_shouldLaunchMoreFragment() {
             Espresso.onView(ViewMatchers.withId(R.id.navigation_more)).perform(ViewActions.click())
-            Espresso.onView(ViewMatchers.withId(R.id.fragment_more)).check(ViewAssertions.matches(ViewMatchers.isDisplayed()))
+            Espresso.onView(ViewMatchers.withId(R.id.settings)).perform(ViewActions.click())
+            Intents.intended(IntentMatchers.hasComponent(SettingsActivity::class.java.name))
         }
 }
