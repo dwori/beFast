@@ -23,16 +23,26 @@ object DropsRepository {
             Drops("9","Nike","Air Jordan 1 High OG Gold", "10.02.2020 +0100 09:00","160€","https://stockx.imgix.net/images/Air-Jordan-1-Retro-High-White-Black-Volt-University-Gold.png?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&q=90&trim=color&updated_at=1605645198&w=1000","https://www.nike.com/de/launch?s=upcoming","https://stockx.com/de-de/air-jordan-1-retro-high-white-black-volt-university-gold?utm_source=af&utm_medium=imp&utm_campaign=2089136&impactSiteId=0wTzeIXuvxyOWzVwUx0Mo3EAUkEy5hRilWRRXU0&clickid=0wTzeIXuvxyOWzVwUx0Mo3EAUkEy5hRilWRRXU0&utm_term=0wTzeIXuvxyOWzVwUx0Mo3EAUkEy5hRilWRRXU0&utm_content=_530344&irgwc=1",R.string.id9),
             Drops("10","Nike","Air Max 97 Sail","12.02.2020 +0100 09:00","180€","https://stockx.imgix.net/images/Nike-Air-Max-97-Undefeated-UCLA.png?fit=fill&bg=FFFFFF&w=700&h=500&auto=format,compress&q=90&trim=color&updated_at=1609455487&w=1000","https://www.nike.com/de/launch?s=upcoming","https://stockx.com/de-de/nike-air-max-97-undefeated-ucla?utm_source=af&utm_medium=imp&utm_campaign=2089136&impactSiteId=0wTzeIXuvxyOWzVwUx0Mo3EAUkEy5mzalWRRXU0&clickid=0wTzeIXuvxyOWzVwUx0Mo3EAUkEy5mzalWRRXU0&utm_term=0wTzeIXuvxyOWzVwUx0Mo3EAUkEy5mzalWRRXU0&utm_content=_530344&irgwc=1",R.string.id10)
     )
+
+    /**
+     * @param id is unique and is used to reference a drop
+     */
     fun dropById(id: String): Drops? {
         return drops.find { it.id == id }
     }
-    //inserts the note into the database
+
+    /**
+     * inserts the note into the database
+     */
     fun addDescriptionNote(context: Context, descriptionNote: DescriptionNote) {
         val applicationContext = context.applicationContext
         val db = DescriptionNoteDB.getDatabase(applicationContext)
         db.descriptionNoteDao.insert(descriptionNote)
     }
-    //finds the corresponding data
+
+    /**
+     * finds the corresponding data
+     */
     fun findSameIDByLiveData(context: Context, id: String): LiveData<DescriptionNote?> {
         val applicationContext = context.applicationContext
         val db = DescriptionNoteDB.getDatabase(applicationContext)

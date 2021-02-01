@@ -138,6 +138,9 @@ Schließen Sie eine unserer oder Ihrer Verbindlichkeiten aus, die nach geltendem
 Die in diesem Abschnitt und an anderer Stelle in diesem Haftungsausschluss festgelegten Haftungsbeschränkungen und -verbote: (a) unterliegen dem vorhergehenden Absatz; und (b) alle Verbindlichkeiten regeln, die sich aus dem Haftungsausschluss ergeben, einschließlich der Verbindlichkeiten aus dem Vertrag, aus unerlaubter Handlung und wegen Verletzung gesetzlicher Pflichten.
 
 Solange die Website sowie die Informationen und Dienstleistungen auf der Website kostenlos zur Verfügung gestellt werden, haften wir nicht für Verluste oder Schäden jeglicher Art.</string>
+    <string name="note_saved">Notiz gespeichert.</string>
+    <string name="username_empty">Username darf nicht leer sein.</string>
+    <string name="no_valid_email">Keine gültige Email Adresse.</string>
 
 
 </resources>

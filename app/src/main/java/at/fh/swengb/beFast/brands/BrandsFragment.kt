@@ -16,6 +16,11 @@ import at.fh.swengb.beFast.settings.SettingsActivity
 import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.fragment_brands.*
 
+/**
+ * The BrandsFragment holds different brands in a table and handles how to favor single brands by assigning a switch to every one
+ * of them. By turning on a switch, the brand and its drops get shown in the DropsFragment.
+ */
+
 class BrandsFragment : Fragment() {
     companion object {
         val nikeKey = "Nike"
@@ -26,26 +31,25 @@ class BrandsFragment : Fragment() {
         val supremeKey = "Supreme"
     }
 
-    private lateinit var brandsViewModel: BrandsViewModel
     private lateinit var sharedPreferences: SharedPreferences
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        brandsViewModel = ViewModelProvider(this).get(BrandsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_brands, container, false)
-        val textView: TextView = root.findViewById(R.id.text_brands)
-        brandsViewModel.text.observe(viewLifecycleOwner, Observer { textView.text = it })
-        return root
+        return inflater.inflate(R.layout.fragment_brands, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
+        /**
+         * We get the shared Preferences in order get and put boolean keys.
+         **/
         sharedPreferences = requireContext().getSharedPreferences(requireContext().packageName, Context.MODE_PRIVATE)
 
-        //Glide.with(this).load("https://i.pinimg.com/736x/4e/b7/9c/4eb79c5e8456cb65830a6ef1faa0f688.jpg").into(imageView)
-        //Glide.with(this).load("https://i.pinimg.com/originals/21/21/b5/2121b5dc445a1d0cb69965ecaecfaf80.jpg").into(imageView)
-
-
-
+        /**
+         * First we check if the user is logged in (loginBoolKey)
+         * If this is the case, we put every Brands' switch to default = true
+         *
+         */
         if (sharedPreferences.getBoolean(SettingsActivity.loginBoolKey, false)) {
             switch1.isChecked = sharedPreferences.getBoolean(nikeKey, true)
 
@@ -58,6 +62,12 @@ class BrandsFragment : Fragment() {
             switch5.isChecked = sharedPreferences.getBoolean(pumaKey, true)
 
             switch6.isChecked = sharedPreferences.getBoolean(supremeKey, true)
+
+            /**
+             * The button save_brands save the current state of one brand by checking
+             * whether the switch is on or off
+             *
+             */
 
             save_brands.setOnClickListener {
                 sharedPreferences.edit().putBoolean(nikeKey, switch1.isChecked).apply()
@@ -97,6 +107,9 @@ class BrandsFragment : Fragment() {
         }
     }
 
+    /**
+     * settings() is called when the settings button in the menu is pressed
+     */
     fun settings(){
         val intent = Intent(activity, SettingsActivity::class.java)
         startActivity(intent)

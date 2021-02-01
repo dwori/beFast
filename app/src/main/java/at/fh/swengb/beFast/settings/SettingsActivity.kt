@@ -71,7 +71,7 @@ class SettingsActivity : AppCompatActivity() {
         settings_share.setOnClickListener {
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
-                putExtra(Intent.EXTRA_TEXT, getString(R.string.get_app) + " " + "https://www.fh-joanneum.at")
+                putExtra(Intent.EXTRA_TEXT, getString(R.string.get_app) + " " + "https://www.befast.com")
                 type = "text/plain"
             }
             val shareIntent = Intent.createChooser(sendIntent, null)
@@ -81,7 +81,7 @@ class SettingsActivity : AppCompatActivity() {
         /** contact us button */
         settings_support.setOnClickListener {
             val email = Intent(Intent.ACTION_SENDTO)
-            email.data = Uri.parse("mailto:mbukvarevic@gmail.com")
+            email.data = Uri.parse("mailto:support@befast.com")
             email.putExtra(Intent.EXTRA_SUBJECT, getString(R.string.email_subject))
             email.putExtra(Intent.EXTRA_TEXT, getString(R.string.email_message))
             startActivity(email)
@@ -156,12 +156,12 @@ class SettingsActivity : AppCompatActivity() {
     private fun saveSettings() {
         if (loginBoolPreferences) {
             if (editText_username?.text.toString().trim().isBlank() ) {
-                textInput_username.error = "Username cant be empty"
+                textInput_username.error = getString(R.string.username_empty)
             } else {
                 textInput_username.error = null
             }
             if (!editText_email?.text.toString().matches(emailPattern.toRegex()) ){
-                TextInput_email.error = "no valid email"
+                TextInput_email.error = getString(R.string.no_valid_email)
             } else {
                 TextInput_email.error = null
             }

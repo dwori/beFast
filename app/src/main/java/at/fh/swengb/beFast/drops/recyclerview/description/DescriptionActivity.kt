@@ -14,6 +14,12 @@ import at.fh.swengb.beFast.drops.recyclerview.DropsRepository
 import at.fh.swengb.beFast.models.drops.Drops
 import com.bumptech.glide.Glide
 
+/**
+ *
+ * The DescriptionActivity gets opened from the DropsFragment whenever you click on one drop. It provides
+ * useful information and gives the chance to personalize your favorite drops.
+ *
+ */
 
 class DescriptionActivity : AppCompatActivity() {
 
@@ -21,16 +27,18 @@ class DescriptionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_description)
+        /**
+         * We get the corresponding data by referencing with the id of one drop
+         * and fill them into the TextViews and ImageView(s).
+         */
 
         var drop: Drops?
         val dropId = intent.getStringExtra(EXTRA_DROP_ID)
 
-
-        // get the corresponding data by referencing with the id
         if (dropId != null) {
             drop = DropsRepository.dropById(dropId)
             if (drop != null) {
-                description_brand.text = drop.brand  //Dynamic language
+                description_brand.text = drop.brand
                 description_name.text = drop.name
                 description_price.text = drop.price
                 description_description.text = getString(drop.descriptionTextId)
@@ -41,6 +49,13 @@ class DescriptionActivity : AppCompatActivity() {
             }
         }
 
+
+        /**
+         *
+         * In order to pass the data of on drop in third party apps,
+         * we define values for them.
+         *
+         */
         val brand = dropId?.let { DropsRepository.dropById(it)?.brand } ?: getString(R.string.brand_error)
         val name = dropId?.let { DropsRepository.dropById(it)?.name } ?: getString(R.string.name_error)
         val datetime = dropId?.let { DropsRepository.dropById(it)?.datetime } ?: getString(R.string.date_error)
@@ -48,10 +63,11 @@ class DescriptionActivity : AppCompatActivity() {
         val stockxUrl = dropId?.let { DropsRepository.dropById(it)?.stockxUrl } ?: "no stockx URL found"
 
 
-
-
-
-        // share button intent
+        /**
+         *
+         * The share button passes on the brand, name and homepage of one drop, when sharing it.
+         *
+         */
         description_share.setOnClickListener {
             val sendIntent: Intent = Intent().apply {
                 action = Intent.ACTION_SEND
@@ -63,7 +79,16 @@ class DescriptionActivity : AppCompatActivity() {
             startActivity(shareIntent)
         }
 
-        //reminder button intent
+        /**
+         *
+         *
+         * First, a time pattern is defined and then the datetime (release date of one drop) and timezone get parsed with SimpleDateFormat.
+         * When clicking the description_reminder button, androids calendar app opens and the datetime is inserted in the reminder field as a type of notification.
+         * The reminder time is set to be 10 minutes before a drops releases.
+         * Title and Description are passed as well.
+         *
+         *
+         */
         description_reminder.setOnClickListener {
             val sdf = SimpleDateFormat("dd.MM.yyyy z HH:mm", Locale.ENGLISH)
             val formattedDate = sdf.parse(datetime)
@@ -78,21 +103,27 @@ class DescriptionActivity : AppCompatActivity() {
             startActivity(calendarIntent)
         }
 
-        //open homepage button intent
+        /**
+         * The description_hompeage brings you to the website of the brand.
+         */
         description_homepage.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse(homepageUrl)
             startActivity(intent)
         }
 
-        //open personal note
+        /**
+         * The description_note opens the DescriptionNoteActivity and passes the id.
+         */
         description_note.setOnClickListener {
             val noteIntent = Intent(this, DescriptionNoteActivity::class.java)
             noteIntent.putExtra(EXTRA_DROP_ID, dropId)
             startActivity(noteIntent)
         }
 
-        //open stockx website
+        /**
+         * The description_stockX opens the StockX-Url of the drop.
+         */
         description_stockX.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse(stockxUrl)

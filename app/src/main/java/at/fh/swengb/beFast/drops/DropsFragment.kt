@@ -20,10 +20,14 @@ import at.fh.swengb.beFast.drops.recyclerview.DropsAdapter
 import at.fh.swengb.beFast.drops.recyclerview.DropsRepository
 import at.fh.swengb.beFast.settings.SettingsActivity
 
+/**
+ * The DropsFragment displays different drops, which are called from the DropsRepository. If you are logged in,
+ * you can set in the BrandsFragment which brands you want to see in this fragment.
+ */
+
 
 class DropsFragment : Fragment() {
 
-    private lateinit var dropsViewModel: DropsViewModel
     private lateinit var dropsAdapter: DropsAdapter
 
     companion object {
@@ -32,24 +36,23 @@ class DropsFragment : Fragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        dropsViewModel = ViewModelProvider(this).get(DropsViewModel::class.java)
-        val root = inflater.inflate(R.layout.fragment_drops, container, false)
-        val textView: TextView = root.findViewById(R.id.text_drops)
-        dropsViewModel.text.observe(viewLifecycleOwner, Observer { textView.text = it })
-        return root
+        return inflater.inflate(R.layout.fragment_drops, container, false)
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        //Glide.with(this).load("https://i.pinimg.com/736x/4e/b7/9c/4eb79c5e8456cb65830a6ef1faa0f688.jpg").into(imageBack)
-        //Glide.with(this).load("https://i.pinimg.com/originals/ab/cd/29/abcd298bb80c91c0e75a5d9deff9528b.jpg").into(imageBack)
+
         dropsAdapter = DropsAdapter {
             val descriptionIntent = Intent(activity, DescriptionActivity::class.java)
             descriptionIntent.putExtra(EXTRA_DROP_ID, it.id)
             startActivity(descriptionIntent)
         }
+        /**
+         * We get the shared Preferences in order get and put boolean keys.
+         **/
         val sharedPreferences = requireContext().getSharedPreferences(requireContext().packageName, Context.MODE_PRIVATE)
+
         val loginBool = sharedPreferences.getBoolean(SettingsActivity.loginBoolKey, false)
 
         val savedNike = sharedPreferences.getBoolean(BrandsFragment.nikeKey, true)
@@ -59,8 +62,11 @@ class DropsFragment : Fragment() {
         val savedPuma = sharedPreferences.getBoolean(BrandsFragment.pumaKey, true)
         val savedSupreme = sharedPreferences.getBoolean(BrandsFragment.supremeKey, true)
         drops_info.visibility = View.GONE
-        //if one brand gets switched off, the filterList function is called
-        //and the brand is no longer in Drops until the switch is turned on again
+
+        /**
+         * if one brand gets switched off, the filterList function is called
+         * and the brand is no longer in Drops until the switch is turned on again
+         */
         if (loginBool) {
             if (!savedNike && !savedAdidas && !savedFear && !savedNewB && !savedPuma && !savedSupreme) {
                 drops_info.visibility = View.VISIBLE

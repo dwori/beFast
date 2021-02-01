@@ -17,9 +17,10 @@ class DescriptionNoteActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_description_note)
-        // get the intent
         val dropID = intent.getStringExtra(EXTRA_DROP_ID)
-        // view model implementation
+        /**
+         * ViewModel implementation for having live data for DescriptionNote
+         */
         viewModel.findLessonNoteById(dropID.toString())
         viewModel.note.observe(this){
             personalNote_textView.text = it?.text
@@ -29,14 +30,18 @@ class DescriptionNoteActivity : AppCompatActivity() {
         val dropname = dropID?.let { DropsRepository.dropById(it)?.name }
         dropName.text = dropname
 
-        //saves the note and inserts it into the database
+        /**
+         * saves the note and inserts it into the database
+         */
         save_note.setOnClickListener() {
             val noteObj = DescriptionNote(dropID.toString(), dropname.toString(),personalNote.text.toString())
             DropsRepository.addDescriptionNote(applicationContext, noteObj)
-            Toast.makeText(this, "Note saved.", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, getString(R.string.note_saved), Toast.LENGTH_LONG).show()
             finish()
         }
-        // back button
+        /**
+         * this makes sure that the back button redirects to the previous fragment.
+         */
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
     }
     override fun onOptionsItemSelected(item: MenuItem):Boolean {
