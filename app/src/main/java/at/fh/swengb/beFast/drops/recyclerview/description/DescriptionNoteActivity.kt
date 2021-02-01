@@ -34,6 +34,7 @@ class DescriptionNoteActivity : AppCompatActivity() {
             val noteObj = DescriptionNote(dropID.toString(), dropname.toString(),personalNote.text.toString())
             DropsRepository.addDescriptionNote(applicationContext, noteObj)
             Toast.makeText(this, "Note saved.", Toast.LENGTH_LONG).show()
+            finish()
         }
         // back button
         supportActionBar?.setDisplayHomeAsUpEnabled(true)

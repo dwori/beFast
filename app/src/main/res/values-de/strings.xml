@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">beFast</string>
     <string name="title_news">Neuigkeiten</string>
     <string name="title_brands">Marken</string>
     <string name="title_drops">Drops</string>
@@ -9,10 +8,41 @@
     <string name="logged_in">Du bist angemeldet</string>
     <string name="logged_out">Du bist abgemeldet</string>
     <string name="username">Benutzername</string>
-    <string name="darkmode">Dunkler Modus</string>
+    <string name="nightmode">Dunkler Modus</string>
     <string name="save">Speichern</string>
     <string name="reminder">Alarm setzen</string>
-    <string name="conditions_text"><b>Geschäftsbedingungen</b>
+    <string name="share_drop">Teile diesen Drop</string>
+    <string name="share_app">Teilen</string>
+    <string name="homepage">Webseite besuchen</string>
+    <string name="contact">Kontakt</string>
+    <string name="terms_cons">Datenschutz</string>
+    <string name="valid_email">Bitte geben Sie eine/n gültige Email &amp; Benutzernamen ein.</string>
+    <string name="get_app">Holen Sie die neue beFast App hier:</string>
+    <string name="email_subject">Dein Betreff</string>
+    <string name="email_message">Geben Sie hier Ihre Email-Nachricht ein.</string>
+    <string name="internet_connection">News konnten nicht von der API geladen werden</string>
+    <string name="brand_error">Keine Marke gefunden</string>
+    <string name="name_error">Kein Name gefunden</string>
+    <string name="price_error">Keinen Preis gefunden</string>
+    <string name="date_error">Kein Datum gefunden</string>
+    <string name="hompageURL_error">Kein Hauptseiten URL gefunden</string>
+    <string name="brands_saved">Ihre Marken wurden gespeichert</string>
+    <string name="brands_info">Du musst eingeloggt sein um Marken zu folgen.</string>
+    <string name="drops_info">Folge Marken um Drops zu sehen.</string>
+    <string name="id0">Mit den Sneakern aus der Rayguns Kollektion hat Nike damals eine unglaublich gute Story drum herum erschaffen, die sich um eine Fantasie-Basketballmannschaft im Weltall drehte. Mit aufwendigen Videos und coolen Marketingaktionen, kam der Nike Dunk damals auf den Markt, nun stehen zwei weitere Releases unter der Rayguns-Flagge bevor. Neben dem Kyrie 7 erwartet uns mit dem Air Force 1 ein echter Klassiker, welcher der Thematik unterzogen wurde.</string>
+    <string name="id3">"Die A-ZX-Serie geht in die nächste Runde und hält einen ZX 5000 für uns bereit. Der Buchstabe V aus dem A-ZX-Alphabet ist der französischen Stadt Vieux Lyon gewidmet, aus der ursprünglich das bekannte Jaquard Muster stammt. Aus diesem Grund wurde auch der ZX 8000 mit den aufwendigen Stickereien versehen, die sich in verschiedenen Farben über den gesamten Sneaker zeihen. Der untere Bereich ist dabei mit dem Stoff in einem kühlen Grau bezogen und der obere Bereich ist in auffälligem Violett gehalten."</string>
+    <string name="id6">"Der berühmte Stürmer von Paris Saint Germain, Kylian Mbappe, hilft Lebron James bei seinem 18. Signature-Sneaker. Die beiden Freunde veröffentlichen nämlich gemeinsam einen kollaborativen Sneaker. Der Court-Sneaker kommt mit einem eher futuristischen Look, der ein schwarzes Knitposite 2.0-Obermaterial erhält, das die Stadt Frankreich mit roten und blauen Verzierungen ehrt. Silberne Zungen sowie ein durchscheinender Fersenclip und eine schillernde Gummilaufsohle runden den brandneuen Look ab."</string>
+    <string name="id8">"Der erste Colorway des Ambush Nike Dunk High ist bereits vor einigen Wochen erschienen, nun erscheint der bereits lang angeteaserte Lethal Pink. Yoon ist für ihre kreative und individuelle Herangehensweise bekannt und dies zeigte sie wieder einmal auf ihrem eigenen Dunk High."</string>
+    <string name="id9">"Das Jahr startet wieder mit richtig starken Colorways auf dem Jordan 1 High! Der beliebte Sneaker bekommt eine Farbkombination aus Schwarz, Weiß, Neongelb und gelbgoldenen Details. Bei der Materialauswahl wurde auf hochwertiges Glattleder gesetzt. Zudem hat der Sneaker leichte Vintage-Momente, durch die Schaumstoffzunge. Die Farbe des Schaumstoffs ist ebenfalls goldgelb und passt somit optimal zur Farbe der Heel."</string>
+    <string name="id10">"Der Air Max 97 war noch nie ein besonders subtiler Sneaker. Die mehrschichtige Wellen-Ästhetik und das durchgehende, sichtbare Air-Element waren schon bei seiner Veröffentlichung ein wahrer Blickfang. Auch 20 Jahre später ist das Design des Schuhs, bei dem im Hinblick auf das lässige gewellte Obermaterial nochmal nachgelegt wurde, noch immer markant."</string>
+    <string name="id1">Nur zwei Wochen nachdem Supreme es in Hoodie-Form fallen gelassen hat, ist es zurückgekehrt, um eine T-Shirt-Version ihres mit Spannung erwarteten Cross Box-Logos zu veröffentlichen. Dieses rote Supreme Cross Box Logo-T-Shirt zeigt zwei der beliebtesten Box-Logos der Marke, die in Form eines Kreuzes übereinander gelegt sind. Das Supreme Cross Box Logo T-Shirt wurde als Teil der Winter-T-Shirt-Kollektion FW20 der Marke veröffentlicht, zu der auch das Mariah Carey-T-Shirt gehörte.</string>
+    <string name="id2">Die Adventurer-Edition des XT2 ist inspiriert von den Anfängen in Übersee, von der Winterdämmerung in Schottland bis zur Sonnenwärme Kaliforniens. Die Farben sind in einer üppigen Wildlederapplikation ausgeführt und beziehen sich auf den starken Wetterkontrast, während das Futter mit einem Erinnerungsdruck versehen ist.</string>
+    <string name="id4">Segeln Sie weg, während Sie die Air Fear Of God 1 Sail Black tragen. Dieser Air FOG 1 wird mit einem Segelobermaterial, einem schwarzen Nike „Swoosh“, einer Segelzwischensohle und einer durchscheinenden Sohle geliefert. Diese Sneaker wurden im Juni 2019 veröffentlicht und für 350 US-Dollar im Einzelhandel erhältlich. BeFast für den nächsten Tropfen!</string>
+    <string name="id5">Diese neueste Version wurde entwickelt, um die Farben der Husky Rat-Rasse zu interpretieren. Sie färbt das Obermaterial aus Nubuk und Schweinsleder mit nackten und grauen Farbtönen, um Elemente des Pelzes widerzuspiegeln. Ergänzende Rosatöne werden zusätzlich in die Vorfuß-Overlays eingefügt, um die anderen Merkmale des Nagetiers wie Ohren, Pfoten und Schwanz zu übersetzen, was letztendlich zu einer viel helleren Herangehensweise an seine Sammlungsgeschwister führt.</string>
+    <string name="id7">Das Nike Air Force 1 Orange Skeleton ist in einem orangefarbenen Lederobermaterial mit einem Skelett-Röntgendruck auf jeder Seite des Obermaterials erhältlich. Ähnlich wie das Kerzenlicht einer Jack-O-Laterne verfügt diese Version über eine durchscheinende Sohle im Dunkeln, die darauf ausgerichtet ist, Ihren Schritt zu beleuchten. Glänzende schwarze Spitzenanhänger, Nike Air-Logo auf der Zunge und eine mit Skelett bedruckte Innensohle vervollständigen diesen gruseligen AF1.</string>
+    <string name="settings">Einstellungen</string>
+    <string name="privacy">Datenschutz</string>
+    <string name="privacy_text"><b>Datenschutz</b>
 Willkommen bei beFast!
 
 Diese Allgemeinen Geschäftsbedingungen enthalten die Regeln und Vorschriften für die Nutzung der Website von beFast unter www.beFast.com.
@@ -57,7 +87,7 @@ Suchmaschinen;
 Nachrichtenorganisationen;
 Online-Verzeichnisverteiler können auf dieselbe Weise auf unsere Website verlinken wie auf Websites anderer börsennotierter Unternehmen. und
 Systemweit akkreditierte Unternehmen, mit Ausnahme der Anwerbung von gemeinnützigen Organisationen, Einkaufszentren für Wohltätigkeitszwecke und Spendengruppen für Wohltätigkeitszwecke, die möglicherweise keinen Hyperlink zu unserer Website enthalten.
-Diese Organisationen können auf unsere Homepage, auf Veröffentlichungen oder auf andere Website-Informationen verlinken, solange der Link: (a) in keiner Weise täuscht; (b) bedeutet nicht fälschlicherweise Sponsoring, Billigung oder Genehmigung der Verbindungspartei und ihrer Produkte und / oder Dienstleistungen; und (c) in den Kontext der Website der Linkpartei passt.
+Diese Organisationen können auf unsere Homepage, auf Veröffentlichungen oder auf andere Website-Informationen verlinken, solange der Link: (a) in keiner Weise täuscht; (b) bedeutet nicht fälschlicherweise Sponsoring, Billigung oder Genehmigung der Verbindungspartei und ihrer Produkte und / oder Dienstleistungen; und © in den Kontext der Website der Linkpartei passt.
 
 Wir können andere Linkanfragen von folgenden Arten von Organisationen prüfen und genehmigen:
 
@@ -68,7 +98,7 @@ Online-Verzeichnisverteiler;
 Internetportale;
 Buchhaltung, Recht und Konsulting Firmen; und
 Bildungseinrichtungen und Fachverbände.
-Wir werden Linkanfragen von diesen Organisationen genehmigen, wenn wir entscheiden, dass: (a) der Link uns nicht ungünstig für uns selbst oder unsere akkreditierten Unternehmen erscheinen lässt; (b) die Organisation hat keine negativen Aufzeichnungen bei uns; (c) der Nutzen der Sichtbarkeit des Hyperlinks für uns kompensiert das Fehlen von beFast; und (d) die Verknüpfung steht im Kontext allgemeiner Ressourceninformationen.
+Wir werden Linkanfragen von diesen Organisationen genehmigen, wenn wir entscheiden, dass: (a) der Link uns nicht ungünstig für uns selbst oder unsere akkreditierten Unternehmen erscheinen lässt; (b) die Organisation hat keine negativen Aufzeichnungen bei uns; © der Nutzen der Sichtbarkeit des Hyperlinks für uns kompensiert das Fehlen von beFast; und (d) die Verknüpfung steht im Kontext allgemeiner Ressourceninformationen.
 
 Diese Organisationen dürfen auf unsere Homepage verlinken, solange der Link: (a) in keiner Weise täuscht; (b) bedeutet nicht fälschlicherweise Sponsoring, Billigung oder Genehmigung der Verbindungspartei und ihrer Produkte oder Dienstleistungen; und (c) in den Kontext der Website der Linkpartei passt.
 
@@ -109,35 +139,5 @@ Die in diesem Abschnitt und an anderer Stelle in diesem Haftungsausschluss festg
 
 Solange die Website sowie die Informationen und Dienstleistungen auf der Website kostenlos zur Verfügung gestellt werden, haften wir nicht für Verluste oder Schäden jeglicher Art.</string>
 
-    <string name="share_drop">Teile diesen Drop</string>
-    <string name="share_app">Teilen</string>
-    <string name="homepage">Webseite besuchen</string>
-    <string name="contact">Kontakt</string>
-    <string name="terms_cons">Datenschutz</string>
-    <string name="valid_email">Bitte geben Sie eine/n gültige Email &amp; Benutzernamen ein.</string>
-    <string name="get_app">Holen Sie die neue beFast App hier:</string>
-    <string name="email_subject">Dein Betreff</string>
-    <string name="email_message">Geben Sie hier Ihre Email-Nachricht ein.</string>
-    <string name="internet_connection">News konnten nicht von der API geladen werden</string>
-    <string name="brand_error">Keine Marke gefunden</string>
-    <string name="name_error">Kein Name gefunden</string>
-    <string name="price_error">Keinen Preis gefunden</string>
-    <string name="date_error">Kein Datum gefunden</string>
-    <string name="hompageURL_error">Kein Hauptseiten URL gefunden</string>
-    <string name="brands_saved">Ihre Marken wurden gespeichert</string>
-    <string name="brands_info">Du musst eingeloggt sein um Marken zu folgen.</string>
-    <string name="drops_info">Folge Marken um Drops zu sehen.</string>
-    <string name="id0">Mit den Sneakern aus der Rayguns Kollektion hat Nike damals eine unglaublich gute Story drum herum erschaffen, die sich um eine Fantasie-Basketballmannschaft im Weltall drehte. Mit aufwendigen Videos und coolen Marketingaktionen, kam der Nike Dunk damals auf den Markt, nun stehen zwei weitere Releases unter der Rayguns-Flagge bevor. Neben dem Kyrie 7 erwartet uns mit dem Air Force 1 ein echter Klassiker, welcher der Thematik unterzogen wurde.</string>
-    <string name="id3">"Die A-ZX-Serie geht in die nächste Runde und hält einen ZX 5000 für uns bereit. Der Buchstabe V aus dem A-ZX-Alphabet ist der französischen Stadt Vieux Lyon gewidmet, aus der ursprünglich das bekannte Jaquard Muster stammt. Aus diesem Grund wurde auch der ZX 8000 mit den aufwendigen Stickereien versehen, die sich in verschiedenen Farben über den gesamten Sneaker zeihen. Der untere Bereich ist dabei mit dem Stoff in einem kühlen Grau bezogen und der obere Bereich ist in auffälligem Violett gehalten."</string>
-    <string name="id6">"Der berühmte Stürmer von Paris Saint Germain, Kylian Mbappe, hilft Lebron James bei seinem 18. Signature-Sneaker. Die beiden Freunde veröffentlichen nämlich gemeinsam einen kollaborativen Sneaker. Der Court-Sneaker kommt mit einem eher futuristischen Look, der ein schwarzes Knitposite 2.0-Obermaterial erhält, das die Stadt Frankreich mit roten und blauen Verzierungen ehrt. Silberne Zungen sowie ein durchscheinender Fersenclip und eine schillernde Gummilaufsohle runden den brandneuen Look ab."</string>
-    <string name="id8">"Der erste Colorway des Ambush Nike Dunk High ist bereits vor einigen Wochen erschienen, nun erscheint der bereits lang angeteaserte Lethal Pink. Yoon ist für ihre kreative und individuelle Herangehensweise bekannt und dies zeigte sie wieder einmal auf ihrem eigenen Dunk High."</string>
-    <string name="id9">"Das Jahr startet wieder mit richtig starken Colorways auf dem Jordan 1 High! Der beliebte Sneaker bekommt eine Farbkombination aus Schwarz, Weiß, Neongelb und gelbgoldenen Details. Bei der Materialauswahl wurde auf hochwertiges Glattleder gesetzt. Zudem hat der Sneaker leichte Vintage-Momente, durch die Schaumstoffzunge. Die Farbe des Schaumstoffs ist ebenfalls goldgelb und passt somit optimal zur Farbe der Heel."</string>
-    <string name="id10">"Der Air Max 97 war noch nie ein besonders subtiler Sneaker. Die mehrschichtige Wellen-Ästhetik und das durchgehende, sichtbare Air-Element waren schon bei seiner Veröffentlichung ein wahrer Blickfang. Auch 20 Jahre später ist das Design des Schuhs, bei dem im Hinblick auf das lässige gewellte Obermaterial nochmal nachgelegt wurde, noch immer markant."</string>
-    <string name="id1">Nur zwei Wochen nachdem Supreme es in Hoodie-Form fallen gelassen hat, ist es zurückgekehrt, um eine T-Shirt-Version ihres mit Spannung erwarteten Cross Box-Logos zu veröffentlichen. Dieses rote Supreme Cross Box Logo-T-Shirt zeigt zwei der beliebtesten Box-Logos der Marke, die in Form eines Kreuzes übereinander gelegt sind. Das Supreme Cross Box Logo T-Shirt wurde als Teil der Winter-T-Shirt-Kollektion FW20 der Marke veröffentlicht, zu der auch das Mariah Carey-T-Shirt gehörte.</string>
-    <string name="id2">Die Adventurer-Edition des XT2 ist inspiriert von den Anfängen in Übersee, von der Winterdämmerung in Schottland bis zur Sonnenwärme Kaliforniens. Die Farben sind in einer üppigen Wildlederapplikation ausgeführt und beziehen sich auf den starken Wetterkontrast, während das Futter mit einem Erinnerungsdruck versehen ist.</string>
-    <string name="id4">Segeln Sie weg, während Sie die Air Fear Of God 1 Sail Black tragen. Dieser Air FOG 1 wird mit einem Segelobermaterial, einem schwarzen Nike „Swoosh“, einer Segelzwischensohle und einer durchscheinenden Sohle geliefert. Diese Sneaker wurden im Juni 2019 veröffentlicht und für 350 US-Dollar im Einzelhandel erhältlich. BeFast für den nächsten Tropfen!</string>
-    <string name="id5">Diese neueste Version wurde entwickelt, um die Farben der Husky Rat-Rasse zu interpretieren. Sie färbt das Obermaterial aus Nubuk und Schweinsleder mit nackten und grauen Farbtönen, um Elemente des Pelzes widerzuspiegeln. Ergänzende Rosatöne werden zusätzlich in die Vorfuß-Overlays eingefügt, um die anderen Merkmale des Nagetiers wie Ohren, Pfoten und Schwanz zu übersetzen, was letztendlich zu einer viel helleren Herangehensweise an seine Sammlungsgeschwister führt.</string>
-    <string name="id7">Das Nike Air Force 1 Orange Skeleton ist in einem orangefarbenen Lederobermaterial mit einem Skelett-Röntgendruck auf jeder Seite des Obermaterials erhältlich. Ähnlich wie das Kerzenlicht einer Jack-O-Laterne verfügt diese Version über eine durchscheinende Sohle im Dunkeln, die darauf ausgerichtet ist, Ihren Schritt zu beleuchten. Glänzende schwarze Spitzenanhänger, Nike Air-Logo auf der Zunge und eine mit Skelett bedruckte Innensohle vervollständigen diesen gruseligen AF1.</string>
-    <string name="settings">Einstellungen</string>
 
 </resources>

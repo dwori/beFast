@@ -29,15 +29,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
+        /** Bottom Navigation Menu
+         * Passing each menu ID as a set of Ids because each
+         * menu should be considered as top level destinations.
+         */
         val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.navigation_news, R.id.navigation_brands, R.id.navigation_drops, R.id.navigation_more))
+        val appBarConfiguration = AppBarConfiguration(setOf(R.id.navigation_news, R.id.navigation_brands, R.id.navigation_drops, R.id.navigation_more))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        //DARK MODE
+        /** Nightmode */
         val sharedPreferences = getSharedPreferences(packageName, Context.MODE_PRIVATE)
         val isNightMode = sharedPreferences.getBoolean(SettingsActivity.nightModeKey, true)
         if (isNightMode) {
@@ -46,30 +47,4 @@ class MainActivity : AppCompatActivity() {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
     }
-
-
-    //TOP MENU
-    /*
-    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.top_nav_menu, menu)
-        return true
-    }
-
-    inline fun consume(f: () -> Unit): Boolean {
-        f()
-        return true
-    }
-    //function to start the
-    fun settings(){
-        val intent = Intent(this, SettingsActivity::class.java)
-        startActivity(intent)
-    }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when(item.itemId) {
-            R.id.settings -> consume { settings() }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-    */
 }

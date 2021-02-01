@@ -57,13 +57,13 @@
         android:layout_height="32dp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="28dp"
-        android:text="@string/darkmode"
+        android:text="@string/nightmode"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/TextInput_email" />
 
     <Switch
-        android:id="@+id/switch_darkmode"
+        android:id="@+id/switch_nightmode"
         android:layout_width="47dp"
         android:layout_height="32dp"
         android:layout_marginTop="28dp"
@@ -92,7 +92,7 @@
         android:text="@string/save"
         app:iconGravity="end"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch_darkmode" />
+        app:layout_constraintTop_toBottomOf="@+id/switch_nightmode" />
 
     <Button
         android:id="@+id/settings_login"
@@ -127,7 +127,7 @@
 
 
     <Button
-        android:id="@+id/settings_conditions"
+        android:id="@+id/settings_privacy"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/terms_cons"
@@ -143,7 +143,7 @@
         android:layout_marginStart="4dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="36dp"
-        app:constraint_referenced_ids="settings_support,settings_share,settings_conditions"
+        app:constraint_referenced_ids="settings_support,settings_share,settings_privacy"
         app:flow_horizontalGap="25dp"
         app:flow_maxElementsWrap="1"
         app:flow_verticalAlign="center"

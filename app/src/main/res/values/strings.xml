@@ -1,20 +1,51 @@
 <resources>
-    <string name="app_name">beFast</string>
+    <string name="app_name" translatable="false">beFast</string>
+    <string name="email" translatable="false">Email</string>
+
     <string name="title_news">News</string>
     <string name="title_brands">Brands</string>
     <string name="title_drops">Drops</string>
     <string name="title_more">More</string>
-    <!-- how to comment in xml -->
     <string name="login">Login</string>
     <string name="logout">Logout</string>
     <string name="logged_in">You are logged in</string>
     <string name="logged_out">You are logged out</string>
     <string name="username">Username</string>
-    <string name="email" translatable="false">Email</string>
-    <string name="darkmode">Nightmode</string>
+    <string name="nightmode">Nightmode</string>
     <string name="save">Save</string>
     <string name="reminder">Set Reminder</string>
-    <string name="conditions_text"><b>Terms and Conditions</b><br/>
+    <string name="share_drop">Share this Drop</string>
+    <string name="share_app">Share</string>
+    <string name="homepage">Visit website</string>
+    <string name="contact">Contact</string>
+    <string name="terms_cons">Privacy</string>
+    <string name="valid_email">Please enter a valid username &amp; email.</string>
+    <string name="get_app">Get the new beFast app here:</string>
+    <string name="email_subject">Your Subject</string>
+    <string name="email_message">Put your email message here.</string>
+    <string name="internet_connection">Could not fetch data from API.</string>
+    <string name="brand_error">no brand found</string>
+    <string name="name_error">no name found</string>
+    <string name="price_error">no price found</string>
+    <string name="date_error">no date found</string>
+    <string name="hompageURL_error">no homepage URL found</string>
+    <string name="brands_saved">Your brands have been saved!</string>
+    <string name="brands_info">You have to login to follow brands.</string>
+    <string name="drops_info">Follow brands to see drops.</string>
+    <string name="id1">Just two weeks after dropping them in hoodie form, Supreme has returned to release a t-shirt version of their highly-anticipated Cross Box Logo. This red Supreme Cross Box Logo t-shirt feature\'s two of the brand\'s popular box logos laid over one another in the shape of a cross. The Supreme Cross Box Logo t-shirt was released as a part of the brand\'s FW20 winter tees collection which also included the Mariah Carey t-shirt.</string>
+    <string name="id2">"The Adventurer edition of the XT2 is inspired by the early days travelling overseas, from the winter gloom in Scotland to the sunshine warmth of California. Executed in a lush pig suede application, the colours reference the stark contrast  in weather whilst  a ‘memories’  print is featured on the lining."</string>
+    <string name="id4">"Sail away while wearing the Air Fear Of God 1 Sail Black. This Air FOG 1 comes with a sail upper, black Nike “Swoosh”, sail midsole, and translucent sole. These sneakers were released in June 2019 and retailed for $350. BeFast for the next drop!"</string>
+    <string name="id5">"Designed to interpret the colors found on the Husky Rat breed, this latest version dyes its nubuck and pigskin-engineered upper with nude and grey hues to mirror elements of its fur. Complementing tones of pink are additionally added into the forefoot overlays to translate the rodent’s other features such as its ears, paws, and tail, which ultimately result in a much brighter approach to its collection sibling."</string>
+    <string name="id7">"The Nike Air Force 1 Orange Skeleton comes dressed in an all-orange leather upper with a skeleton x-ray print on each side of the upper. Similar to the candle-lit glow of a Jack-O-Lantern, this release features a glow-in-the-dark translucent sole that is geared to light up your step. Glossy black lace tags, Nike Air branding on the tongue, and a skeleton printed insole complete this spooky AF1."</string>
+    <string name="id0">With the sneakers from the Rayguns collection, Nike created an incredibly good story around them, which revolved around a fantasy basketball team in space. With elaborate videos and cool marketing campaigns, the Nike Dunk came on the market at the time, now two more releases under the Rayguns flag are imminent. In addition to the Kyrie 7, a real classic awaits us with the Air Force 1, which has been subjected to the topic.</string>
+    <string name="id3">The A-ZX series is entering the next round and has a ZX 5000 ready for us. The letter V from the A-ZX alphabet is dedicated to the French city of Vieux Lyon, where the well-known jacquard pattern originally came from. For this reason, the ZX 8000 was also provided with the elaborate embroidery, which is drawn in different colors over the entire sneaker. The lower area is covered with the fabric in a cool gray and the upper area is kept in a striking purple.</string>
+    <string name="id6">Famous Paris Saint Germain striker Kylian Mbappe helps Lebron James with his 18th signature sneaker. The two friends publish a collaborative sneaker together. The court sneaker comes with a more futuristic look that gets a black Knitposite 2.0 upper that honors the city of France with red and blue decorations. Silver tongues as well as a translucent heel clip and an iridescent rubber outsole complete the brand new look.</string>
+    <string name="id8">The first colorway of the Ambush Nike Dunk High appeared a few weeks ago, now the lethal pink, which has long been teased, is appearing. Yoon is known for her creative and individual approach and she showed this once again on her own dunk high.</string>
+    <string name="id9">The year starts again with really strong colourways on the Jordan 1 High! The popular sneaker is given a color combination of black, white, neon yellow and yellow gold details. The choice of materials was based on high-quality smooth leather. In addition, the sneaker has slight vintage moments thanks to the foam tongue. The color of the foam is also golden yellow and therefore matches the color of the heel perfectly.</string>
+    <string name="id10">The Air Max 97 has never been a particularly subtle sneaker. The multi-layered wave aesthetics and the continuous, visible air element were a real eye-catcher when it was released. Even 20 years later, the design of the shoe, with which the casual, corrugated upper material has been improved, is still striking.</string>
+    <string name="settings">Settings</string>
+    <string name="privacy">Privacy</string>
+    <string name="privacy_text"><b>Privacy</b><br/>
     Welcome to beFast! \n
     These terms and conditions outline the rules and regulations for the use of beFasts Website, located at www.beFast.com.
     By accessing this website we assume you accept these terms and conditions. Do not continue to use beFast if you do not agree to take all of the terms and conditions stated on this page.
@@ -99,34 +130,4 @@
     exclude any of our or your liabilities that may not be excluded under applicable law.
     The limitations and prohibitions of liability set in this Section and elsewhere in this disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer, including liabilities arising in contract, in tort and for breach of statutory duty.
     As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.</string>
-    <string name="share_drop">Share this Drop</string>
-    <string name="share_app">Share</string>
-    <string name="homepage">Visit website</string>
-    <string name="contact">Contact</string>
-    <string name="terms_cons">Privacy</string>
-    <string name="valid_email">Please enter a valid username &amp; email.</string>
-    <string name="get_app">Get the new beFast app here:</string>
-    <string name="email_subject">Your Subject</string>
-    <string name="email_message">Put your email message here.</string>
-    <string name="internet_connection">Could not fetch data from API.</string>
-    <string name="brand_error">no brand found</string>
-    <string name="name_error">no name found</string>
-    <string name="price_error">no price found</string>
-    <string name="date_error">no date found</string>
-    <string name="hompageURL_error">no homepage URL found</string>
-    <string name="brands_saved">Your brands have been saved!</string>
-    <string name="brands_info">You have to login to follow brands.</string>
-    <string name="drops_info">Follow brands to see drops.</string>
-    <string name="id1">Just two weeks after dropping them in hoodie form, Supreme has returned to release a t-shirt version of their highly-anticipated Cross Box Logo. This red Supreme Cross Box Logo t-shirt feature\'s two of the brand\'s popular box logos laid over one another in the shape of a cross. The Supreme Cross Box Logo t-shirt was released as a part of the brand\'s FW20 winter tees collection which also included the Mariah Carey t-shirt.</string>
-    <string name="id2">"The Adventurer edition of the XT2 is inspired by the early days travelling overseas, from the winter gloom in Scotland to the sunshine warmth of California. Executed in a lush pig suede application, the colours reference the stark contrast  in weather whilst  a ‘memories’  print is featured on the lining."</string>
-    <string name="id4">"Sail away while wearing the Air Fear Of God 1 Sail Black. This Air FOG 1 comes with a sail upper, black Nike “Swoosh”, sail midsole, and translucent sole. These sneakers were released in June 2019 and retailed for $350. BeFast for the next drop!"</string>
-    <string name="id5">"Designed to interpret the colors found on the Husky Rat breed, this latest version dyes its nubuck and pigskin-engineered upper with nude and grey hues to mirror elements of its fur. Complementing tones of pink are additionally added into the forefoot overlays to translate the rodent’s other features such as its ears, paws, and tail, which ultimately result in a much brighter approach to its collection sibling."</string>
-    <string name="id7">"The Nike Air Force 1 Orange Skeleton comes dressed in an all-orange leather upper with a skeleton x-ray print on each side of the upper. Similar to the candle-lit glow of a Jack-O-Lantern, this release features a glow-in-the-dark translucent sole that is geared to light up your step. Glossy black lace tags, Nike Air branding on the tongue, and a skeleton printed insole complete this spooky AF1."</string>
-    <string name="id0">With the sneakers from the Rayguns collection, Nike created an incredibly good story around them, which revolved around a fantasy basketball team in space. With elaborate videos and cool marketing campaigns, the Nike Dunk came on the market at the time, now two more releases under the Rayguns flag are imminent. In addition to the Kyrie 7, a real classic awaits us with the Air Force 1, which has been subjected to the topic.</string>
-    <string name="id3">The A-ZX series is entering the next round and has a ZX 5000 ready for us. The letter V from the A-ZX alphabet is dedicated to the French city of Vieux Lyon, where the well-known jacquard pattern originally came from. For this reason, the ZX 8000 was also provided with the elaborate embroidery, which is drawn in different colors over the entire sneaker. The lower area is covered with the fabric in a cool gray and the upper area is kept in a striking purple.</string>
-    <string name="id6">Famous Paris Saint Germain striker Kylian Mbappe helps Lebron James with his 18th signature sneaker. The two friends publish a collaborative sneaker together. The court sneaker comes with a more futuristic look that gets a black Knitposite 2.0 upper that honors the city of France with red and blue decorations. Silver tongues as well as a translucent heel clip and an iridescent rubber outsole complete the brand new look.</string>
-    <string name="id8">The first colorway of the Ambush Nike Dunk High appeared a few weeks ago, now the lethal pink, which has long been teased, is appearing. Yoon is known for her creative and individual approach and she showed this once again on her own dunk high.</string>
-    <string name="id9">The year starts again with really strong colourways on the Jordan 1 High! The popular sneaker is given a color combination of black, white, neon yellow and yellow gold details. The choice of materials was based on high-quality smooth leather. In addition, the sneaker has slight vintage moments thanks to the foam tongue. The color of the foam is also golden yellow and therefore matches the color of the heel perfectly.</string>
-    <string name="id10">The Air Max 97 has never been a particularly subtle sneaker. The multi-layered wave aesthetics and the continuous, visible air element were a real eye-catcher when it was released. Even 20 years later, the design of the shoe, with which the casual, corrugated upper material has been improved, is still striking.</string>
-    <string name="settings">Settings</string>
 </resources>
