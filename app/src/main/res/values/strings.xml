@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name" translatable="false">beFast</string>
     <string name="email" translatable="false">Email</string>
+    <string name="version" translatable="false">RELEASE-1.0</string>
 
     <string name="title_news">News</string>
     <string name="title_brands">Brands</string>
@@ -126,4 +127,5 @@
     <string name="note_saved">Note saved.</string>
     <string name="username_empty">Username can not be empty.</string>
     <string name="no_valid_email">No valid email address.</string>
+
 </resources>

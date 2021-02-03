@@ -141,6 +141,7 @@
         android:layout_width="379dp"
         android:layout_height="226dp"
         android:layout_marginStart="4dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="36dp"
         app:constraint_referenced_ids="settings_support,settings_share,settings_privacy"
@@ -152,9 +153,11 @@
         app:flow_wrapMode="aligned"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
 
-        />
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/settings_logout"
+        app:layout_constraintVertical_bias="0.958" />
 
     <TextView
         android:id="@+id/textView"
@@ -163,7 +166,7 @@
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
         android:layout_marginBottom="24dp"
-        android:text="Version 1.0"
+        android:text="@string/version"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

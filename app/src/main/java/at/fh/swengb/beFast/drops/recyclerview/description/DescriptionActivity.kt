@@ -104,7 +104,7 @@ class DescriptionActivity : AppCompatActivity() {
         }
 
         /**
-         * The description_hompeage brings you to the website of the brand.
+         * The description_homepage brings you to the website of the brand.
          */
         description_homepage.setOnClickListener {
             val intent = Intent(Intent.ACTION_VIEW)
