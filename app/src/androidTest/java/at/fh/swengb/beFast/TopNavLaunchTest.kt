@@ -2,7 +2,6 @@ package at.fh.swengb.beFast
 
 import androidx.test.espresso.Espresso
 import androidx.test.espresso.action.ViewActions
-import androidx.test.espresso.assertion.ViewAssertions
 import androidx.test.espresso.intent.Intents
 import androidx.test.espresso.intent.matcher.IntentMatchers
 import androidx.test.espresso.matcher.ViewMatchers
@@ -15,8 +14,11 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
+/**
+ * checks if the Settings get displayed when clicking the the top navigation button settings in NewsFragment, BrandsFragment, DropsFragment and MoreFragment
+ */
+
 @RunWith(AndroidJUnit4::class)
-/**checks if the Settings get displayed when clicking the the top navigation button settings in NewsFragment, BrandsFragment, DropsFragment and MoreFragment*/
 class TopNavLaunchTest {
         @get:Rule
         val rule = ActivityScenarioRule(MainActivity::class.java)

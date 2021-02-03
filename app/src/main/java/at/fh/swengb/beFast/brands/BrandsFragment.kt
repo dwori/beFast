@@ -48,7 +48,6 @@ class BrandsFragment : Fragment() {
         /**
          * First we check if the user is logged in (loginBoolKey)
          * If this is the case, we put every Brands' switch to default = true
-         *
          */
         if (sharedPreferences.getBoolean(SettingsActivity.loginBoolKey, false)) {
             switch1.isChecked = sharedPreferences.getBoolean(nikeKey, true)
@@ -66,7 +65,6 @@ class BrandsFragment : Fragment() {
             /**
              * The button save_brands save the current state of one brand by checking
              * whether the switch is on or off
-             *
              */
 
             save_brands.setOnClickListener {

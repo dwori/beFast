@@ -1,6 +1,5 @@
 package at.fh.swengb.beFast
 
-import androidx.test.espresso.Espresso
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions
 import androidx.test.espresso.action.ViewActions.scrollTo
@@ -21,6 +20,11 @@ import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
+
+
+/**
+ * This test makes sure that the note of a user can be stored in the database and then viewed.
+ */
 
 @RunWith(AndroidJUnit4::class)
 class UserSavesNoteTest {

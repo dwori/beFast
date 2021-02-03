@@ -30,7 +30,7 @@ class DropAdapterUnitTest {
     }
     @Test
     fun itemCount_isCorrect() {
-        /* * 1. test the itemCount() for an empty list
+        /** 1. test the itemCount() for an empty list
         * 2. test the itemCount() for a non-empty list */
         val adapter = DropsAdapter({print(it)})
         assertEquals(0,adapter.itemCount)

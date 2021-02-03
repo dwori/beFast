@@ -16,6 +16,9 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.runner.RunWith
 
+/**
+ * this test case makes sure it is possible to login and logout, also checks if the username and email is displayed after login
+ */
 @RunWith(AndroidJUnit4::class)
 class LoginLogoutTest {
 
@@ -30,16 +33,9 @@ class LoginLogoutTest {
     fun tearDown() {
         Intents.release()
     }
-    @Test
-    fun logout() {
-        Espresso.onView(ViewMatchers.withId(R.id.settings)).perform(ViewActions.click())
-        intended(IntentMatchers.hasComponent(SettingsActivity::class.java.name))
-        Espresso.onView(ViewMatchers.withId(R.id.settings_logout)).perform(ViewActions.click())
-    }
-
 
     @Test
-    fun workingLogin() {
+    fun LoginAndLogout() {
         Espresso.onView(ViewMatchers.withId(R.id.settings)).perform(ViewActions.click())
         intended(IntentMatchers.hasComponent(SettingsActivity::class.java.name))
         Espresso.onView(ViewMatchers.withId(R.id.settings_login)).perform(ViewActions.click())
@@ -53,6 +49,7 @@ class LoginLogoutTest {
         intended(IntentMatchers.hasComponent(SettingsActivity::class.java.name))
         Espresso.onView(ViewMatchers.withId(R.id.editText_username)).check(ViewAssertions.matches(ViewMatchers.withText("domi")))
         Espresso.onView(ViewMatchers.withId(R.id.editText_email)).check(ViewAssertions.matches(ViewMatchers.withText("domi@gmail.com")))
-    }
 
+        Espresso.onView(ViewMatchers.withId(R.id.settings_logout)).perform(ViewActions.click())
+    }
 }

@@ -41,12 +41,9 @@ object TwitterApi {
     }
 
     /**
-     *
      * tweetList takes 2 parameters and returns either the data of the api-call or an error
      * @param success takes a lambda expression and returns a List of TweetItem in the method onResponse (if API-Call successful)
      * @param error takes a lambda expression and returns an Error Message in the method inFailure (if API-Call failed)
-     *
-     *
      */
     fun tweetList(success: (articleList: List<TweetsItem>) -> Unit, error: (errorMessage: String) -> Unit) {
         retrofitService.getTweetList().enqueue(
